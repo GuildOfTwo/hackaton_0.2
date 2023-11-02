@@ -18,9 +18,8 @@
     "styled-components": "^6.1.0"
   },
   "lint-staged": {
-    "*.ts": "npx tsc --noEmit",
-    "*.{js,jsx,ts,tsx}": "npx eslint",
-    "*.{js,jsx,ts,tsx,html,css}": "npx prettier --check"
+    "lint": "eslint \"{src}/**/*.{ts,tsx}\" --fix",
+    "format": "prettier --write \"src/**/*.{ts,tsx}\""
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
