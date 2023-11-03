@@ -1,26 +1,26 @@
-import { useState } from "react";
-import "./App.css";
+import React from 'react';
+import './index.css';
+import { Layout } from 'antd';
+import Header from './layouts/Header/header';
+import Main from './layouts/Main/main';
+import AppRoutes from './routes/Routes';
+import { AppWrapper, ContentWrapper } from './style';
 
-function App() {
-  const [count, setCount] = useState(0);
-
+const App: React.FC = () => {
+  const { Content, Footer } = Layout;
   return (
-    <>
-
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <AppWrapper >
+      <Header />
+      <ContentWrapper >
+        <Main isSider={true}>
+          <Content >
+            <AppRoutes />
+          </Content>
+        </Main>
+      </ContentWrapper>
+      <Footer />
+    </AppWrapper>
   );
-}
+};
 
 export default App;
