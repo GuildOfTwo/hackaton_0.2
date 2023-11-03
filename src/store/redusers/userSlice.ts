@@ -1,14 +1,14 @@
 import { createSlice } from "@reduxjs/toolkit"
-import { userSliseState } from "../../utils/types/types"
+import { userSliceState } from "../../utils/types/types"
 
-const initialState: userSliseState = {
+const initialState: userSliceState = {
     user: null,
     error: '' ,
     isLoading: false,
     isAuth: false,
 }
 
-const userSlise = createSlice({
+const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
@@ -16,6 +16,6 @@ const userSlise = createSlice({
     }
 })
 
-export const { } = userSlise.actions;
+export const { } = userSlice.actions;
 
-export default userSlise.reducer
+export default userSlice.reducer

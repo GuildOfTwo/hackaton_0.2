@@ -1,4 +1,4 @@
-export type userSliseState ={
+export type userSliceState ={
     user: null | TUser,
     error: string,
     isLoading: boolean,
