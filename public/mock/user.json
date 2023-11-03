@@ -4,7 +4,8 @@
     "middleName": "Иванович",
     "roles": [
         "human resourses",
-        "managment"
+        "managment",
+        "all"
     ],
     "accesRoles": [
         "admin",
@@ -24,7 +25,22 @@
             "done": true,
             "startDate": "2012-01-25T12:51:50.417-07:00",
             "doneDate": "2012-01-26T13:51:50.417-07:00",
-            "required": true
+            "required": true,
+            "roles": [
+                "all"
+            ],
+            "id": 666
+        },
+        {
+            "courseName": "Введение в HR",
+            "done": true,
+            "startDate": "2012-01-25T12:51:50.417-07:00",
+            "doneDate": "2012-01-26T13:51:50.417-07:00",
+            "required": true,
+            "roles": [
+                "human resourses, managment"
+            ],
+            "id": 535
         }
     ],
     "awards": [
