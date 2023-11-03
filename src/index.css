@@ -1,3 +1,37 @@
+@font-face {
+  font-family: TildaSans-Black;
+  src: url(./assets/fonts/TildaSans-Black.ttf);
+}
+@font-face {
+  font-family: TildaSans-Bold;
+  src: url(./assets/fonts/TildaSans-Bold.ttf);
+}
+
+@font-face {
+  font-family: TildaSans-ExtraBold;
+  src: url(./assets/fonts/TildaSans-ExtraBold.ttf);
+}
+
+@font-face {
+  font-family: TildaSans-Light;
+  src: url(./assets/fonts/TildaSans-Light.ttf);
+}
+
+@font-face {
+  font-family: TildaSans-Medium;
+  src: url(./assets/fonts/TildaSans-Medium.ttf);
+}
+
+@font-face {
+  font-family: TildaSans-Regular;
+  src: url(./assets/fonts/TildaSans-Regular.ttf);
+}
+
+@font-face {
+  font-family: TildaSans-Semibold;
+  src: url(./assets/fonts/TildaSans-Semibold.ttf);
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
