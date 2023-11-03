@@ -12,4 +12,8 @@ const HeaderWrapper = styled(Header)`
   flex-shrink: 0;
 `;
 
-export default HeaderWrapper;
+const HeaderLogo = styled.img`
+  max-width: 400px;
+`
+
+export { HeaderWrapper, HeaderLogo };

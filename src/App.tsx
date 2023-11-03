@@ -4,20 +4,20 @@ import { Layout } from 'antd';
 import Header from './layouts/Header/header';
 import Main from './layouts/Main/main';
 import AppRoutes from './routes/Routes';
-import AppWrapper from './style';
+import { AppWrapper, ContentWrapper } from './style';
 
 const App: React.FC = () => {
   const { Content, Footer } = Layout;
   return (
     <AppWrapper >
       <Header />
-      <Content >
+      <ContentWrapper >
         <Main isSider={true}>
           <Content >
             <AppRoutes />
           </Content>
         </Main>
-      </Content>
+      </ContentWrapper>
       <Footer />
     </AppWrapper>
   );

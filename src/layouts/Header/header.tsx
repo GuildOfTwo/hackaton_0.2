@@ -1,12 +1,13 @@
 
 import { Avatar } from "antd";
 import { UserOutlined } from '@ant-design/icons';
-import HeaderWrapper from "./style";
+import { HeaderWrapper, HeaderLogo } from "./style";
+import Logo from './../../assets/logo/111.svg'
 
 const Header = () => {
   return (
     <HeaderWrapper >
-      <Avatar size="large" icon={<UserOutlined />} />
+      <HeaderLogo src={Logo}></HeaderLogo>
       <Avatar size="large" icon={<UserOutlined />} />
     </HeaderWrapper>
   )

@@ -1,0 +1,52 @@
+{
+    "lastName": "Иванов",
+    "firstName": "Иван",
+    "middleName": "Иванович",
+    "roles": [
+        "human resourses",
+        "managment",
+        "all"
+    ],
+    "accesRoles": [
+        "admin",
+        "user"
+    ],
+    "email": "test@mail.ru",
+    "password": "password",
+    "id": 555,
+    "birthDay": "2000-01-01T00:00:01.417-07:00",
+    "avatar": "anyUrl",
+    "department": "Управление персоналом",
+    "post": "Руководитель отдела",
+    "phone": "88005553535",
+    "courses": [
+        {
+            "courseName": "Знакомство с компанией",
+            "done": true,
+            "startDate": "2012-01-25T12:51:50.417-07:00",
+            "doneDate": "2012-01-26T13:51:50.417-07:00",
+            "required": true,
+            "roles": [
+                "all"
+            ],
+            "id": 666
+        },
+        {
+            "courseName": "Введение в HR",
+            "done": true,
+            "startDate": "2012-01-25T12:51:50.417-07:00",
+            "doneDate": "2012-01-26T13:51:50.417-07:00",
+            "required": true,
+            "roles": [
+                "human resourses, managment"
+            ],
+            "id": 535
+        }
+    ],
+    "awards": [
+        {
+            "name": "Ура! Вы прошли вводный курс",
+            "dateOfEnd": "2012-01-26T13:51:50.417-07:00"
+        }
+    ]
+}
