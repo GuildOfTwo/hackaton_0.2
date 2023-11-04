@@ -1,10 +1,12 @@
 import styled from "styled-components";
 
 export const Wrapper404 = styled.div `
+  height: 100vh;
   margin-top:auto;
   margin-bottom:auto;
   display:flex;
   flex-direction:column;
+  justify-content: center;
   align-items: center;
 `;
 
