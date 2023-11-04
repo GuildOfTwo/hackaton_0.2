@@ -9,7 +9,7 @@ const App: React.FC = () => {
 const navigate = useNavigate()
   React.useEffect(() => {
     location.pathname === '/' ? navigate('dashboard') : ''
-  }, [])
+  }, [location])
   return (
     <>
       <AppStyles />
