@@ -8,4 +8,3 @@ export const FooterWrapper = styled(Footer)`
   flex-grow: 0;
   flex-shrink: 0;
 `;
-
