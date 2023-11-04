@@ -1,4 +1,4 @@
-export const HEADER_HEIGHT = '50px';
+export const HEADER_HEIGHT = '80px';
 export const TOOLBAR_HEIGHT = '50px';
 export const DRAWER_WIDTH = '300px';
 export const VIEW_CONTAINER_TITLE_LINE_HEIGHT = '20px';

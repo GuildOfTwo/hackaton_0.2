@@ -9,7 +9,7 @@ const MainPage = () => {
       <Slider />
       <Header />
       <ContentWrapper >
-        <Main isSider={true}>
+        <Main>
           <ViewContainer />
         </Main>
       </ContentWrapper>
