@@ -9,8 +9,6 @@ const HeaderWrapper = styled(Header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-grow: 0;
-  flex-shrink: 0;
   background-color: white;
   height: ${HEADER_HEIGHT};
 
