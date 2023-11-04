@@ -2,7 +2,7 @@
 import { Avatar } from "antd";
 import { UserOutlined } from '@ant-design/icons';
 import { HeaderWrapper, HeaderLogo } from "./styled";
-import Logo from './../../assets/logo/111.svg'
+import Logo from './../../assets/logo/logo.svg'
 
 const Header = () => {
   return (

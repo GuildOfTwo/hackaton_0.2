@@ -9,7 +9,7 @@ const AppWrapper = styled(Layout)`
   margin-right: auto;
   margin-left: auto;
   box-sizing: border-box;
-  min-height: 100%;
+  min-height: 100vh;
 `;
 
 const ContentWrapper = styled(Content)`

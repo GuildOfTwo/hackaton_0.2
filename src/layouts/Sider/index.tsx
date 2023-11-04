@@ -1,42 +1,51 @@
-import { Layout,theme } from 'antd';
-import type { MenuProps } from 'antd';
-import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import SliderMenu from "./styled";
-import React from 'react';
+import { Button, Menu } from 'antd';
+import { UserOutlined, VideoCameraOutlined, UploadOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
+import Sider from 'antd/es/layout/Sider';
+import { useState } from 'react';
 
 
 const Slider = () => {
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
-  const { Sider } = Layout;
-  const items2: MenuProps['items'] = [UserOutlined, LaptopOutlined, NotificationOutlined].map(
-    (icon, index) => {
-      const key = String(index + 1);
+  const [collapsed, setCollapsed] = useState(false);
+  return (
 
-      return {
-        key: `sub${key}`,
-        icon: React.createElement(icon),
-        label: `subnav ${key}`,
-
-        children: new Array(4).fill(null).map((_, j) => {
-          const subKey = index * 4 + j + 1;
-          return {
-            key: subKey,
-            label: `option${subKey}`,
-          };
-        }),
-      };
-    },
-  );
-  return (<Sider style={{ background: colorBgContainer }} width={200}>
-    <SliderMenu
-      mode="inline"
-      defaultSelectedKeys={['1']}
-      defaultOpenKeys={['sub1']}
-      items={items2}
-    />
-  </Sider>)
+    <><Sider trigger={null} collapsible collapsed={collapsed} style={{ background: 'transparent', margin: '60px 0 0' }}>
+      <div className="demo-logo-vertical" />
+      <Menu
+        theme="light"
+        mode="inline"
+        defaultSelectedKeys={['1']}
+        items={[
+          {
+            key: '1',
+            icon: <UserOutlined />,
+            label: 'nav 1',
+          },
+          {
+            key: '2',
+            icon: <VideoCameraOutlined />,
+            label: 'nav 2',
+          },
+          {
+            key: '3',
+            icon: <UploadOutlined />,
+            label: 'nav 3',
+          },
+        ]}
+      />
+    </Sider>
+      <Button
+        type="text"
+        icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
+        onClick={() => setCollapsed(!collapsed)}
+        style={{
+          fontSize: '16px',
+          width: 64,
+          height: 64,
+          backgroundColor: 'white',
+          background: 'transparent', margin: '60px 0 0'
+        }}
+      /></>
+  )
 }
 
 export default Slider;

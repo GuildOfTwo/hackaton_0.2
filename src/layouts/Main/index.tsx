@@ -3,10 +3,15 @@ import { TMainProps } from '../../utils/types';
 import MainWrapper from './styled';
 
 const Main = ({ children, isSider }: TMainProps) => {
-  return (<MainWrapper >
-    {isSider ? <Slider /> : null}
+  return (
+    <>
+  
+
+  <MainWrapper >
+
     {children}
     </MainWrapper>
+    </>
   )
 };
 

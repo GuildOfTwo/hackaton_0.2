@@ -10,6 +10,8 @@ const HeaderWrapper = styled(Header)`
   align-items: center;
   flex-grow: 0;
   flex-shrink: 0;
+  background-color: white;
+
 `;
 
 const HeaderLogo = styled.img`
