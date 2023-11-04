@@ -1,8 +1,18 @@
-import { Menu } from "antd";
+import { Menu, Button } from "antd";
 import styled from "styled-components";
 
-const SliderMenu = styled(Menu)`
+export const SliderMenu = styled(Menu)`
   height: 100%;
 `;
 
-export default SliderMenu;
+export const SliderButton = styled(Button)`
+  font-size: "16px";
+  width: 20%;
+  height: 20;
+  background-color: white;
+  background: transparent;
+  margin: 80px 0 0;
+  position: absolute;
+  top: 0;
+  right: -30px;
+`;
