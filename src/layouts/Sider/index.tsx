@@ -2,6 +2,7 @@ import { Button, Menu } from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
 import { useState } from 'react';
+import { HEADER_HEIGHT } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { Dashboard } from '../../views/Dashboard';
 import { Page } from '../../utils/constants/navigation';
@@ -11,14 +12,14 @@ const Slider = () => {
   const [collapsed, setCollapsed] = useState(false);
   return (
 
-    <div style={{ position: "absolute", height: "calc(100% - 60px)", zIndex: '900' }}>
+    <div style={{ position: "absolute", height: "calc(100% - 66px)", zIndex: '900' }}>
 
       <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: 'transparent', margin: '66px 0 0', height: '100%' }}>
         <div className="demo-logo-vertical" />
         <Menu
           theme="light"
           mode="inline"
-          style={{ height: '100%' }}
+          style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
           defaultSelectedKeys={['1']}
           items={[
             {

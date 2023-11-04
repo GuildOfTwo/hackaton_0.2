@@ -1,17 +1,20 @@
 import React from 'react';
 import AppRoutes from '../routes';
-// import { AppWrapper} from './styled';
 import { Modal } from '../components/modal';
-import { Normalize } from './styled';
+import { AppStyles } from './styled';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const App: React.FC = () => {
+  const location = useLocation()
+const navigate = useNavigate()
+  React.useEffect(() => {
+    location.pathname === '/' ? navigate('dashboard') : ''
+  }, [location])
   return (
     <>
-
-      <Normalize />
+      <AppStyles />
       <AppRoutes />
       <Modal />
-
     </>
   );
 };

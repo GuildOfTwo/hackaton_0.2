@@ -8,6 +8,5 @@ export const ContentWrapper = styled.section`
   max-height: 100%;
   box-sizing: border-box;
   padding: 0 20px;
-  background-color: white;
   overflow: hidden;
 `;

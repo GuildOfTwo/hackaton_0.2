@@ -14,6 +14,7 @@ const AppWrapper = styled(Layout)`
 
 const ContentWrapper = styled(Content)`
   flex-grow: 1;
+
 `;
 
 export { AppWrapper, ContentWrapper };

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Layout } from "antd";
+import { HEADER_HEIGHT } from "../../utils/constants";
 
 const MainWrapper = styled(Layout)`
   padding: 24px 100px;
@@ -9,8 +10,9 @@ const MainWrapper = styled(Layout)`
   max-width: 1920px;
   display: flex;
   justify-content: center;
-  /* align-items: center; */
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
+  height: calc(100vh - ${HEADER_HEIGHT});
 `;
 
 export default MainWrapper;

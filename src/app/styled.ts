@@ -1,24 +1,7 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { Layout } from "antd";
-import { Content } from "antd/es/layout/layout";
+import { createGlobalStyle } from "styled-components";
 
-const AppWrapper = styled(Layout)`
-  /* max-width: 1920px; */
-  display: flex;
-  flex-direction: column;
-  margin-right: auto;
-  margin-left: auto;
-  box-sizing: border-box;
-  min-height: 100vh;
-  position: static;
-  overflow-x: hidden;
-`;
 
-const ContentWrapper = styled(Content)`
-  flex-grow: 1;
-`;
-
-export const Normalize = createGlobalStyle`
+export const AppStyles = createGlobalStyle`
   *,
   *::before,
   *::after {
@@ -45,8 +28,19 @@ export const Normalize = createGlobalStyle`
   }
 
   body {
-    min-height: 100vh;
+    min-height: 100%;
     text-rendering: optimizespeed;
+    &::-webkit-scrollbar {
+      background: rgba(0, 66, 105, 0.06);
+      border-radius: 4px;
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #ced8de;
+      border-radius: 10px;
+    }
+  
   }
 
   a {
@@ -89,4 +83,3 @@ export const Normalize = createGlobalStyle`
   }
 `;
 
-export  { AppWrapper, ContentWrapper };
