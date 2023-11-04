@@ -4,10 +4,12 @@ export const LOGIN_PAGE_URI = 'login';
 export const UNAVAILABLE_PAGE_URI = 'unavailable';
 export const NOT_FOUND_URI = '*';
 export const DASHBOARD = 'dashboard'
+export const AUTHORIZATION = 'authorization'
 export const Page = {
   MAIN: MAIN_PAGE_URI,
   LOGIN: LOGIN_PAGE_URI,
   UNAVAILABLE: UNAVAILABLE_PAGE_URI,
   NOT_FOUND: NOT_FOUND_URI,
-  DASHBOARD: DASHBOARD
+  DASHBOARD: DASHBOARD,
+  AUTHORIZATION : AUTHORIZATION
 };

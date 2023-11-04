@@ -2,6 +2,9 @@ import { Button, Menu } from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { Dashboard } from '../../views/Dashboard';
+import { Page } from '../../utils/constants/navigation';
 
 
 const Slider = () => {
@@ -21,7 +24,7 @@ const Slider = () => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'Dashboard',
+              label: <Link to={Page.DASHBOARD}>Dashboard</Link>,
             },
             {
               key: '2',
