@@ -1,16 +1,12 @@
-import Slider from '../Sider';
 import { TMainProps } from '../../utils/types';
 import MainWrapper from './styled';
 
-const Main = ({ children, isSider }: TMainProps) => {
+const Main = ({ children }: TMainProps) => {
   return (
     <>
-  
-
-  <MainWrapper >
-
-    {children}
-    </MainWrapper>
+      <MainWrapper >
+        {children}
+      </MainWrapper>
     </>
   )
 };

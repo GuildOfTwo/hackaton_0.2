@@ -13,7 +13,6 @@ const MainPage = () => {
           <ViewContainer />
         </Main>
       </ContentWrapper>
-      {/* <Footer /> */}
     </>
   );
 }

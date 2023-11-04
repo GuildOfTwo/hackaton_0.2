@@ -21,17 +21,17 @@ const Slider = () => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'nav 1',
+              label: 'Dashboard',
             },
             {
               key: '2',
               icon: <VideoCameraOutlined />,
-              label: 'nav 2',
+              label: 'Назначенные курсы',
             },
             {
               key: '3',
               icon: <UploadOutlined />,
-              label: 'nav 3',
+              label: 'Все учебные материалы',
             },
           ]}
         />
@@ -42,15 +42,14 @@ const Slider = () => {
         onClick={() => setCollapsed(!collapsed)}
         style={{
           fontSize: '16px',
-          width: 64,
-          height: 64,
+          width: 20,
+          height: 20,
           backgroundColor: 'white',
           background: 'transparent',
-          margin: '60px 0 0',
+          margin: '80px 0 0',
           position: 'absolute',
-          // left: 0,
           top: 0,
-          right: '-50px'
+          right: '-30px'
         }}
       /></div>
   )
