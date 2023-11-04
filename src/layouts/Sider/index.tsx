@@ -6,6 +6,7 @@ import { HEADER_HEIGHT } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { ALL_COURSES_URI } from '../../utils/constants/navigation';
 import { SliderButton } from './styled';
+import { Page } from '../../utils/constants/navigation';
 
 
 const Slider = () => {
@@ -23,7 +24,7 @@ const Slider = () => {
             {
               key: '1',
               icon: <UserOutlined />,
-              label: 'Dashboard',
+              label: <Link to={Page.DASHBOARD}>Dashboard</Link>,
             },
             {
               key: '2',
