@@ -1,13 +1,16 @@
 import { configureStore } from "@reduxjs/toolkit"
-import UserReduser from "./user/userSlice"
+import UserReduser from "./user"
+import ModalReduser from "./modal"
 import { combineReducers } from "redux";
 
 enum ReducerName {
     User = 'user',
+    Modal = 'modal'
 }
 
 const rootReducer = combineReducers({
-    [ReducerName.User]: UserReduser
+    [ReducerName.User]: UserReduser,
+    [ReducerName.Modal]: ModalReduser
 })
 
 const store = configureStore({

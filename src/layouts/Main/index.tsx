@@ -3,11 +3,9 @@ import MainWrapper from './styled';
 
 const Main = ({ children }: TMainProps) => {
   return (
-    <>
-      <MainWrapper >
-        {children}
-      </MainWrapper>
-    </>
+    <MainWrapper >
+      {children}
+    </MainWrapper>
   )
 };
 

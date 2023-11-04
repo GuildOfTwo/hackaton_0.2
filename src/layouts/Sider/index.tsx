@@ -8,7 +8,7 @@ const Slider = () => {
   const [collapsed, setCollapsed] = useState(false);
   return (
 
-    <div style={{ position: "absolute", height: "calc(100% - 60px)" }}>
+    <div style={{ position: "absolute", height: "calc(100% - 60px)", zIndex: '900' }}>
 
       <Sider trigger={null} collapsible collapsed={collapsed} style={{ background: 'transparent', margin: '66px 0 0', height: '100%' }}>
         <div className="demo-logo-vertical" />
