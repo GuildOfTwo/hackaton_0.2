@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { Card } from 'antd';
 
 
-export const AllCourses = () => {
+export const CoursesList = () => {
 
     const DashContainer = styled.section`
     display: flex;
@@ -16,9 +16,7 @@ const BorderColors = styled.div`
     return (
         <>
             <DashContainer>
-
                 <BorderColors>
-
                     <Card title="Card title" bordered={false} style={{ width: 300 }}>
                         <p>Card content</p>
                         <p>Card content</p>

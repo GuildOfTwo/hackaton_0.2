@@ -8,7 +8,7 @@ import { useState } from 'react';
 import { HEADER_HEIGHT } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { SliderButton } from './styled';
-import { Page } from '../../utils/constants/navigation';
+import { Page, SubPage } from '../../utils/constants/navigation';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
@@ -18,8 +18,9 @@ const Slider = () => {
 
   const items: MenuItem[] = [
     getItem(<Link to={Page.DASHBOARD}>Dashboard</Link>, '1', <PieChartOutlined />),
-    getItem(<Link to={Page.ALL_COURSES}>Все курсы</Link>, '2', <DesktopOutlined />, [
-      getItem(<Link to={Page.SELECTED_COURSES}>Менеджмент</Link>, '3'),
+    getItem('Все курсы', '2', <DesktopOutlined />, [
+      getItem(<Link to={Page.ALL_COURSES}>Все курсы</Link>, '20'),
+      getItem(<Link to={SubPage.MANAGMENT}>Менеджмент</Link>, '21'),
     ]),
     getItem(<Link to={Page.SELECTED_COURSES}>Назначенные курсы</Link>, 'sub1', <UserOutlined />)
   ];
