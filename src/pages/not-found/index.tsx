@@ -1,13 +1,8 @@
-import React, { FC } from 'react';
-// navigation
+import { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
-// components
-import { Button, Result } from 'antd';
-// import { Header } from 'antd/es/layout/layout';
-import { HeaderLogo } from '../../layouts/Header/styled';
+import { Button } from 'antd';
 import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
-
-// TODO: для 404 и 503 сделать универсальную страницу и прокидывать туда статус ошибок
+import { ErorrTitle, Title, Wrapper404, ButtonWrapper, LetterSpacingZero } from './styled';
 
 export const NotFound: FC = () => {
   const navigate = useNavigate();
@@ -16,21 +11,19 @@ export const NotFound: FC = () => {
     navigate(MAIN_PAGE_URI, { replace: true });
   }
 
+  function goBack() {
+    navigate(-1)
+  };
+
   return (
-    <>
-      {/* <Header>
-        <HeaderLogo />
-      </Header> */}
-      <Result
-        status='404'
-        title='404'
-        subTitle='Страница не найдена'
-        extra={
-          <Button type='primary' onClick={goToMainPage}>
-            Вернуться на главную
-          </Button>
-        }
-      />
-    </>
+    <Wrapper404>
+      <ErorrTitle>40<LetterSpacingZero>4</LetterSpacingZero></ErorrTitle>
+      <Title>Ошибка. Страница не найдена.</Title>
+      <Title>Попробуйте презагрузить страницу</Title>
+      <ButtonWrapper>
+        <Button onClick={() => goToMainPage()}>На главную</Button>
+        <Button onClick={() => goBack()}>Назад</Button>
+      </ButtonWrapper>
+    </Wrapper404>
   );
 };
