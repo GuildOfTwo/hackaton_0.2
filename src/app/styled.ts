@@ -10,6 +10,8 @@ const AppWrapper = styled(Layout)`
   margin-left: auto;
   box-sizing: border-box;
   min-height: 100vh;
+  position: static;
+  overflow-x: hidden;
 `;
 
 const ContentWrapper = styled(Content)`
