@@ -1,7 +1,7 @@
 import { Layout,theme } from 'antd';
 import type { MenuProps } from 'antd';
 import { LaptopOutlined, NotificationOutlined, UserOutlined } from '@ant-design/icons';
-import SliderMenu from "./style";
+import SliderMenu from "./styled";
 import React from 'react';
 
 

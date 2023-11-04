@@ -1,6 +1,6 @@
-import Slider from '../Sider/slider';
+import Slider from '../Sider';
 import { TMainProps } from '../../utils/types';
-import MainWrapper from './style';
+import MainWrapper from './styled';
 
 const Main = ({ children, isSider }: TMainProps) => {
   return (<MainWrapper >

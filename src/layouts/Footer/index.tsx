@@ -1,8 +1,8 @@
-import FooterWrapper from './style';
-
+import React from 'react';
+import { FooterWrapper } from './styled';
 
 const Footer = () => {
-   return (
+  return (
     <FooterWrapper > KIRUSHA HOCHET BIT TOP1 HAKATONA PLES</FooterWrapper>
   )
 };

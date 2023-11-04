@@ -1,10 +1,9 @@
 import React from 'react';
-import './index.css';
 import { Layout } from 'antd';
-import Header from './layouts/Header/header';
-import Main from './layouts/Main/main';
-import AppRoutes from './routes/Routes';
-import { AppWrapper, ContentWrapper } from './style';
+import Header from '../layouts/Header';
+import Main from '../layouts/Main';
+import AppRoutes from '../routes';
+import { AppWrapper, ContentWrapper } from './styled';
 
 const App: React.FC = () => {
   const { Content, Footer } = Layout;
