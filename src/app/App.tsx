@@ -3,13 +3,15 @@ import { Layout } from 'antd';
 import Header from '../layouts/Header';
 import Main from '../layouts/Main';
 import AppRoutes from '../routes';
-import { AppWrapper, ContentWrapper } from './styled';
+import { AppWrapper, ContentWrapper, Normalize } from './styled';
 
 const App: React.FC = () => {
-  const { Content, Footer } = Layout;
+  // const { Content, Footer } = Layout;
   return (
     <AppWrapper >
-      <Header />
+      <Normalize />
+      <AppRoutes />
+      {/* <Header />
       <ContentWrapper >
         <Main isSider={true}>
           <Content >
@@ -17,7 +19,7 @@ const App: React.FC = () => {
           </Content>
         </Main>
       </ContentWrapper>
-      <Footer />
+      <Footer /> */}
     </AppWrapper>
   );
 };
