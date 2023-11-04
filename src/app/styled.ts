@@ -1,24 +1,7 @@
-import styled, { createGlobalStyle } from "styled-components";
-import { Layout } from "antd";
-import { Content } from "antd/es/layout/layout";
+import { createGlobalStyle } from "styled-components";
 
-const AppWrapper = styled(Layout)`
-  /* max-width: 1920px; */
-  display: flex;
-  flex-direction: column;
-  margin-right: auto;
-  margin-left: auto;
-  box-sizing: border-box;
-  min-height: 100vh;
-  position: static;
-  overflow-x: hidden;
-`;
 
-const ContentWrapper = styled(Content)`
-  flex-grow: 1;
-`;
-
-export const Normalize = createGlobalStyle`
+export const AppStyles = createGlobalStyle`
   *,
   *::before,
   *::after {
@@ -89,4 +72,3 @@ export const Normalize = createGlobalStyle`
   }
 `;
 
-export  { AppWrapper, ContentWrapper };

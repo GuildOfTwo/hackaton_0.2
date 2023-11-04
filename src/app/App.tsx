@@ -1,17 +1,14 @@
 import React from 'react';
 import AppRoutes from '../routes';
-// import { AppWrapper} from './styled';
 import { Modal } from '../components/modal';
-import { Normalize } from './styled';
+import { AppStyles } from './styled';
 
 const App: React.FC = () => {
   return (
     <>
-
-      <Normalize />
+      <AppStyles />
       <AppRoutes />
       <Modal />
-
     </>
   );
 };
