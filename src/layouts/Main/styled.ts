@@ -10,7 +10,8 @@ const MainWrapper = styled(Layout)`
   display: flex;
   justify-content: center;
   /* align-items: center; */
-  width: 100%;
+  width: 80%;
+  margin: 0 auto;
 `;
 
 export default MainWrapper;
