@@ -28,8 +28,19 @@ export const AppStyles = createGlobalStyle`
   }
 
   body {
-    min-height: 100vh;
+    min-height: 100%;
     text-rendering: optimizespeed;
+    &::-webkit-scrollbar {
+      background: rgba(0, 66, 105, 0.06);
+      border-radius: 4px;
+      width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background: #ced8de;
+      border-radius: 10px;
+    }
+  
   }
 
   a {
