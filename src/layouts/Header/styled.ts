@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Layout } from "antd";
+import { HEADER_HEIGHT } from "../../utils/constants";
 
 const { Header } = Layout;
 
@@ -11,6 +12,7 @@ const HeaderWrapper = styled(Header)`
   flex-grow: 0;
   flex-shrink: 0;
   background-color: white;
+  height: ${HEADER_HEIGHT};
 
 `;
 

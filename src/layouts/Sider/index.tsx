@@ -2,6 +2,7 @@ import { Menu } from 'antd';
 import { UserOutlined, VideoCameraOutlined, UploadOutlined, MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';
 import Sider from 'antd/es/layout/Sider';
 import { useState } from 'react';
+import { HEADER_HEIGHT } from '../../utils/constants';
 import { Link } from 'react-router-dom';
 import { ALL_COURSES_URI } from '../../utils/constants/navigation';
 import { SliderButton } from './styled';
@@ -16,7 +17,7 @@ const Slider = () => {
         <Menu
           theme="light"
           mode="inline"
-          style={{ height: '100%' }}
+          style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
           defaultSelectedKeys={['1']}
           items={[
             {
