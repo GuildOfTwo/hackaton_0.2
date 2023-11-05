@@ -1,12 +1,12 @@
-import { Menu, Button } from "antd";
-import styled from "styled-components";
+import { Menu, Button } from 'antd';
+import styled from 'styled-components';
 
 export const SliderMenu = styled(Menu)`
   height: 100%;
 `;
 
 export const SliderButton = styled(Button)`
-  font-size: "16px";
+  font-size: '16px';
   width: 20%;
   height: 20;
   background-color: white;

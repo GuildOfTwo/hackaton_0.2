@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Layout } from "antd";
-import { HEADER_HEIGHT } from "../../utils/constants";
+import styled from 'styled-components';
+import { Layout } from 'antd';
+import { HEADER_HEIGHT } from '../../utils/constants';
 
 const MainWrapper = styled(Layout)`
   padding: 24px 100px;

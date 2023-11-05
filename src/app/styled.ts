@@ -1,25 +1,25 @@
-import { createGlobalStyle } from "styled-components";
-import TildaSanBlackEOT from "../assets/fonts/TildaSans-Black.eot";
-import TildaSanBlackWOFF from "../assets/fonts/TildaSans-Black.woff";
-import TildaSanBlackWOFF2 from "../assets/fonts/TildaSans-Black.woff";
-import TildaSanBoldEOT from "../assets/fonts/TildaSans-Bold.eot";
-import TildaSanBoldWOFF from "../assets/fonts/TildaSans-Bold.woff";
-import TildaSanBoldWOFF2 from "../assets/fonts/TildaSans-Bold.woff2";
-import TildaSanExtraBoldEOT from "../assets/fonts/TildaSans-ExtraBold.eot";
-import TildaSanExtraBoldWOFF from "../assets/fonts/TildaSans-ExtraBold.woff";
-import TildaSanExtraBoldWOFF2 from "../assets/fonts/TildaSans-ExtraBold.woff2";
-import TildaSanLightEOT from "../assets/fonts/TildaSans-Light.eot";
-import TildaSanLightWOFF from "../assets/fonts/TildaSans-Light.woff";
-import TildaSanLightdWOFF2 from "../assets/fonts/TildaSans-Light.woff2";
-import TildaSanMediumEOT from "../assets/fonts/TildaSans-Medium.eot";
-import TildaSanMediumWOFF from "../assets/fonts/TildaSans-Medium.woff";
-import TildaSanMediumdWOFF2 from "../assets/fonts/TildaSans-Medium.woff2";
-import TildaSanRegularEOT from "../assets/fonts/TildaSans-Regular.eot";
-import TildaSanRegularWOFF from "../assets/fonts/TildaSans-Regular.woff";
-import TildaSanRegulardWOFF2 from "../assets/fonts/TildaSans-Regular.woff2";
-import TildaSanSemiboldEOT from "../assets/fonts/TildaSans-Semibold.eot";
-import TildaSanSemiboldWOFF from "../assets/fonts/TildaSans-Semibold.woff";
-import TildaSanSemibolddWOFF2 from "../assets/fonts/TildaSans-Semibold.woff2";
+import { createGlobalStyle } from 'styled-components';
+import TildaSanBlackEOT from '../assets/fonts/TildaSans-Black.eot';
+import TildaSanBlackWOFF from '../assets/fonts/TildaSans-Black.woff';
+import TildaSanBlackWOFF2 from '../assets/fonts/TildaSans-Black.woff';
+import TildaSanBoldEOT from '../assets/fonts/TildaSans-Bold.eot';
+import TildaSanBoldWOFF from '../assets/fonts/TildaSans-Bold.woff';
+import TildaSanBoldWOFF2 from '../assets/fonts/TildaSans-Bold.woff2';
+import TildaSanExtraBoldEOT from '../assets/fonts/TildaSans-ExtraBold.eot';
+import TildaSanExtraBoldWOFF from '../assets/fonts/TildaSans-ExtraBold.woff';
+import TildaSanExtraBoldWOFF2 from '../assets/fonts/TildaSans-ExtraBold.woff2';
+import TildaSanLightEOT from '../assets/fonts/TildaSans-Light.eot';
+import TildaSanLightWOFF from '../assets/fonts/TildaSans-Light.woff';
+import TildaSanLightdWOFF2 from '../assets/fonts/TildaSans-Light.woff2';
+import TildaSanMediumEOT from '../assets/fonts/TildaSans-Medium.eot';
+import TildaSanMediumWOFF from '../assets/fonts/TildaSans-Medium.woff';
+import TildaSanMediumdWOFF2 from '../assets/fonts/TildaSans-Medium.woff2';
+import TildaSanRegularEOT from '../assets/fonts/TildaSans-Regular.eot';
+import TildaSanRegularWOFF from '../assets/fonts/TildaSans-Regular.woff';
+import TildaSanRegulardWOFF2 from '../assets/fonts/TildaSans-Regular.woff2';
+import TildaSanSemiboldEOT from '../assets/fonts/TildaSans-Semibold.eot';
+import TildaSanSemiboldWOFF from '../assets/fonts/TildaSans-Semibold.woff';
+import TildaSanSemibolddWOFF2 from '../assets/fonts/TildaSans-Semibold.woff2';
 
 export const AppStyles = createGlobalStyle`
 

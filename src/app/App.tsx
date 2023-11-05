@@ -5,11 +5,11 @@ import { AppStyles } from './styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 
 const App: React.FC = () => {
-  const location = useLocation()
-const navigate = useNavigate()
+  const location = useLocation();
+  const navigate = useNavigate();
   React.useEffect(() => {
-    location.pathname === '/' ? navigate('dashboard') : ''
-  }, [location])
+    location.pathname === '/' ? navigate('dashboard') : '';
+  }, [location]);
   return (
     <>
       <AppStyles />

@@ -1,10 +1,8 @@
 // import { TELEGRAM_BOT_SEND_MESSAGE_URL } from "../../utils/constants/tokens";
 
-
 // //TODO: передавать сообщение от юзера и его ID как ID чата
 // const message = 'Это сообщение с веб-сайта!';
 // const chatId = '1';
-
 
 // export const TelegramApi = () => {
 
@@ -27,5 +25,4 @@
 //         });
 // }
 
-
-export {}
+export {};

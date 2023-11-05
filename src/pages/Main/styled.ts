@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Layout } from "antd";
-import { Content } from "antd/es/layout/layout";
+import styled from 'styled-components';
+import { Layout } from 'antd';
+import { Content } from 'antd/es/layout/layout';
 
 const AppWrapper = styled(Layout)`
   max-width: 1920px;
@@ -14,7 +14,6 @@ const AppWrapper = styled(Layout)`
 
 const ContentWrapper = styled(Content)`
   flex-grow: 1;
-
 `;
 
 export { AppWrapper, ContentWrapper };
