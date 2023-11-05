@@ -4,10 +4,10 @@ import { ContentWrapper } from './styled';
 import TelegramLink from '../../components/telegram_link';
 
 export const ViewContainer: FC = () => {
-    return (
-        <ContentWrapper>
+  return (
+    <ContentWrapper>
             <TelegramLink />
-            <Outlet />
-        </ContentWrapper>
-    );
+      <Outlet />
+    </ContentWrapper>
+  );
 };

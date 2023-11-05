@@ -9,13 +9,13 @@ const MainPage = () => {
     <>
       <Slider />
       <Header />
-      <ContentWrapper >
+      <ContentWrapper>
         <Main>
           <ViewContainer />
         </Main>
       </ContentWrapper>
     </>
   );
-}
+};
 
 export default MainPage;

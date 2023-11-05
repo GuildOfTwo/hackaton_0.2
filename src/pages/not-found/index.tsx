@@ -12,12 +12,14 @@ export const NotFound: FC = () => {
   }
 
   function goBack() {
-    navigate(-1)
-  };
+    navigate(-1);
+  }
 
   return (
     <Wrapper404>
-      <ErorrTitle>40<LetterSpacingZero>4</LetterSpacingZero></ErorrTitle>
+      <ErorrTitle>
+        40<LetterSpacingZero>4</LetterSpacingZero>
+      </ErorrTitle>
       <Title>Ошибка. Страница не найдена.</Title>
       <Title>Попробуйте презагрузить страницу</Title>
       <ButtonWrapper>
