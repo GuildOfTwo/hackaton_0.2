@@ -125,6 +125,9 @@ export const AppStyles = createGlobalStyle`
     min-height: 100%;
     background-color:  ${(props) => props.theme.backgroundColor1};
     text-rendering: optimizespeed;
+    max-width: 1920px;
+    margin-left: auto;
+    margin-right: auto;
     &::-webkit-scrollbar {
       background: rgba(0, 66, 105, 0.06);
       border-radius: 4px;
