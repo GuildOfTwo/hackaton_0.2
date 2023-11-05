@@ -1,11 +1,14 @@
 import { FC } from 'react';
 import { InfoSubtitle, InfoTitle, InfoWrap, Wrapper } from './styled';
 import { Button, Switch } from 'antd';
+import { useAppDispatch } from '../../hooks';
+import { setDarkTheme, setDefaultTheme } from '../../store/theme';
 
 export const UserCard: FC = () => {
-    const onChange = (checked:any) => {
-        console.log(`switch to ${checked}`);
-      };
+  const dispatch = useAppDispatch();
+  const handleSwitch = (checked: boolean) => {
+      checked ? dispatch(setDarkTheme()) : dispatch(setDefaultTheme())
+     };
   return <Wrapper>
 
 <InfoWrap>
@@ -35,7 +38,7 @@ export const UserCard: FC = () => {
 
 <Button style={{width: '90%'}}>Изменение профиля</Button>
 <div >
-<Switch defaultChecked onChange={onChange} style={{width: '40%'}}/>
+<Switch onChange={handleSwitch} style={{width: '40%'}}/>
 <div>выберите тему</div>
 </div>
   </Wrapper>;

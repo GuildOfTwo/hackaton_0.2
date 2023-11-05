@@ -104,9 +104,10 @@ export const AppStyles = createGlobalStyle`
   * {
     padding: 0;
     margin: 0;
-    font-family: "TildaSans", sans-serif;
+    font-family: ${(props) => props.theme.font};
+    color:${(props) => props.theme.textcolor};
    }
-
+  
   ul,
   ol {
     list-style: none;
@@ -122,6 +123,7 @@ export const AppStyles = createGlobalStyle`
 
   body {
     min-height: 100%;
+    background-color:  ${(props) => props.theme.backgroundColor1};
     text-rendering: optimizespeed;
     &::-webkit-scrollbar {
       background: rgba(0, 66, 105, 0.06);

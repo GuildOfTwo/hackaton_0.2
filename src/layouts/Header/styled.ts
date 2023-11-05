@@ -9,7 +9,7 @@ const HeaderWrapper = styled(Header)`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: white;
+  background-color: ${(props) => props.theme.backgroundColor2};
   height: ${HEADER_HEIGHT};
 `;
 
