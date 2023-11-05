@@ -1,6 +1,5 @@
-
-type  TMainProps = {
-  children: JSX.Element
+type TMainProps = {
+  children: JSX.Element;
 };
 
 export type { TMainProps };

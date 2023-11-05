@@ -1,8 +1,1 @@
-
-
-export const FeedbackBot = () => {
-
-
-
-
-}
+export const FeedbackBot = () => {};

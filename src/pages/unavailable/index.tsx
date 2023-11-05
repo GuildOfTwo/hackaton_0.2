@@ -7,7 +7,6 @@ import Header from '../../layouts/Header';
 import { HeaderLogo } from '../../layouts/Header/styled';
 import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
 
-
 // TODO: для 404 и 503 сделать универсальную страницу и прокидывать туда статус ошибок
 
 export const Unavailable: FC = () => {

@@ -1,6 +1,6 @@
-import styled from "styled-components";
-import { Layout } from "antd";
-import { HEADER_HEIGHT } from "../../utils/constants";
+import styled from 'styled-components';
+import { Layout } from 'antd';
+import { HEADER_HEIGHT } from '../../utils/constants';
 
 const { Header } = Layout;
 
@@ -11,11 +11,10 @@ const HeaderWrapper = styled(Header)`
   align-items: center;
   background-color: white;
   height: ${HEADER_HEIGHT};
-
 `;
 
 const HeaderLogo = styled.img`
   max-width: 400px;
-`
+`;
 
 export { HeaderWrapper, HeaderLogo };
