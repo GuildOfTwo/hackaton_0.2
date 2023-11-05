@@ -11,8 +11,15 @@ export const SliderButton = styled(Button)`
   height: 20;
   background-color: white;
   background: transparent;
-  margin: 80px 0 0;
+  margin: 10px 0 0;
   position: absolute;
   top: 0;
   right: -30px;
 `;
+
+
+export const UserWrapper = styled.div`
+position: absolute;
+bottom: 100px;
+left: 30px;
+`

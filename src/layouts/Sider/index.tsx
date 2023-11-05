@@ -14,7 +14,7 @@ import Sider from 'antd/es/layout/Sider';
 import { useState } from 'react';
 import { HEADER_HEIGHT } from '../../utils/constants';
 import { Link } from 'react-router-dom';
-import { SliderButton } from './styled';
+import { SliderButton, UserWrapper } from './styled';
 import { Page, SubPage } from '../../utils/constants/navigation';
 import { UserCard } from '../../components/userCard';
 
@@ -49,12 +49,12 @@ const Slider = () => {
     } as MenuItem;
   }
   return (
-    <div style={{ position: 'absolute', height: 'calc(100% - 66px)', zIndex: '900' }}>
+    <div style={{ position: 'absolute', height: 'calc(100% - 66px)', zIndex: '900', top: '80px' }}>
       <Sider
         trigger={null}
         collapsible
         collapsed={collapsed}
-        style={{ background: 'transparent', margin: '66px 0 0', height: '100%' }}
+        style={{ background: 'transparent', height: '100%' }}
       >
         <div className='demo-logo-vertical' />
         <Menu
@@ -64,7 +64,9 @@ const Slider = () => {
           items={items}
           style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
         />
+        <UserWrapper>
         {collapsed ? <UserOutlined onClick={() => setCollapsed(!collapsed)} /> : <UserCard />}
+        </UserWrapper>
       </Sider>
 
       <SliderButton
