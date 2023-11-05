@@ -3,6 +3,7 @@ import Main from '../../layouts/Main';
 import { ContentWrapper } from './styled';
 import { ViewContainer } from '../../layouts/view-container';
 import Slider from '../../layouts/Sider';
+
 const MainPage = () => {
   return (
     <>
