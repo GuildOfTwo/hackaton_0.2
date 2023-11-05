@@ -1,3 +1,4 @@
+import { AllUserStats } from "../AllUserStats"
 
 
 export const Dashboard = () => {
@@ -7,7 +8,7 @@ export const Dashboard = () => {
     return (
 
         <>
-            Dashboard
+            <AllUserStats/>
 
         </>
     )

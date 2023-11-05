@@ -11,12 +11,12 @@ import { AllUserStats } from "../views/AllUserStats/index"
 const AppRoutes = () => {
   return (
     <Routes>
-      <Route path={'/user'} element={<AllUserStats />} />
       <Route path={Page.AUTHORIZATION} element={<Authorization />} />
       <Route path={Page.MAIN} element={<MainPage />}>
         <Route path={Page.DASHBOARD} element={<Dashboard />} />
         <Route path={Page.SELECTED_COURSES} element={<CoursesList />} />
         <Route path={Page.ALL_COURSES} element={<CoursesList />}/>
+        <Route path={Page.ALLUSERSTATS} element={<AllUserStats />} />
          
       
         <Route path={SubPage.MANAGMENT} element={<CoursesList />}/>

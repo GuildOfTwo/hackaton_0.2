@@ -24,9 +24,10 @@ export const AllUserStats: FC = () => {
     return (
 
         <>
-            <ChartDiv> <div>123</div>
+            <ChartDiv>
 
                 <BarChart chartData={basicCourseTime} />
+                
             </ChartDiv>
 
 
