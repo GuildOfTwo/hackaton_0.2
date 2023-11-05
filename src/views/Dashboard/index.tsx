@@ -1,3 +1,10 @@
+import { AllUserStats } from "../AllUserStats"
 export const Dashboard = () => {
-  return <>Dashboard</>;
-};
+
+    return (
+        <>
+            <AllUserStats/>
+        </>
+    )
+}
+

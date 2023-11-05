@@ -9,6 +9,7 @@ export const AUTHORIZATION_URI = 'authorization';
 export const SELECTED_COURSES_URI = 'selected-courses';
 
 export const MANAGMENT_COURSE_URI = 'managment';
+export const ALLUSERSTATS_URI = 'user-stats';
 export const Page = {
   MAIN: MAIN_PAGE_URI,
   LOGIN: LOGIN_PAGE_URI,
@@ -18,6 +19,7 @@ export const Page = {
   SELECTED_COURSES: SELECTED_COURSES_URI,
   DASHBOARD: DASHBOARD_URI,
   AUTHORIZATION: AUTHORIZATION_URI,
+  ALLUSERSTATS: ALLUSERSTATS_URI
 };
 
 export const SubPage = {
