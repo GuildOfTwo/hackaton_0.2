@@ -6,10 +6,12 @@ import { NotFound } from "../pages/not-found";
 import { Dashboard } from "../views/Dashboard";
 import { CoursesList } from "../views/CoursesList";
 import { Authorization } from "../pages/authorization/authorization";
+import { AllUserStats } from "../views/AllUserStats/index"
 
 const AppRoutes = () => {
   return (
     <Routes>
+      <Route path={'/user'} element={<AllUserStats />} />
       <Route path={Page.AUTHORIZATION} element={<Authorization />} />
       <Route path={Page.MAIN} element={<MainPage />}>
         <Route path={Page.DASHBOARD} element={<Dashboard />} />
