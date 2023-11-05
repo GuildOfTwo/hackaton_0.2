@@ -24,7 +24,7 @@ export const LinkWrapper = styled.div `
  position: sticky;
  top: 100%;
  left: 100%;
- width: 165px;
+ width: 180px;
  border-radius:10px;
  border: solid 3px;
 `
