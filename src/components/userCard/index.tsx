@@ -1,13 +1,17 @@
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { InfoSubtitle, InfoTitle, InfoWrap, Wrapper } from './styled';
 import { Button, Switch } from 'antd';
 import { useAppDispatch } from '../../hooks';
 import { setDarkTheme, setDefaultTheme } from '../../store/theme';
 
 export const UserCard: FC = () => {
+
+  const [checked, setChecked] = useState<boolean>(localStorage.getItem('app-theme') !== 'dark' ? true : false)
   const dispatch = useAppDispatch();
   const handleSwitch = (checked: boolean) => {
+    setChecked(!checked)
       checked ? dispatch(setDarkTheme()) : dispatch(setDefaultTheme())
+
      };
   return <Wrapper>
 
@@ -38,7 +42,7 @@ export const UserCard: FC = () => {
 
 <Button style={{width: '90%'}}>Изменение профиля</Button>
 <div >
-<Switch onChange={handleSwitch} style={{width: '40%'}}/>
+<Switch onChange={() =>handleSwitch(checked)} style={{width: '40%'}} checked={checked}/>
 <div>выберите тему</div>
 </div>
   </Wrapper>;
