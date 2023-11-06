@@ -13,7 +13,8 @@ export const CLIENT_SERVICE_COURSE_URI = 'client-service';
 export const MANAGMENT_COURSE_URI = 'managment';
 export const ALL_USER_STATS_URI = 'user-stats';
 export const PROJECT_MANAGMENT_COURSE_URI = 'product-managment';
-export const NEW_COURSE_URI = 'add-new-course';
+export const NEW_COURSE_URI = 'add-new-course';export const CREATE_USER_URI = 'create-user'
+
 export const Page = {
   MAIN: MAIN_PAGE_URI,
   LOGIN: LOGIN_PAGE_URI,
@@ -24,6 +25,7 @@ export const Page = {
   DASHBOARD: DASHBOARD_URI,
   AUTHORIZATION: AUTHORIZATION_URI,
   ALL_USER_STATS: ALL_USER_STATS_URI,
+  CREATE_USER: CREATE_USER_URI,
 
   NEW_COURSE: NEW_COURSE_URI,
 };
