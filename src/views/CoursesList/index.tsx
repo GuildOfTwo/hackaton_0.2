@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Card } from 'antd';
-
+import Markdown from 'react-markdown'
+import { MARKDOWN_TEMPLATE } from '../../utils/markdown/markdown';
 export const CoursesList = () => {
   const DashContainer = styled.section`
     display: flex;
@@ -16,9 +17,7 @@ export const CoursesList = () => {
       <DashContainer>
         <BorderColors>
           <Card title='Card title' bordered={false} style={{ width: 300 }}>
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
+   <Markdown>{MARKDOWN_TEMPLATE}</Markdown>
           </Card>
         </BorderColors>
         <Card title='Card title' bordered={true} style={{ width: 300, marginRight: 40 }}>
