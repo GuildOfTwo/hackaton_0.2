@@ -4,7 +4,7 @@ import { LinkTitle, TelegramImg, LinkContent, LinkWrapper } from "./styled"
 
 const TelegramLink = () => {
   return (<LinkWrapper>
-        <Link to='https://t.me/LTS11_bot'><LinkContent><TelegramImg src={Telegram_logo} /><LinkTitle>Поддержка</LinkTitle></ LinkContent></ Link></LinkWrapper>
+        <Link  to='https://t.me/LTS11_bot'  target="_blank"><LinkContent><TelegramImg src={Telegram_logo} /><LinkTitle>Поддержка</LinkTitle></ LinkContent></ Link></LinkWrapper>
      )
 }
 
