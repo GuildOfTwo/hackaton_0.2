@@ -3,13 +3,14 @@ import { TThemeProps } from "../../utils/types/types";
 import { useState, useEffect } from 'react';
 import { useAppSelector } from "../../hooks";
 import darkTheme from "../../themes/darkTheme";
-import { defaultTheme } from "antd/es/theme/context";
+import lightTheme from "../../themes/lightTheme";
 
 const Theme = ({ children }: TThemeProps) => {
   const currentTheme = useAppSelector(store => store.theme.theme)
   const [appTheme, setAppTheme] = useState({});
   useEffect(() => {
-    currentTheme !== "default" ? setAppTheme(darkTheme) : setAppTheme(defaultTheme)
+    if (currentTheme === "default") { setAppTheme(lightTheme) }
+    if (currentTheme === "dark") { setAppTheme(darkTheme) }
   }, [currentTheme]);
 
   return (
