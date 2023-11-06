@@ -7,9 +7,13 @@ export const DASHBOARD_URI = 'dashboard';
 export const ALL_COURSES_URI = 'all-courses';
 export const AUTHORIZATION_URI = 'authorization';
 export const SELECTED_COURSES_URI = 'selected-courses';
-
+export const ENGINEERING_COURSE_URI = 'engineering'
+export const DESIGN_COURSE_URI = 'design'
+export const CLIENT_SERVICE_COURSE_URI = 'client-service'
 export const MANAGMENT_COURSE_URI = 'managment';
-export const ALLUSERSTATS_URI = 'user-stats';
+export const ALL_USER_STATS_URI = 'user-stats';
+export const PROJECT_MANAGMENT_COURSE_URI = 'product-managment'
+
 export const Page = {
   MAIN: MAIN_PAGE_URI,
   LOGIN: LOGIN_PAGE_URI,
@@ -19,9 +23,15 @@ export const Page = {
   SELECTED_COURSES: SELECTED_COURSES_URI,
   DASHBOARD: DASHBOARD_URI,
   AUTHORIZATION: AUTHORIZATION_URI,
-  ALLUSERSTATS: ALLUSERSTATS_URI,
+  ALL_USER_STATS: ALL_USER_STATS_URI,
+
+
 };
 
 export const SubPage = {
-  MANAGMENT: MANAGMENT_COURSE_URI,
+  MANAGMENT_COURSE: MANAGMENT_COURSE_URI,
+  ENGINEERING_COURSE: ENGINEERING_COURSE_URI,
+  DESIGN_COURSE: DESIGN_COURSE_URI,
+  CLIENT_SERVICE_COURSE: CLIENT_SERVICE_COURSE_URI,
+  PROJECT_MANAGMENT_COURSE: PROJECT_MANAGMENT_COURSE_URI
 };

@@ -16,9 +16,13 @@ const AppRoutes = () => {
         <Route path={Page.DASHBOARD} element={<Dashboard />} />
         <Route path={Page.SELECTED_COURSES} element={<CoursesList />} />
         <Route path={Page.ALL_COURSES} element={<CoursesList />} />
-        <Route path={Page.ALLUSERSTATS} element={<AllUserStats />} />
+        <Route path={Page.ALL_USER_STATS} element={<AllUserStats />} />
 
-        <Route path={SubPage.MANAGMENT} element={<CoursesList />} />
+        <Route path={SubPage.MANAGMENT_COURSE} element={<CoursesList />} />
+        <Route path={SubPage.ENGINEERING_COURSE} element={<CoursesList />} />
+        <Route path={SubPage.CLIENT_SERVICE_COURSE} element={<CoursesList />} />
+        <Route path={SubPage.DESIGN_COURSE} element={<CoursesList />} />
+        <Route path={SubPage.PROJECT_MANAGMENT_COURSE} element={<CoursesList />} />
       </Route>
       <Route path={Page.UNAVAILABLE} element={<Unavailable />} />
       <Route path={Page.NOT_FOUND} element={<NotFound />} />
