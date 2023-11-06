@@ -13,18 +13,23 @@ export const LinkContent = styled.div`
 `;
 
 export const LinkTitle = styled.span`
-  font-size: 22px;
+  font-size: 16px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 `;
 
-export const LinkWrapper = styled.div `
+export const LinkWrapper = styled.div`
  padding: 10px 10px;
- position: sticky;
- top: 100%;
- left: 100%;
- width: 180px;
+ position: absolute;
+ height: 40px;
+ right: 50px;
+ bottom: 50px;
+ width: 130px;
  border-radius:10px;
- border: solid 3px;
+ border: solid 1px;
+ transition: transform .2s ease-in;
+ &:hover {
+  transform: scale(1.1);
+ }
 `
