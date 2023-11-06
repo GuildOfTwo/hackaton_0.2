@@ -9,4 +9,5 @@ export const ContentWrapper = styled.section`
   box-sizing: border-box;
   padding: 0 20px;
   overflow: hidden;
+  margin: 0 auto;
 `;

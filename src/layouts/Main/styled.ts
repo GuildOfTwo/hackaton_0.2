@@ -10,7 +10,7 @@ const MainWrapper = styled(Layout)`
   max-width: 1920px;
   display: flex;
   justify-content: center;
-  width: 80%;
+  /* width: 80%; */
   margin: 0 auto;
   height: calc(100vh - ${HEADER_HEIGHT});
 `;
