@@ -30,9 +30,14 @@ const Slider = () => {
     ]),
     getItem(
       <Link to={Page.SELECTED_COURSES}>Назначенные курсы</Link>,
-      'sub1',
+      '30',
       <VideoCameraOutlined />
     ),
+    getItem(
+      <Link to={Page.NEW_COURSE}>Добавить курс</Link>,
+      '40',
+      <VideoCameraOutlined />
+    )
   ];
   function getItem(
     label: React.ReactNode,

@@ -13,7 +13,7 @@ export const CLIENT_SERVICE_COURSE_URI = 'client-service'
 export const MANAGMENT_COURSE_URI = 'managment';
 export const ALL_USER_STATS_URI = 'user-stats';
 export const PROJECT_MANAGMENT_COURSE_URI = 'product-managment'
-
+export const NEW_COURSE_URI = 'add-new-course'
 export const Page = {
   MAIN: MAIN_PAGE_URI,
   LOGIN: LOGIN_PAGE_URI,
@@ -25,6 +25,7 @@ export const Page = {
   AUTHORIZATION: AUTHORIZATION_URI,
   ALL_USER_STATS: ALL_USER_STATS_URI,
 
+  NEW_COURSE: NEW_COURSE_URI
 
 };
 
