@@ -1,4 +1,4 @@
-import { Avatar } from 'antd';
+import { Avatar, Button, Popover } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
 import { HeaderWrapper, HeaderLogo } from './styled';
 import Logo from './../../assets/logo/logo.svg';
@@ -7,16 +7,22 @@ import { Page } from '../../utils/constants/navigation';
 import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
 
 const Header = () => {
-
+  const content = (
+    <Link to={Page.AUTHORIZATION}>
+      <Button >Выйти</Button>
+    </Link>
+  );
   return (
     <HeaderWrapper>
       <Link to={MAIN_PAGE_URI}>
         {/* <HeaderLogo src={Logo}></HeaderLogo> */}
-        <div style={{fontSize: '36px', fontWeight: '600'}}>Onboardy</div>
+        <div style={{ fontSize: '36px', fontWeight: '600' }}>Onboardy</div>
       </Link>
-      <Link to={Page.AUTHORIZATION}>
+      <Popover content={content}>
+
         <Avatar size='large' icon={<UserOutlined />} />
-      </Link>
+
+      </Popover>
     </HeaderWrapper>
   );
 };
