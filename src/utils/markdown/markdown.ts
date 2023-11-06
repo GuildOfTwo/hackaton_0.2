@@ -69,4 +69,4 @@ export const MARKDOWN_TEMPLATE = `1. **Где поесть?
 Он создаст заявку в проекте [Proscom] Payments в Asana.
 Инструкцию он может найти [тут]
 
-`
+`;

@@ -31,9 +31,10 @@ const Slider = () => {
     ]),
     getItem(
       <Link to={Page.SELECTED_COURSES}>Назначенные курсы</Link>,
-      'sub1',
+      '30',
       <VideoCameraOutlined />
     ),
+    getItem(<Link to={Page.NEW_COURSE}>Добавить курс</Link>, '40', <VideoCameraOutlined />),
     getItem(<Link to={Page.CREATE_USER}>Создание Пользователя</Link>, '4', <PlusOutlined />),
   ];
   function getItem(

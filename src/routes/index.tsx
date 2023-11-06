@@ -7,6 +7,7 @@ import { Dashboard } from '../views/Dashboard';
 import { CoursesList } from '../views/CoursesList';
 import { Authorization } from '../pages/authorization/authorization';
 import { AllUserStats } from '../views/AllUserStats/index';
+import { NewCoursePage } from '../views/NewCourse';
 import { CreateUser } from '../views/CreateUser/CreateUser';
 
 const AppRoutes = () => {
@@ -25,6 +26,8 @@ const AppRoutes = () => {
         <Route path={SubPage.CLIENT_SERVICE_COURSE} element={<CoursesList />} />
         <Route path={SubPage.DESIGN_COURSE} element={<CoursesList />} />
         <Route path={SubPage.PROJECT_MANAGMENT_COURSE} element={<CoursesList />} />
+
+        <Route path={Page.NEW_COURSE} element={<NewCoursePage />} />
       </Route>
       <Route path={Page.UNAVAILABLE} element={<Unavailable />} />
       <Route path={Page.NOT_FOUND} element={<NotFound />} />
