@@ -11,7 +11,8 @@ const Header = () => {
   return (
     <HeaderWrapper>
       <Link to={MAIN_PAGE_URI}>
-        <HeaderLogo src={Logo}></HeaderLogo>
+        {/* <HeaderLogo src={Logo}></HeaderLogo> */}
+        <div style={{fontSize: '36px', fontWeight: '600'}}>Onboardy</div>
       </Link>
       <Link to={Page.AUTHORIZATION}>
         <Avatar size='large' icon={<UserOutlined />} />
