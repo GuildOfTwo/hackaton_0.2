@@ -41,7 +41,7 @@ export const UserCard: FC = () => {
 </InfoWrap>
 
 <Button style={{width: '90%'}}>Изменение профиля</Button>
-<div >
+<div style={{display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px'}}>
 <Switch onChange={() =>handleSwitch(checked)} style={{width: '40%'}} checked={checked}/>
 <div>выберите тему</div>
 </div>

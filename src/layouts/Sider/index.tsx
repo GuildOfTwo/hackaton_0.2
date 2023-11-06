@@ -22,7 +22,7 @@ type MenuItem = Required<MenuProps>['items'][number];
 
 const Slider = () => {
   const [collapsed, setCollapsed] = useState(false);
-
+//TODO: цвет меню должен зависить от темы глобальной
   const items: MenuItem[] = [
     getItem(<Link to={Page.DASHBOARD}>Dashboard</Link>, '1', <PieChartOutlined />),
     getItem('Все курсы', '2', <DesktopOutlined />, [
