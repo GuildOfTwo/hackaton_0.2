@@ -4,7 +4,7 @@ import { HEADER_HEIGHT } from '../../utils/constants';
 
 const MainWrapper = styled(Layout)`
   padding: 24px 100px;
-  background: ${(props) => props.theme.backgroundColor1};
+  background-color: ${(props) => props.theme.backgroundColor1};
   flex: 1;
   height: 100%;
   max-width: 1920px;
@@ -15,4 +15,4 @@ const MainWrapper = styled(Layout)`
   height: calc(100vh - ${HEADER_HEIGHT});
 `;
 
-export default MainWrapper;
+export { MainWrapper };

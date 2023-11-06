@@ -7,6 +7,7 @@ import { Page } from '../../utils/constants/navigation';
 import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
 
 const Header = () => {
+
   return (
     <HeaderWrapper>
       <Link to={MAIN_PAGE_URI}>

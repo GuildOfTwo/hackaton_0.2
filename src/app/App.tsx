@@ -6,11 +6,16 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Theme from '../components/Theme/Theme';
 import { getTheme } from '../utils/theme';
 import { useAppDispatch } from '../hooks';
-import { setDarkTheme } from '../store/theme';
+import { setDarkTheme, setDefaultTheme } from '../store/theme';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
-  if (getTheme() !== "default") {dispatch(setDarkTheme())}
+  const setThemeOnLoad = () => {
+    console.log(getTheme())
+    if (getTheme() === "dark") { dispatch(setDarkTheme()) }
+    if (getTheme() === "default") { dispatch(setDefaultTheme()) }
+  }
+  setThemeOnLoad();
   const location = useLocation();
   const navigate = useNavigate();
   React.useEffect(() => {
