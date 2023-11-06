@@ -21,6 +21,7 @@ const App: React.FC = () => {
   React.useEffect(() => {
     location.pathname === '/' ? navigate('dashboard') : '';
   }, [location]);
+
   return (
     <>
       <Theme>
