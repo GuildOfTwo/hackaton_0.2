@@ -1,20 +1,15 @@
-import { Menu, MenuProps } from 'antd';
+import { MenuProps } from 'antd';
 import {
   UserOutlined,
   VideoCameraOutlined,
-  UploadOutlined,
   MenuFoldOutlined,
   MenuUnfoldOutlined,
   PieChartOutlined,
   DesktopOutlined,
-  TeamOutlined,
-  FileOutlined,
-} from '@ant-design/icons';
-import Sider from 'antd/es/layout/Sider';
+ } from '@ant-design/icons';
 import { useState } from 'react';
-import { HEADER_HEIGHT } from '../../utils/constants';
 import { Link } from 'react-router-dom';
-import { SliderButton, UserWrapper } from './styled';
+import { MainSider, SliderButton, SliderMenu, SliderWrapper, UserWrapper } from './styled';
 import { Page, SubPage } from '../../utils/constants/navigation';
 import { UserCard } from '../../components/userCard';
 
@@ -49,32 +44,29 @@ const Slider = () => {
     } as MenuItem;
   }
   return (
-    <div style={{ position: 'absolute', height: 'calc(100% - 66px)', zIndex: '900', top: '80px' }}>
-      <Sider
+    <SliderWrapper >
+      <MainSider
         trigger={null}
         collapsible
         collapsed={collapsed}
-        style={{ background: 'transparent', height: '100%' }}
-      >
+        >
         <div className='demo-logo-vertical' />
-        <Menu
-          theme='light'
+        <SliderMenu
           defaultSelectedKeys={['1']}
           mode='inline'
           items={items}
-          style={{ height: `calc(100vh - ${HEADER_HEIGHT})` }}
-        />
+          />
         <UserWrapper>
         {collapsed ? <UserOutlined onClick={() => setCollapsed(!collapsed)} /> : <UserCard />}
         </UserWrapper>
-      </Sider>
+      </MainSider>
 
       <SliderButton
         type='text'
         icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
         onClick={() => setCollapsed(!collapsed)}
       />
-    </div>
+    </SliderWrapper>
   );
 };
 

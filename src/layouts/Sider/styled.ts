@@ -1,8 +1,24 @@
 import { Menu, Button } from 'antd';
 import styled from 'styled-components';
+import Sider from 'antd/es/layout/Sider';
+import { HEADER_HEIGHT } from '../../utils/constants';
+
+export const SliderWrapper = styled.div`
+  position: absolute;
+  height: calc(100% - 66px);
+  z-index: 900;
+  top: 80px;
+`;
 
 export const SliderMenu = styled(Menu)`
   height: 100%;
+  height: calc(100vh - ${HEADER_HEIGHT});
+  background-color: ${(props) => props.theme.backgroundColor3};
+`
+
+export const MainSider = styled(Sider)`
+   background: transparent; 
+   height: 100%;
 `;
 
 export const SliderButton = styled(Button)`
@@ -17,9 +33,8 @@ export const SliderButton = styled(Button)`
   right: -30px;
 `;
 
-
 export const UserWrapper = styled.div`
-position: absolute;
-bottom: 100px;
-left: 30px;
-`
+  position: absolute;
+  bottom: 100px;
+  left: 30px;
+`;
