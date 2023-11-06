@@ -1,13 +1,12 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { handleSetTheme } from '../../utils/theme';
 
-
 interface IThemeState {
   theme: string;
 }
 
 const initialState: IThemeState = {
-  theme: "default",
+  theme: 'default',
 };
 
 const themeSlice = createSlice({
@@ -15,13 +14,11 @@ const themeSlice = createSlice({
   initialState,
   reducers: {
     setDefaultTheme(state: IThemeState) {
-      handleSetTheme("default"),
-      state.theme = "default";
+      handleSetTheme('default'), (state.theme = 'default');
     },
     setDarkTheme(state: IThemeState) {
-      handleSetTheme("dark"),
-      state.theme = "dark";
-     },
+      handleSetTheme('dark'), (state.theme = 'dark');
+    },
   },
 });
 

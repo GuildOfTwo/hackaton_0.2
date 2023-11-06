@@ -5,7 +5,7 @@ import { HEADER_HEIGHT } from '../../utils/constants';
 
 export const SliderWrapper = styled.div`
   position: absolute;
-  height: calc(100% - 66px);
+  height: calc(100% - 80px);
   z-index: 900;
   top: 80px;
 `;
@@ -14,11 +14,16 @@ export const SliderMenu = styled(Menu)`
   height: 100%;
   height: calc(100vh - ${HEADER_HEIGHT});
   background-color: ${(props) => props.theme.backgroundColor3};
-`
+  color: ${(props) => props.theme.color};
+
+  .ant-menu-item-selected {
+    background-color: ${(props) => props.theme.backgroundColor4};
+  }
+`;
 
 export const MainSider = styled(Sider)`
-   background: transparent; 
-   height: 100%;
+  background: transparent;
+  height: 100%;
 `;
 
 export const SliderButton = styled(Button)`

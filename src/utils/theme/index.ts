@@ -1,4 +1,4 @@
-import { useAppDispatch } from "../../hooks";
+import { useAppDispatch } from '../../hooks';
 
 const StorageKey = 'app-theme';
 
@@ -14,8 +14,7 @@ const getTheme = (): string => {
 };
 
 const handleSetTheme = (theme: string) => {
-  localStorage.setItem(StorageKey, theme)
-}
+  localStorage.setItem(StorageKey, theme);
+};
 
-
-export { getTheme, handleSetTheme }
+export { getTheme, handleSetTheme };

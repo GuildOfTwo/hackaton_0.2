@@ -11,6 +11,5 @@ export type TUser = {
 };
 
 export type TThemeProps = {
-  children: JSX.Element|JSX.Element[];
+  children: JSX.Element | JSX.Element[];
 };
-

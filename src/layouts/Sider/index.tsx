@@ -6,7 +6,7 @@ import {
   MenuUnfoldOutlined,
   PieChartOutlined,
   DesktopOutlined,
- } from '@ant-design/icons';
+} from '@ant-design/icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MainSider, SliderButton, SliderMenu, SliderWrapper, UserWrapper } from './styled';
@@ -17,7 +17,7 @@ type MenuItem = Required<MenuProps>['items'][number];
 
 const Slider = () => {
   const [collapsed, setCollapsed] = useState(false);
-//TODO: цвет меню должен зависить от темы глобальной
+  //TODO: цвет меню должен зависить от темы глобальной
   const items: MenuItem[] = [
     getItem(<Link to={Page.DASHBOARD}>Dashboard</Link>, '1', <PieChartOutlined />),
     getItem('Все курсы', '2', <DesktopOutlined />, [
@@ -44,20 +44,12 @@ const Slider = () => {
     } as MenuItem;
   }
   return (
-    <SliderWrapper >
-      <MainSider
-        trigger={null}
-        collapsible
-        collapsed={collapsed}
-        >
+    <SliderWrapper>
+      <MainSider trigger={null} collapsible collapsed={collapsed}>
         <div className='demo-logo-vertical' />
-        <SliderMenu
-          defaultSelectedKeys={['1']}
-          mode='inline'
-          items={items}
-          />
+        <SliderMenu defaultSelectedKeys={['1']} mode='inline' items={items} />
         <UserWrapper>
-        {collapsed ? <UserOutlined onClick={() => setCollapsed(!collapsed)} /> : <UserCard />}
+          {collapsed ? <UserOutlined onClick={() => setCollapsed(!collapsed)} /> : <UserCard />}
         </UserWrapper>
       </MainSider>
 

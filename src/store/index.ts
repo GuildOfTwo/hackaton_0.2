@@ -7,13 +7,13 @@ import { combineReducers } from 'redux';
 enum ReducerName {
   User = 'user',
   Modal = 'modal',
-  Theme = 'theme'
+  Theme = 'theme',
 }
 
 const rootReducer = combineReducers({
   [ReducerName.User]: UserReduser,
   [ReducerName.Modal]: ModalReduser,
-  [ReducerName.Theme]: ThemeReduser
+  [ReducerName.Theme]: ThemeReduser,
 });
 
 const store = configureStore({

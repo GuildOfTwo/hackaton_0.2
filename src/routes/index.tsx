@@ -6,7 +6,7 @@ import { NotFound } from '../pages/not-found';
 import { Dashboard } from '../views/Dashboard';
 import { CoursesList } from '../views/CoursesList';
 import { Authorization } from '../pages/authorization/authorization';
-import { AllUserStats } from "../views/AllUserStats/index"
+import { AllUserStats } from '../views/AllUserStats/index';
 
 const AppRoutes = () => {
   return (

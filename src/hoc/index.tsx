@@ -1,5 +1,4 @@
-import  { FC } from 'react';
-
+import { FC } from 'react';
 
 import { Navigate } from 'react-router-dom';
 import { Page } from '../utils/constants/navigation';
@@ -9,7 +8,7 @@ import { getAuthStatus } from '../store/auth';
 export function withRequireAuth(WrappedComponent: FC) {
   return () => {
     // let isUserAuthenticated = useAppSelector(getAuthStatus);
-    let isUserAuthenticated = true
+    let isUserAuthenticated = true;
 
     if (isUserAuthenticated) {
       return <WrappedComponent />;

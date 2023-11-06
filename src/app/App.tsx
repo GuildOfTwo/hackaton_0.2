@@ -11,10 +11,14 @@ import { setDarkTheme, setDefaultTheme } from '../store/theme';
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
   const setThemeOnLoad = () => {
-    console.log(getTheme())
-    if (getTheme() === "dark") { dispatch(setDarkTheme()) }
-    if (getTheme() === "default") { dispatch(setDefaultTheme()) }
-  }
+    console.log(getTheme());
+    if (getTheme() === 'dark') {
+      dispatch(setDarkTheme());
+    }
+    if (getTheme() === 'default') {
+      dispatch(setDefaultTheme());
+    }
+  };
   setThemeOnLoad();
   const location = useLocation();
   const navigate = useNavigate();

@@ -19,12 +19,9 @@ export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state: IAuthState, action: { payload: IAuthState; type: string }) => {
-    },
-    logout: (state: IAuthState) => {
-    },
+    login: (state: IAuthState, action: { payload: IAuthState; type: string }) => {},
+    logout: (state: IAuthState) => {},
   },
- 
 });
 
 export const { logout, login } = authSlice.actions;

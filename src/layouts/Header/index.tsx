@@ -9,7 +9,7 @@ import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
 const Header = () => {
   const content = (
     <Link to={Page.AUTHORIZATION}>
-      <Button >Выйти</Button>
+      <Button>Выйти</Button>
     </Link>
   );
   return (
@@ -19,9 +19,7 @@ const Header = () => {
         <div style={{ fontSize: '36px', fontWeight: '600' }}>Onboardy</div>
       </Link>
       <Popover content={content}>
-
         <Avatar size='large' icon={<UserOutlined />} />
-
       </Popover>
     </HeaderWrapper>
   );

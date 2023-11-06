@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
 export const TelegramImg = styled.img`
   max-width: 20px;
@@ -20,16 +20,16 @@ export const LinkTitle = styled.span`
 `;
 
 export const LinkWrapper = styled.div`
- padding: 10px 10px;
- position: absolute;
- height: 40px;
- right: 50px;
- bottom: 50px;
- width: 130px;
- border-radius:10px;
- border: solid 1px;
- transition: transform .2s ease-in;
- &:hover {
-  transform: scale(1.1);
- }
-`
+  padding: 10px 10px;
+  position: absolute;
+  height: 40px;
+  right: 50px;
+  bottom: 50px;
+  width: 130px;
+  border-radius: 10px;
+  border: solid 1px;
+  transition: transform 0.2s ease-in;
+  &:hover {
+    transform: scale(1.1);
+  }
+`;

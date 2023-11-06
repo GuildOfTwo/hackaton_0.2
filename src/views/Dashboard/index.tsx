@@ -1,10 +1,8 @@
-import { AllUserStats } from "../AllUserStats"
+import { AllUserStats } from '../AllUserStats';
 export const Dashboard = () => {
-
-    return (
-        <>
-            <AllUserStats/>
-        </>
-    )
-}
-
+  return (
+    <>
+      <AllUserStats />
+    </>
+  );
+};
