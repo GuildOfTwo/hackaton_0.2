@@ -1,5 +1,3 @@
-import { useAppDispatch } from '../../hooks';
-
 const StorageKey = 'app-theme';
 
 const getTheme = (): string => {

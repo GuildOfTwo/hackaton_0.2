@@ -1,4 +1,5 @@
-import React, { FC, useState } from 'react';
+/* eslint-disable @typescript-eslint/no-explicit-any */
+import React, { FC } from 'react';
 import styled from 'styled-components';
 import { Button, Checkbox, Form, Input } from 'antd';
 
