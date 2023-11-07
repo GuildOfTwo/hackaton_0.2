@@ -26,8 +26,10 @@
     "styled-components": "^6.1.0"
   },
   "lint-staged": {
-    "lint": "eslint \"{src}/**/*.{ts,tsx}\" --fix",
-    "format": "prettier --write \"src/**/*.{ts,tsx}\""
+    "src/**/*.{ts,tsx, js, jsx}": [
+      "eslint --fix",
+      "prettier --write \"src/**/*.{ts,tsx}\""
+    ]
   },
   "devDependencies": {
     "@types/react": "^18.2.15",
