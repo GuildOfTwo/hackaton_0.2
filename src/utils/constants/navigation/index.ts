@@ -13,7 +13,8 @@ export const CLIENT_SERVICE_COURSE_URI = 'client-service';
 export const MANAGMENT_COURSE_URI = 'managment';
 export const ALL_USER_STATS_URI = 'user-stats';
 export const PROJECT_MANAGMENT_COURSE_URI = 'product-managment';
-export const NEW_COURSE_URI = 'add-new-course';export const CREATE_USER_URI = 'create-user'
+export const NEW_COURSE_URI = 'add-new-course';
+export const CREATE_USER_URI = 'create-user';
 
 export const Page = {
   MAIN: MAIN_PAGE_URI,
