@@ -40,6 +40,6 @@ export const SliderButton = styled(Button)`
 
 export const UserWrapper = styled.div`
   position: absolute;
-  bottom: 100px;
+  bottom: 20px;
   left: 30px;
 `;
