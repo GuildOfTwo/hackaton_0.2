@@ -2,6 +2,8 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { closeModalWindow } from '../../store/modal';
 import { FC, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
+import WelcomeModal from '../WelcomeModal';
+import { ModalOoverlay } from './styled';
 
 interface IModalProps {
   isCanceling?: boolean;
@@ -15,41 +17,42 @@ export const Modal: FC<IModalProps> = () => {
   const stopPropagation = (e: Event) => {
     e.stopPropagation();
   };
-  const location = useLocation();
+
+  // const location = useLocation();
+  // useEffect(() => {
+  //   dispatch(closeModalWindow());
+  // }, [location]);
+
   useEffect(() => {
-    dispatch(closeModalWindow());
-  }, [location]);
+    function closeByEscape(evt: KeyboardEvent) {
+      if (evt.key === "Escape") {
+        dispatch(closeModalWindow());
+      }
+    }
+    document.addEventListener("keydown", closeByEscape);
+    return () => {
+      document.removeEventListener("keydown", closeByEscape);
+    };
+  }, []);
+
 
   if (modal.isOpen) {
     return (
       <>
         {modal.isOpen ? (
-          <div
-            style={{
-              position: 'fixed',
-              top: '0',
-              left: '0',
-              width: '100vw',
-              height: '100vh',
-              backgroundColor: 'rgb(0, 32, 51, .05)',
-              overflow: 'hidden',
-              zIndex: '800',
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'center',
-              alignItems: 'center',
-            }}
+          <ModalOoverlay
             onClick={(e) => {
-              dispatch(closeModalWindow());
+              console.log(e.target)
+              e.stopPropagation(),
+                dispatch(closeModalWindow());
             }}
           >
-            {modal.type === 'any type name' ? (
-              // компонент внутренностей
-              <></>
+            {modal.type === 'welcomeModal' ? (
+              <WelcomeModal />
             ) : (
               ''
             )}
-          </div>
+          </ModalOoverlay>
         ) : (
           ''
         )}

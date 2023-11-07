@@ -104,7 +104,7 @@ export const AppStyles = createGlobalStyle`
   * {
     padding: 0;
     margin: 0;
-    font-family: ${(props) => props.theme.font};
+    font-family: 'TildaSans', Arial, Helvetica, sans-serif;
     color:${(props) => props.theme.textcolor};
    }
   
