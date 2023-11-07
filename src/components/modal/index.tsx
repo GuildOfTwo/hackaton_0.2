@@ -12,9 +12,9 @@ export const Modal: FC<IModalProps> = () => {
   const modal = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch();
 
-  const stopPropagation = (e: Event) => {
-    e.stopPropagation();
-  };
+  // const stopPropagation = (e: Event) => {
+  //   e.stopPropagation();
+  // };
   const location = useLocation();
   useEffect(() => {
     dispatch(closeModalWindow());
@@ -39,9 +39,9 @@ export const Modal: FC<IModalProps> = () => {
               justifyContent: 'center',
               alignItems: 'center',
             }}
-            onClick={(e) => {
-              dispatch(closeModalWindow());
-            }}
+            // onClick={(e) => {
+            //   dispatch(closeModalWindow());
+            // }}
           >
             {modal.type === 'any type name' ? (
               // компонент внутренностей

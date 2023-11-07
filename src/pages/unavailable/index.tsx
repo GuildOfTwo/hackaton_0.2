@@ -3,8 +3,7 @@ import React, { FC } from 'react';
 import { useNavigate } from 'react-router-dom';
 // components
 import { Button, Result } from 'antd';
-import Header from '../../layouts/Header';
-import { HeaderLogo } from '../../layouts/Header/styled';
+
 import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
 
 // TODO: для 404 и 503 сделать универсальную страницу и прокидывать туда статус ошибок

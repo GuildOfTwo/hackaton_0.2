@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React, { FC } from "react";
-
-import { Container, Loader } from "./styled";
-=======
 import React, { FC } from 'react';
 import styled from 'styled-components';
 
@@ -43,7 +38,6 @@ const Loader = styled.div`
     }
   }
 `;
->>>>>>> develop
 
 export const Preloader: FC = () => {
   return (
