@@ -16,12 +16,12 @@ const WelcomeModal = () => {
         },
         () => {
           setSubmittable(false);
-        },
+        }
       );
     }, [values]);
 
     return (
-      <Button type="primary" htmlType="submit" disabled={!submittable}>
+      <Button type='primary' htmlType='submit' disabled={!submittable}>
         Подтвердить
       </Button>
     );
@@ -30,21 +30,47 @@ const WelcomeModal = () => {
   const [form] = Form.useForm();
 
   return (
-    <FormWrapper form={form} name="validateOnly" layout="vertical" autoComplete="off" onClick={(e) => e.stopPropagation()}>
-      <Form.Item name="Telegram" label={<Label>Укажите ваш @Telegram</Label>} rules={[{ required: true, pattern: telegramLogin, message: 'Введите телеграм логин в формате @Telegram' }]}>
+    <FormWrapper
+      form={form}
+      name='validateOnly'
+      layout='vertical'
+      autoComplete='off'
+      onClick={(e) => e.stopPropagation()}
+    >
+      <Form.Item
+        name='Telegram'
+        label={<Label>Укажите ваш @Telegram</Label>}
+        rules={[
+          {
+            required: true,
+            pattern: telegramLogin,
+            message: 'Введите телеграм логин в формате @Telegram',
+          },
+        ]}
+      >
         <Input />
       </Form.Item>
-      <Form.Item name="Телефон" label={<Label>Укажите ваш телефонный номер</Label>} rules={[{ required: true, pattern: phoneNumberRegExp, message: 'Введите номер в корректном формате' }]}>
+      <Form.Item
+        name='Телефон'
+        label={<Label>Укажите ваш телефонный номер</Label>}
+        rules={[
+          {
+            required: true,
+            pattern: phoneNumberRegExp,
+            message: 'Введите номер в корректном формате',
+          },
+        ]}
+      >
         <Input />
       </Form.Item>
       <Form.Item>
         <ButtonWrapper>
           <SubmitButton form={form} />
-          <ResetButton htmlType="reset">Сбросить</ResetButton>
+          <ResetButton htmlType='reset'>Сбросить</ResetButton>
         </ButtonWrapper>
       </Form.Item>
     </FormWrapper>
   );
-}
+};
 
 export default WelcomeModal;

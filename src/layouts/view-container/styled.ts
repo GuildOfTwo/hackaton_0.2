@@ -10,4 +10,5 @@ export const ContentWrapper = styled.section`
   padding: 0 20px;
   overflow: hidden;
   margin: 0 auto;
+  overflow-y: scroll;
 `;

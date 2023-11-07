@@ -18,7 +18,13 @@ export const CreateUser: React.FC = () => {
       >
         <Form.Item
           name={['user', 'email']}
-          rules={[{ required: true, message: 'Login is required' }]}
+          rules={[
+            {
+              type: 'email',
+              message: 'The input is not valid E-mail!',
+            },
+            { required: true, message: 'Login is required' },
+          ]}
           // label={<p style={{color: `${(props) => props.theme.color}`}}>Login</p>}
           label={<p>Login</p>}
         >

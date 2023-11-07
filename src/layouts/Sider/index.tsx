@@ -7,6 +7,7 @@ import {
   PieChartOutlined,
   DesktopOutlined,
   PlusOutlined,
+  FolderAddOutlined,
 } from '@ant-design/icons';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
@@ -34,7 +35,7 @@ const Slider = () => {
       '30',
       <VideoCameraOutlined />
     ),
-    getItem(<Link to={Page.NEW_COURSE}>Добавить курс</Link>, '40', <VideoCameraOutlined />),
+    getItem(<Link to={Page.NEW_COURSE}>Добавить курс</Link>, '40', <FolderAddOutlined />),
     getItem(<Link to={Page.CREATE_USER}>Создание Пользователя</Link>, '4', <PlusOutlined />),
   ];
   function getItem(
