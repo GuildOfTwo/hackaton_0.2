@@ -25,12 +25,6 @@
     "react-syntax-highlighter": "^15.5.0",
     "styled-components": "^6.1.0"
   },
-  "lint-staged": {
-    "src/**/*.{ts,tsx, js, jsx}": [
-      "eslint --fix",
-      "prettier --write \"src/**/*.{ts,tsx}\""
-    ]
-  },
   "devDependencies": {
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.14",
