@@ -5,6 +5,7 @@ import { MARKDOWN_TEMPLATE } from '../../utils/markdown/markdown';
 export const CoursesList = () => {
   const DashContainer = styled.section`
     display: flex;
+    margin: 0 auto;
   `;
 
   const BorderColors = styled.div`

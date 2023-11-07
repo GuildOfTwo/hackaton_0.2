@@ -138,6 +138,7 @@ export const AppStyles = createGlobalStyle`
       background: #ced8de;
       border-radius: 10px;
     }
+    
   
   }
 

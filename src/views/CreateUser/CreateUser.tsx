@@ -2,6 +2,7 @@
 import React from 'react';
 
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
+import { Label } from './styled';
 
 export const CreateUser: React.FC = () => {
   const onFinish = (values: any) => {
@@ -26,44 +27,44 @@ export const CreateUser: React.FC = () => {
             { required: true, message: 'Login is required' },
           ]}
           // label={<p style={{color: `${(props) => props.theme.color}`}}>Login</p>}
-          label={<p>Login</p>}
+          label={<Label>Login</Label>}
         >
           <Input placeholder='email' />
         </Form.Item>
         <Form.Item
           name={['user', 'password']}
           rules={[{ required: true, message: 'Password is required' }]}
-          label='Password'
+          label={<Label>Password</Label>}
         >
           <Input placeholder='password' />
         </Form.Item>
         <Form.Item
           name={['user', 'firstName']}
           rules={[{ required: true, message: 'FirstName is required' }]}
-          label='Имя'
+          label={<Label>Name</Label>}
         >
           <Input placeholder='имя' />
         </Form.Item>
         <Form.Item
           name={['user', 'lastName']}
           rules={[{ required: true, message: 'LastName is required' }]}
-          label='Фамилия'
+          label={<Label>FirstName</Label>}
         >
           <Input placeholder='фамилия' />
         </Form.Item>
-        <Form.Item name={['user', 'middleName']} label='Отчество'>
+        <Form.Item name={['user', 'middleName']} label={<Label>second name</Label>}>
           <Input placeholder='отчество' />
         </Form.Item>
-        <Form.Item name={['user', 'departament']} label='Департамент'>
+        <Form.Item name={['user', 'departament']} label={<Label>Department</Label>}>
           <Input placeholder='департамент' />
         </Form.Item>
-        <Form.Item name={['user', 'phone']} label='Телефон'>
+        <Form.Item name={['user', 'phone']} label={<Label>Phone</Label>}>
           <Input placeholder='+7' />
         </Form.Item>
-        <Form.Item name={['user', 'mentor']} label='Ментор'>
+        <Form.Item name={['user', 'mentor']} label={<Label>Mentor</Label>}>
           <Input placeholder='наставник' />
         </Form.Item>
-        <Form.Item name={['user', 'role']} label='Назначенные курсы'>
+        <Form.Item name={['user', 'role']} label={<Label>Courses</Label>}>
           <Checkbox.Group>
             <Row>
               <Col span={8}>
