@@ -1,20 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { FC } from 'react';
-import styled from 'styled-components';
+import { FC } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-
-const AuthContainer = styled.section`
-  display: flex;
-  flex-direction: column;
-  margin: 100px auto;
-  align-items: center;
-  gap: 14px;
-`;
+import { AuthContainer, LoginForm } from './styled';
+import { loginRequest } from '../../api/authorization';
 
 export const Authorization: FC = () => {
-  const onFinish = (values: any) => {
-    console.log('Success:', values);
-  };
+  // const onFinish = (values: any) => {
+  //   console.log('Success:', values);
+  // };
 
   const onFinishFailed = (errorInfo: any) => {
     console.log('Failed:', errorInfo);
@@ -25,17 +18,18 @@ export const Authorization: FC = () => {
     password?: string;
     remember?: string;
   };
-
+  const handleLogin = (values: any) => {
+    loginRequest(values.username, values.password).then((res) => console.log(res));
+  };
   return (
     <>
       <AuthContainer>
-        <Form
+        <LoginForm
           name='basic'
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
-          style={{ maxWidth: 600 }}
           initialValues={{ remember: true }}
-          onFinish={onFinish}
+          onFinish={handleLogin}
           onFinishFailed={onFinishFailed}
           autoComplete='off'
         >
@@ -68,7 +62,7 @@ export const Authorization: FC = () => {
               Submit
             </Button>
           </Form.Item>
-        </Form>
+        </LoginForm>
       </AuthContainer>
     </>
   );
