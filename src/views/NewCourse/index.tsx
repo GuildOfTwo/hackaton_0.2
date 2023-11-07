@@ -26,7 +26,7 @@ export const NewCoursePage = () => {
       <Form
         labelCol={{ span: 5 }}
         wrapperCol={{ span: 20 }}
-        style={{ width: 900 }}
+        style={{ width: 900, margin: '0 auto' }}
         onFinish={onFinish}
         form={form}
         initialValues={{ items: [{}] }}
