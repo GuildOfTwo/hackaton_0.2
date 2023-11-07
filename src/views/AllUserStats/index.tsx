@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import React, { FC, useState } from 'react';
 import { dataFirst } from './data';
 import { BarChart } from '../../components/BarChart/BarChart';

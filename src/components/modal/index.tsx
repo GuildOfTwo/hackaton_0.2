@@ -1,7 +1,7 @@
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { closeModalWindow } from '../../store/modal';
 import { FC, useEffect } from 'react';
-import { useLocation } from 'react-router-dom';
+// import { useLocation } from 'react-router-dom';
 import WelcomeModal from '../WelcomeModal';
 import { ModalOoverlay } from './styled';
 
@@ -14,9 +14,9 @@ export const Modal: FC<IModalProps> = () => {
   const modal = useAppSelector((state) => state.modal);
   const dispatch = useAppDispatch();
 
-  const stopPropagation = (e: Event) => {
-    e.stopPropagation();
-  };
+  // const stopPropagation = (e: Event) => {
+  //   e.stopPropagation();
+  // };
 
   // const location = useLocation();
   // useEffect(() => {
@@ -25,16 +25,15 @@ export const Modal: FC<IModalProps> = () => {
 
   useEffect(() => {
     function closeByEscape(evt: KeyboardEvent) {
-      if (evt.key === "Escape") {
+      if (evt.key === 'Escape') {
         dispatch(closeModalWindow());
       }
     }
-    document.addEventListener("keydown", closeByEscape);
+    document.addEventListener('keydown', closeByEscape);
     return () => {
-      document.removeEventListener("keydown", closeByEscape);
+      document.removeEventListener('keydown', closeByEscape);
     };
   }, []);
-
 
   if (modal.isOpen) {
     return (
@@ -42,16 +41,11 @@ export const Modal: FC<IModalProps> = () => {
         {modal.isOpen ? (
           <ModalOoverlay
             onClick={(e) => {
-              console.log(e.target)
-              e.stopPropagation(),
-                dispatch(closeModalWindow());
+              console.log(e.target);
+              e.stopPropagation(), dispatch(closeModalWindow());
             }}
           >
-            {modal.type === 'welcomeModal' ? (
-              <WelcomeModal />
-            ) : (
-              ''
-            )}
+            {modal.type === 'welcomeModal' ? <WelcomeModal /> : ''}
           </ModalOoverlay>
         ) : (
           ''

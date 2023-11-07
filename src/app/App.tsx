@@ -7,7 +7,7 @@ import Theme from '../components/Theme/Theme';
 import { getTheme } from '../utils/theme';
 import { useAppDispatch } from '../hooks';
 import { setDarkTheme, setDefaultTheme } from '../store/theme';
-import { openModalWindow } from '../store/modal';
+// import { openModalWindow } from '../store/modal';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
