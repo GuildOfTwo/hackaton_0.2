@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { FC, useState } from 'react';
+import { FC, useState } from 'react';
 import { dataFirst } from './data';
 import { BarChart } from '../../components/BarChart/BarChart';
 import styled from 'styled-components';
@@ -11,7 +11,7 @@ const ChartDiv = styled.div`
 `;
 
 export const AllUserStats: FC = () => {
-  const [basicCourseTime, setBasicCourseTime] = useState({
+  const [basicCourseTime] = useState({
     labels: dataFirst.map((el) => el.departament),
     datasets: [
       {

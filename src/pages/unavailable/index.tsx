@@ -1,4 +1,4 @@
-import React, { FC } from 'react';
+import { FC } from 'react';
 // navigation
 import { useNavigate } from 'react-router-dom';
 // components
