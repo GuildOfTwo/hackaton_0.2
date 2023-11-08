@@ -1,12 +1,14 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
 import { Label } from './styled';
+import { TCreateUser } from '../../utils/types/types';
+import { createUserRequest } from '../../api/CreateUserApi';
 
 export const CreateUser: React.FC = () => {
-  const onFinish = (values: any) => {
+  const onFinish = (values: TCreateUser) => {
     console.log(values);
+    createUserRequest(values);
   };
 
   return (
@@ -26,7 +28,6 @@ export const CreateUser: React.FC = () => {
             },
             { required: true, message: 'Login is required' },
           ]}
-          // label={<p style={{color: `${(props) => props.theme.color}`}}>Login</p>}
           label={<Label>Login</Label>}
         >
           <Input placeholder='email' />
@@ -48,11 +49,11 @@ export const CreateUser: React.FC = () => {
         <Form.Item
           name={['user', 'lastName']}
           rules={[{ required: true, message: 'LastName is required' }]}
-          label={<Label>FirstName</Label>}
+          label={<Label>LastName</Label>}
         >
           <Input placeholder='фамилия' />
         </Form.Item>
-        <Form.Item name={['user', 'middleName']} label={<Label>second name</Label>}>
+        <Form.Item name={['user', 'middleName']} label={<Label>Second name</Label>}>
           <Input placeholder='отчество' />
         </Form.Item>
         <Form.Item name={['user', 'departament']} label={<Label>Department</Label>}>
