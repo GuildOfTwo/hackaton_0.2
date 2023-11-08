@@ -5,7 +5,7 @@ import { loginRequest } from '../../api/authorization';
 import { useAppDispatch } from '../../hooks';
 import { login } from '../../store/auth';
 import { useNavigate } from 'react-router-dom';
-import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
+import { DASHBOARD_URI } from '../../utils/constants/navigation';
 import { errorHandler } from '../../utils/errorHandler';
 import { FieldType, ValuesType } from '../../utils/types/types';
 import { Label } from '../../views/NewCourse/styled';
@@ -31,7 +31,7 @@ export const Authorization: FC = () => {
           })
         )
       )
-      .then(() => navigate(MAIN_PAGE_URI))
+      .then(() => navigate(`/${DASHBOARD_URI}`))
       .catch((error) => setError(error.response.status));
   };
 

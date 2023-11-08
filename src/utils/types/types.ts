@@ -58,15 +58,15 @@ export type ValuesType = {
 
 export type TProtectedRoute = {
   onlyForLogged: boolean;
-  component: JSX.Element;
+  element: JSX.Element;
   userType?: string;
 };
 
 export type TProtectedRouteByLoggin = {
-  component: JSX.Element;
+  element: JSX.Element;
   userType?: string;
 };
 
 export type TProtectedRouteByPower = {
-  component: JSX.Element;
+  element: JSX.Element;
 };
