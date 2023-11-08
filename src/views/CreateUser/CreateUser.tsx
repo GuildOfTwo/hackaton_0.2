@@ -1,15 +1,18 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React from 'react';
 
 import { Button, Checkbox, Col, Form, Input, Row } from 'antd';
+import { Label } from './styled';
+import { TCreateUser } from '../../utils/types/types';
+import { createUserRequest } from '../../api/CreateUserApi';
 
 export const CreateUser: React.FC = () => {
-  const onFinish = (values: any) => {
+  const onFinish = (values: TCreateUser) => {
     console.log(values);
+    createUserRequest(values);
   };
 
   return (
-    <>
+    <div style={{ margin: '0 auto' }}>
       <Form
         labelCol={{ span: 9 }}
         wrapperCol={{ span: 10 }}
@@ -18,60 +21,65 @@ export const CreateUser: React.FC = () => {
       >
         <Form.Item
           name={['user', 'email']}
-          rules={[{ required: true, message: 'Login is required' }]}
-          // label={<p style={{color: `${(props) => props.theme.color}`}}>Login</p>}
-          label={<p>Login</p>}
+          rules={[
+            {
+              type: 'email',
+              message: 'The input is not valid E-mail!',
+            },
+            { required: true, message: 'Login is required' },
+          ]}
+          label={<Label>Login</Label>}
         >
           <Input placeholder='email' />
         </Form.Item>
         <Form.Item
           name={['user', 'password']}
           rules={[{ required: true, message: 'Password is required' }]}
-          label='Password'
+          label={<Label>Password</Label>}
         >
           <Input placeholder='password' />
         </Form.Item>
         <Form.Item
           name={['user', 'firstName']}
           rules={[{ required: true, message: 'FirstName is required' }]}
-          label='Имя'
+          label={<Label>Name</Label>}
         >
           <Input placeholder='имя' />
         </Form.Item>
         <Form.Item
           name={['user', 'lastName']}
           rules={[{ required: true, message: 'LastName is required' }]}
-          label='Фамилия'
+          label={<Label>LastName</Label>}
         >
           <Input placeholder='фамилия' />
         </Form.Item>
-        <Form.Item name={['user', 'middleName']} label='Отчество'>
+        <Form.Item name={['user', 'middleName']} label={<Label>Second name</Label>}>
           <Input placeholder='отчество' />
         </Form.Item>
-        <Form.Item name={['user', 'departament']} label='Департамент'>
+        <Form.Item name={['user', 'departament']} label={<Label>Department</Label>}>
           <Input placeholder='департамент' />
         </Form.Item>
-        <Form.Item name={['user', 'phone']} label='Телефон'>
+        <Form.Item name={['user', 'phone']} label={<Label>Phone</Label>}>
           <Input placeholder='+7' />
         </Form.Item>
-        <Form.Item name={['user', 'mentor']} label='Ментор'>
+        <Form.Item name={['user', 'mentor']} label={<Label>Mentor</Label>}>
           <Input placeholder='наставник' />
         </Form.Item>
-        <Form.Item name={['user', 'role']} label='Назначенные курсы'>
+        <Form.Item name={['user', 'role']} label={<Label>Courses</Label>}>
           <Checkbox.Group>
             <Row>
               <Col span={8}>
-                <Checkbox value='A' style={{ lineHeight: '32px' }}>
+                <Checkbox value='Общие' style={{ lineHeight: '32px' }}>
                   Общие
                 </Checkbox>
               </Col>
               <Col span={8}>
-                <Checkbox value='B' style={{ lineHeight: '32px' }}>
+                <Checkbox value='Дизайнер' style={{ lineHeight: '32px' }}>
                   Дизайнер
                 </Checkbox>
               </Col>
               <Col span={8}>
-                <Checkbox value='C' style={{ lineHeight: '32px' }}>
+                <Checkbox value='IT' style={{ lineHeight: '32px' }}>
                   IT
                 </Checkbox>
               </Col>
@@ -99,6 +107,6 @@ export const CreateUser: React.FC = () => {
           </Button>
         </div>
       </Form>
-    </>
+    </div>
   );
 };

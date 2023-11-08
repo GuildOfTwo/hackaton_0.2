@@ -5,27 +5,33 @@ import { createSlice } from '@reduxjs/toolkit';
 import { IUser } from '../../utils/constants/user';
 
 interface IAuthState {
-  isAuth: boolean;
-  authorizationStatus?: string;
+  isLogin: boolean;
   user?: IUser;
-  role?: string;
+  accessRoles?: Array<string>;
 }
-
+interface ILoginPayload {
+  user?: IUser;
+  accessRoles?: Array<string>;
+}
 const initialState: IAuthState = {
-  isAuth: false,
-  role: '',
+  isLogin: false,
+  accessRoles: [],
 };
 
 export const authSlice = createSlice({
   name: 'auth',
   initialState,
   reducers: {
-    login: (state: IAuthState, action: { payload: IAuthState; type: string }) => {},
+    login: (state: IAuthState, action: { payload: ILoginPayload; type: string }) => {
+      state.isLogin = true;
+      state.user = action.payload.user;
+      state.accessRoles = action.payload.accessRoles;
+    },
     logout: (state: IAuthState) => {},
   },
 });
 
 export const { logout, login } = authSlice.actions;
-export const getAuthStatus = (state: IAuthState) => state.isAuth;
+export const getAuthStatus = (state: IAuthState) => state.isLogin;
 
 export default authSlice.reducer;

@@ -3,7 +3,7 @@ import { Layout } from 'antd';
 import { HEADER_HEIGHT } from '../../utils/constants';
 
 const MainWrapper = styled(Layout)`
-  padding: 24px 100px;
+  padding: 24px 0 24px 100px;
   background-color: ${(props) => props.theme.backgroundColor1};
   flex: 1;
   height: 100%;
