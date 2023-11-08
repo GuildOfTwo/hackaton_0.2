@@ -44,3 +44,14 @@ export type TCreateNewCourse = {
   content: string;
   questions: TQuestions[];
 };
+
+export type FieldType = {
+  username?: string;
+  password?: string;
+  remember?: string;
+};
+
+export type ValuesType = {
+  username: string;
+  password: string;
+};
