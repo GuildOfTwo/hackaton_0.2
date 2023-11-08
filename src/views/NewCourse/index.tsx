@@ -116,8 +116,9 @@ export const NewCoursePage = () => {
           name={['course', 'courseDuration']}
         >
           <Radio.Group>
-            <Radio value="1"> 1 день </Radio>
-            <Radio value="2"> 2 дня </Radio>
+            <Radio value="1"> 1 неделя </Radio>
+            <Radio value="2"> 2 недели </Radio>
+            <Radio value="3"> месяц </Radio>
           </Radio.Group>
         </Form.Item>
 
@@ -146,7 +147,7 @@ export const NewCoursePage = () => {
         </Form.Item>
 
         <FormSubText>
-          Перевести Wrod файл в marcdown, поможет сервис{' '}
+          Перевести Word файл в markdown, поможет сервис{' '}
           <a href='https://www.wordize.com/word-to-markdown/' style={{ textDecoration: 'underline' }} target='_blank' rel='noreferrer'>
             WORDIZE(ссылка)
           </a>
@@ -183,7 +184,7 @@ export const NewCoursePage = () => {
                                 <Input placeholder='Вариант ответа' style={{ width: 300 }} />
                               </Form.Item>
                               <Form.Item
-                                label={<Label>Укажите верный</Label>}
+                                label={<Label>Укажите верный ответ</Label>}
                                 name={[subField.name, 'correct']}
                                 valuePropName='checked'
                                 style={{ marginBottom: '0' }}
@@ -215,8 +216,8 @@ export const NewCoursePage = () => {
         </Form.List>
 
         <Form.Item style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
-          <Button type='primary' htmlType='submit'>
-            Submit
+          <Button type='primary' htmlType='submit' >
+            <p style={{color: 'white'}}>Загрузить курс</p>
           </Button>
         </Form.Item>
       </Form>
