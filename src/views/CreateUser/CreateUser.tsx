@@ -7,7 +7,6 @@ import { createUserRequest } from '../../api/CreateUserApi';
 
 export const CreateUser: React.FC = () => {
   const onFinish = (values: TCreateUser) => {
-    console.log(values);
     createUserRequest(values);
   };
 

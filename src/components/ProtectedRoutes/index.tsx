@@ -4,35 +4,36 @@ import {
   TProtectedRouteByLoggin,
   TProtectedRouteByPower,
 } from '../../utils/types/types';
-import { Page } from '../../utils/constants/navigation';
+import { AUTHORIZATION_URI, DASHBOARD_URI } from '../../utils/constants/navigation';
+import { useAppSelector } from '../../hooks';
 
-const ProtectedRoute = ({ onlyForLogged = true, component, userType }: TProtectedRoute) => {
-  // const user = useSelector((store) => store.user.user);
-  const user = { type: 'hr' }; /// что бы линтер не орал пока стораджа с пользователем по логину нет.
+const ProtectedRoute = ({ onlyForLogged = true, element, userType }: TProtectedRoute) => {
+  const isLogin = useAppSelector((store) => store.auth.isLogin);
+  const userRoles = useAppSelector((store) => store.auth.accessRoles)
+  const userRole = userRoles?.find(item => item === `${userType}`);
+  console.log(userRole === userType)
   const location = useLocation();
 
-  if (!onlyForLogged && user) {
-    const { from } = location.state || { from: { pathname: Page.MAIN } };
-    return <Navigate to={from} />;
-  }
-  if (onlyForLogged && user) {
-    const { from } = location.state || { from: { pathname: Page.MAIN } };
+  if (!userType && !onlyForLogged && isLogin) {
+    const { from } = location.state || { from: { pathname: `/${DASHBOARD_URI}` } };
+    console.log(from);
     return <Navigate to={from} />;
   }
 
-  if (onlyForLogged && user) {
-    const { from } = location.state || { from: { pathname: Page.MAIN } };
-    return <Navigate to={from} />;
-  }
-  if (onlyForLogged && !user) {
-    return <Navigate to='/login' state={{ from: location }} />;
+  if (!userType && onlyForLogged && !isLogin) {
+      return <Navigate to={`/${AUTHORIZATION_URI}`} state={{ from: location }} />;
   }
 
-  if (onlyForLogged && user.type !== `${userType}`) {
-    const { from } = location.state || { from: { pathname: Page.MAIN } };
+  if (!userType && onlyForLogged && isLogin) {
+      return element;
+  }
+
+  if (userType && onlyForLogged && userRole !== `${userType}`) {
+    const { from } = location.state || { from: { pathname: `/${DASHBOARD_URI}`  } };
     return <Navigate to={from} />;
   }
-  return component;
+
+  return element;
 };
 
 export const RouteForNonLoggedUser = (props: TProtectedRouteByLoggin) => (
@@ -42,5 +43,5 @@ export const RouteForLoggedUser = (props: TProtectedRouteByLoggin) => (
   <ProtectedRoute onlyForLogged={true} {...props} />
 );
 export const RouteForHROnly = (props: TProtectedRouteByPower) => (
-  <ProtectedRoute onlyForLogged={true} userType={'HR'} {...props} />
+  <ProtectedRoute onlyForLogged={true} userType={'user'} {...props} />
 );

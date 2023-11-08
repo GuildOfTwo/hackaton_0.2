@@ -7,14 +7,14 @@ import Theme from '../components/Theme/Theme';
 import { getTheme } from '../utils/theme';
 import { useAppDispatch } from '../hooks';
 import { setDarkTheme, setDefaultTheme } from '../store/theme';
+import { DASHBOARD_URI } from '../utils/constants/navigation';
 // import { openModalWindow } from '../store/modal';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
   // dispatch(openModalWindow({type: "welcomeModal"}));
   const setThemeOnLoad = () => {
-    console.log(getTheme());
-    if (getTheme() === 'dark') {
+     if (getTheme() === 'dark') {
       dispatch(setDarkTheme());
     }
     if (getTheme() === 'default') {
