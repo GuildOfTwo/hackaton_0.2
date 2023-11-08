@@ -12,7 +12,7 @@ export const CreateUser: React.FC = () => {
   };
 
   return (
-    <>
+    <div style={{ margin: '0 auto' }}>
       <Form
         labelCol={{ span: 9 }}
         wrapperCol={{ span: 10 }}
@@ -107,6 +107,6 @@ export const CreateUser: React.FC = () => {
           </Button>
         </div>
       </Form>
-    </>
+    </div>
   );
 };
