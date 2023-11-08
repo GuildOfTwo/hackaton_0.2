@@ -4,19 +4,40 @@
 // import { useState } from 'react';
 // import SyntaxHighlighter from 'react-syntax-highlighter';
 // import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { Button, Card, Checkbox, Col, Form, Input, Row, Space } from 'antd';
+import { Button, Card, Checkbox, Col, Form, Input, Radio, Row, Space } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 import { CloseOutlined } from '@ant-design/icons';
 import { BlackLabel, FormList, FormSubText, Label } from './styled';
 import { TCreateNewCourse } from '../../utils/types/types';
+import { useEffect, useState } from 'react';
+import { requestCategoriesCourse } from '../../api/requstCategories';
+import { useAppDispatch } from '../../hooks';
 
 // type MarkComponentProps = {
 //   value: any;
 //   language: any;
 // };
 
+
+export type TCateegoriesCourse = {
+  id: string,
+  name: string
+}
+
+export type TObjCourses = {
+  courses: TCateegoriesCourse[]
+}
+
 export const NewCoursePage = () => {
   // const [markdownInput, setMarkdownInput] = useState<string>();
+
+  const dispatch = useAppDispatch()
+
+  const [categoriesCourse, setCategoriesCourse] = useState([{id: 1, name: 'Общие'},{id: 2, name: 'IT'}])
+
+  useEffect(() => { requestCategoriesCourse().then((res) => setCategoriesCourse(res.data)) }, [])
+
+
 
   const onFinish = (values: TCreateNewCourse) => {
     console.log(values);
@@ -44,42 +65,32 @@ export const NewCoursePage = () => {
         <Form.Item name={['course', 'type']} label={<Label>Тип курса</Label>}>
           <Checkbox.Group>
             <Row>
-              <Col span={8}>
-                <Checkbox value='Общие' style={{ lineHeight: '32px' }}>
-                  Общие
-                </Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value='Дизайнер' style={{ lineHeight: '32px' }}>
-                  Дизайнер
-                </Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value='IT' style={{ lineHeight: '32px' }}>
-                  IT
-                </Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value='D' style={{ lineHeight: '32px' }}>
-                  D
-                </Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value='E' style={{ lineHeight: '32px' }}>
-                  E
-                </Checkbox>
-              </Col>
-              <Col span={8}>
-                <Checkbox value='F' style={{ lineHeight: '32px' }}>
-                  F
-                </Checkbox>
-              </Col>
+              {categoriesCourse?.map((i) => <Col span={8} key={i.id}>
+      <Checkbox value={i.id} style={{ lineHeight: '32px' }} >
+        {i.name}
+      </Checkbox></Col>)}
             </Row>
           </Checkbox.Group>
         </Form.Item>
 
+        {/* <Form.Item label={<Label>Время на выполнение курса</Label>}>
+          <Select style={{}}>
+            <Select.Option value="demo">Demo</Select.Option>
+            <Select.Option value="emo">Demo</Select.Option>
+          </Select>
+        </Form.Item> */}
         <Form.Item
-          name={['course', 'content']}
+          label={<Label>Время на выполнение курса</Label>}
+          name={['course', 'courseDuration']}
+        >
+          <Radio.Group>
+            <Radio value="1"> 1 день </Radio>
+            <Radio value="2"> 2 дня </Radio>
+          </Radio.Group>
+        </Form.Item>
+
+        <Form.Item
+          name={['course', 'CourseContent', 'text']}
           label={
             <Label>
               Контент курса
@@ -103,7 +114,7 @@ export const NewCoursePage = () => {
           </a>
         </FormSubText>
 
-        <Form.List name={['course', 'question']}>
+        <Form.List name={['course', 'CourseContent', 'question']}>
           {(fields, { add, remove }) => (
             <div style={{ display: 'flex', rowGap: 16, flexDirection: 'column' }}>
               {fields.map((field) => (
