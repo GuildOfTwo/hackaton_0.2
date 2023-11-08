@@ -12,6 +12,6 @@ export const createUserRequest = (item: TCreateUser) => {
     phone: item.user.phone,
     roles: item.user.role,
     mentor: item.user.mentor,
-    departament: item.user.departament,
+    department: item.user.departament,
   });
 };
