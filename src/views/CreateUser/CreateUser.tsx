@@ -69,17 +69,17 @@ export const CreateUser: React.FC = () => {
           <Checkbox.Group>
             <Row>
               <Col span={8}>
-                <Checkbox value='A' style={{ lineHeight: '32px' }}>
+                <Checkbox value='Общие' style={{ lineHeight: '32px' }}>
                   Общие
                 </Checkbox>
               </Col>
               <Col span={8}>
-                <Checkbox value='B' style={{ lineHeight: '32px' }}>
+                <Checkbox value='Дизайнер' style={{ lineHeight: '32px' }}>
                   Дизайнер
                 </Checkbox>
               </Col>
               <Col span={8}>
-                <Checkbox value='C' style={{ lineHeight: '32px' }}>
+                <Checkbox value='IT' style={{ lineHeight: '32px' }}>
                   IT
                 </Checkbox>
               </Col>
