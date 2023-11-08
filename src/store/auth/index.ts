@@ -6,16 +6,17 @@ import { IUser } from '../../utils/constants/user';
 
 interface IAuthState {
   isLogin: boolean;
-  user?: IUser;
+  user?: IUser | null;
   accessRoles?: Array<string>;
 }
 interface ILoginPayload {
-  user?: IUser;
-  accessRoles?: Array<string>;
+  user: IUser;
+  accessRoles: Array<string>;
 }
 const initialState: IAuthState = {
   isLogin: false,
   accessRoles: [],
+  user: null,
 };
 
 export const authSlice = createSlice({
