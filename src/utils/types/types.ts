@@ -45,6 +45,17 @@ export type TCreateNewCourse = {
   questions: TQuestions[];
 };
 
+export type FieldType = {
+  username?: string;
+  password?: string;
+  remember?: string;
+};
+
+export type ValuesType = {
+  username: string;
+  password: string;
+};
+
 export type TProtectedRoute = {
   onlyForLogged: boolean;
   component: JSX.Element;

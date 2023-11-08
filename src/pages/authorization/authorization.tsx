@@ -1,27 +1,40 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC } from 'react';
+import { FC, useState } from 'react';
 import { Button, Checkbox, Form, Input } from 'antd';
-import { AuthContainer, LoginForm } from './styled';
+import { AuthContainer, ErrorMessage, LoginForm } from './styled';
 import { loginRequest } from '../../api/authorization';
+import { useAppDispatch } from '../../hooks';
+import { login } from '../../store/auth';
+import { useNavigate } from 'react-router-dom';
+import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
+import { errorHandler } from '../../utils/errorHandler';
+import { FieldType, ValuesType } from '../../utils/types/types';
 import { Label } from '../../views/NewCourse/styled';
 
 export const Authorization: FC = () => {
-  // const onFinish = (values: any) => {
-  //   console.log('Success:', values);
-  // };
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const [error, setError] = useState();
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log('Failed:', errorInfo);
+  const handleLogin = (values: ValuesType) => {
+    loginRequest(values.username, values.password)
+      .then((res) => res.data)
+      .then((res) =>
+        dispatch(
+          login({
+            user: {
+              firstName: res.firstName,
+              lastName: res.lastName,
+              roles: res.roles,
+              email: res.email,
+            },
+            accessRoles: res.accessRoles,
+          })
+        )
+      )
+      .then(() => navigate(MAIN_PAGE_URI))
+      .catch((error) => setError(error.response.status));
   };
 
-  type FieldType = {
-    username?: string;
-    password?: string;
-    remember?: string;
-  };
-  const handleLogin = (values: any) => {
-    loginRequest(values.username, values.password).then((res) => console.log(res));
-  };
   return (
     <>
       <AuthContainer>
@@ -35,7 +48,6 @@ export const Authorization: FC = () => {
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
           onFinish={handleLogin}
-          onFinishFailed={onFinishFailed}
           autoComplete='off'
         >
           <Form.Item<FieldType>
@@ -67,6 +79,7 @@ export const Authorization: FC = () => {
               Войти
             </Button>
           </Form.Item>
+          {error ? <ErrorMessage>{errorHandler(error)}</ErrorMessage> : null}
         </LoginForm>
       </AuthContainer>
     </>
