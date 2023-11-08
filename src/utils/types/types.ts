@@ -44,3 +44,18 @@ export type TCreateNewCourse = {
   content: string;
   questions: TQuestions[];
 };
+
+export type TProtectedRoute = {
+  onlyForLogged: boolean;
+  component: JSX.Element;
+  userType?: string;
+};
+
+export type TProtectedRouteByLoggin = {
+  component: JSX.Element;
+  userType?: string;
+};
+
+export type TProtectedRouteByPower = {
+  component: JSX.Element;
+};
