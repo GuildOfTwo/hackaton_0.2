@@ -1,6 +1,6 @@
-import { Avatar, Button, Popover } from 'antd';
+import { Avatar, Popover } from 'antd';
 import { UserOutlined } from '@ant-design/icons';
-import { HeaderWrapper } from './styled';
+import { ButtonPopover, HeaderWrapper } from './styled';
 // import Logo from './../../assets/logo/logo.svg';
 import { Link } from 'react-router-dom';
 import { Page } from '../../utils/constants/navigation';
@@ -9,7 +9,7 @@ import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
 const Header = () => {
   const content = (
     <Link to={Page.AUTHORIZATION}>
-      <Button>Выйти</Button>
+      <ButtonPopover>Выйти</ButtonPopover>
     </Link>
   );
   return (

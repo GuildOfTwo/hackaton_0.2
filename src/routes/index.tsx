@@ -20,13 +20,11 @@ const AppRoutes = () => {
         <Route path={Page.ALL_COURSES} element={<CoursesList />} />
         <Route path={Page.ALL_USER_STATS} element={<AllUserStats />} />
         <Route path={Page.CREATE_USER} element={<CreateUser />} />
-
         <Route path={SubPage.MANAGMENT_COURSE} element={<CoursesList />} />
         <Route path={SubPage.ENGINEERING_COURSE} element={<CoursesList />} />
         <Route path={SubPage.CLIENT_SERVICE_COURSE} element={<CoursesList />} />
         <Route path={SubPage.DESIGN_COURSE} element={<CoursesList />} />
         <Route path={SubPage.PROJECT_MANAGMENT_COURSE} element={<CoursesList />} />
-
         <Route path={Page.NEW_COURSE} element={<NewCoursePage />} />
       </Route>
       <Route path={Page.UNAVAILABLE} element={<Unavailable />} />

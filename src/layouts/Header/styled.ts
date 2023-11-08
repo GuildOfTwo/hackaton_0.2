@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Layout } from 'antd';
+import { Button, Layout } from 'antd';
 import { HEADER_HEIGHT } from '../../utils/constants';
 
 const { Header } = Layout;
@@ -15,6 +15,10 @@ const HeaderWrapper = styled(Header)`
 
 const HeaderLogo = styled.img`
   max-width: 400px;
+`;
+
+export const ButtonPopover = styled(Button)`
+  background-color: ${(props) => props.theme.backgroundColor2};
 `;
 
 export { HeaderWrapper, HeaderLogo };

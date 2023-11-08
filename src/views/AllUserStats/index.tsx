@@ -22,10 +22,10 @@ export const AllUserStats: FC = () => {
   });
 
   return (
-    <>
-      <ChartDiv>
+    <div style={{ margin: '0 auto' }}>
+      <ChartDiv style={{ margin: '0 auto' }}>
         <BarChart chartData={basicCourseTime} />
       </ChartDiv>
-    </>
+    </div>
   );
 };

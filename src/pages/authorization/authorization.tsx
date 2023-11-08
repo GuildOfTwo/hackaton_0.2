@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
 import { errorHandler } from '../../utils/errorHandler';
 import { FieldType, ValuesType } from '../../utils/types/types';
+import { Label } from '../../views/NewCourse/styled';
 
 export const Authorization: FC = () => {
   const dispatch = useAppDispatch();
@@ -37,6 +38,10 @@ export const Authorization: FC = () => {
   return (
     <>
       <AuthContainer>
+        <div style={{ fontSize: '3em', padding: '0 0 20px 0', fontWeight: 600 }}>Boardy</div>
+        <div style={{ fontSize: '1.5em', padding: '0 0 40px 0' }}>
+          Для доступа к сервису требуется авторизация
+        </div>
         <LoginForm
           name='basic'
           labelCol={{ span: 8 }}
@@ -46,7 +51,7 @@ export const Authorization: FC = () => {
           autoComplete='off'
         >
           <Form.Item<FieldType>
-            label='Username'
+            label={<Label>Email</Label>}
             name='username'
             rules={[{ required: true, message: 'Please input your username!' }]}
           >
@@ -54,7 +59,7 @@ export const Authorization: FC = () => {
           </Form.Item>
 
           <Form.Item<FieldType>
-            label='Password'
+            label={<Label>Password</Label>}
             name='password'
             rules={[{ required: true, message: 'Please input your password!' }]}
           >
@@ -66,12 +71,12 @@ export const Authorization: FC = () => {
             valuePropName='checked'
             wrapperCol={{ offset: 8, span: 16 }}
           >
-            <Checkbox>Remember me</Checkbox>
+            <Checkbox>Запомнить меня</Checkbox>
           </Form.Item>
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type='primary' htmlType='submit'>
-              Submit
+              Войти
             </Button>
           </Form.Item>
           {error ? <ErrorMessage>{errorHandler(error)}</ErrorMessage> : null}
