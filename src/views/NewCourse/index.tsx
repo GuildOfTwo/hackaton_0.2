@@ -33,7 +33,7 @@ export const NewCoursePage = () => {
 
   const dispatch = useAppDispatch()
 
-  const [categoriesCourse, setCategoriesCourse] = useState([{id: 1, name: 'Общие'},{id: 2, name: 'IT'}])
+  const [categoriesCourse, setCategoriesCourse] = useState([{id: 1, name: 'Общие'},{id: 2, name: 'IT'},{id: 3, name: 'Продажи'},{id: 4, name: 'Водители'},])
 
   useEffect(() => { requestCategoriesCourse().then((res) => setCategoriesCourse(res.data)) }, [])
 
