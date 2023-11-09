@@ -13,8 +13,11 @@ const userSlice = createSlice({
   reducers: {
     setLoginInfo: (state: TUserSliceState, action: { payload: TUser; type: string }) => {
       state.user = {...action.payload }
-  }}
+  },
+    setFirstSignInFalse: (state: TUserSliceState ) => {
+      if (state.user !== null) state.user.firstSignIn = false;
+}},
 });
 
-export const { setLoginInfo } = userSlice.actions;
+export const { setLoginInfo, setFirstSignInFalse }  = userSlice.actions;
 export default userSlice.reducer;
