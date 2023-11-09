@@ -22,6 +22,6 @@ export const сreateNewCourseContent = (item: any, values: TCourse) => {
     return backendInstance.post('/course-content', {
         courseId: +item.id,
         image: "https://i.ytimg.com/vi/Syjy3--JyvQ/maxresdefault.jpg",
-        content: values.course.CourseContent
+        content: JSON.stringify(values.course.CourseContent)
       });
 }
