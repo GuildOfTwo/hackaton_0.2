@@ -24,3 +24,6 @@ border: 10px double green;
 margin-right: 40px;
 `;
 
+export const CourseCardImg = styled.div`
+object-fit: cover;
+`;

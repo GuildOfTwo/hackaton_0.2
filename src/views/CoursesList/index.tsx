@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Card } from 'antd';
+import { Button, Card } from 'antd';
 import Markdown from 'react-markdown';
 import { MARKDOWN_TEMPLATE } from '../../utils/markdown/markdown';
-import { CourseCard, CourseCardText, DashContainer } from './style';
+import { CourseCard, CourseCardImg, CourseCardText, DashContainer } from './style';
 import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { Link } from 'react-router-dom';
@@ -33,33 +33,15 @@ export const CoursesList = () => {
       {allCourses?.map((item: TSelectCourse) => {
         return (<CourseCard key={item.id}><Link to={`/course/${item.id}`}>
           <Card title={item.courseName} bordered={false}>
-            <img src={item.CourseContent[0]?.image} alt="" />
+            <CourseCardImg><img src={item.CourseContent[0]?.image} alt="" /></CourseCardImg>
           </Card>
         </Link>
+        <Button>добавить курс</Button>
 
         </CourseCard>)
       })}
 
     </DashContainer>
-      {/* <DashContainer>
-        <BorderColors><CourseCard>
-          <Card title='Card title' bordered={false}>
-            <CourseCardText><Markdown>{MARKDOWN_TEMPLATE}</Markdown></CourseCardText>
-          </Card>
-        </CourseCard>
-         
-        </BorderColors>
-        <Card title='Card title' bordered={true} style={{ width: 300, marginRight: 40 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
-        <Card title='Card title' bordered={true} style={{ width: 300, marginRight: 40 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
-      </DashContainer> */}
     </>
   );
 };

@@ -1,4 +1,4 @@
-import { CourseContainer } from './style'
+import { CourseContainer, CourseQuestionDiv, CourseText, CourseTitle } from './style'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react';
 import { requestSoloCourses } from '../../api/requestSoloCourse';
@@ -25,8 +25,9 @@ export const CoursePage = () => {
   return (
 
     <CourseContainer>
-      <p>{course.courseName}</p>
-      <Markdown>{content.text ? content.text : ''}</Markdown>
+      <CourseTitle>{course.courseName}</CourseTitle>
+      <CourseText><Markdown>{content.text ? content.text : ''}</Markdown></CourseText>
+      <CourseQuestionDiv></CourseQuestionDiv>
     </CourseContainer>
 
   )

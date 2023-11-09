@@ -85,6 +85,7 @@ export type TCourseContent = {
   text: string,
   question: TCourseQuestions[],
   image: string,
+  content: string
 }
 
 export type TCreateNewCourseApi = {
