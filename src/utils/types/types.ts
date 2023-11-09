@@ -1,4 +1,5 @@
 export type TUserSliceState = {
+  accessRoles: any;
   user: null | TUser;
   error: string;
   isLoading: boolean;
@@ -105,6 +106,6 @@ export type TCourse = {
   course: TCreateNewCourseApi
 }
 
-export interface IAfterLoginInfo = {
+// export interface IAfterLoginInfo = {
 
-}
+// }

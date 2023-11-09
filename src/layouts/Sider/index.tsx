@@ -20,7 +20,7 @@ type MenuItem = Required<MenuProps>['items'][number];
 
 const Slider = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const userRoles = useAppSelector((store) => store.auth.accessRoles)
+  const userRoles = useAppSelector((store) => store.user.user?.accessRoles)
   const checkUserRole = () => {
     if (userRoles?.includes("HR")) {return "HR"}
     return "USER"
