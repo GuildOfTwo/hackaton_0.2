@@ -4,20 +4,32 @@
 // import { useState } from 'react';
 // import SyntaxHighlighter from 'react-syntax-highlighter';
 // import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
-import { Button, Card, Checkbox, Col, Form, Input, Radio, Row, Space } from 'antd';
-import TextArea from 'antd/es/input/TextArea';
+import { Button, Card, Checkbox, Col, Form, Input, Radio, Row, Space, Tabs, TabsProps } from 'antd';
+
 import { CloseOutlined } from '@ant-design/icons';
-import { BlackLabel, FormList, FormSubText, Label } from './styled';
-import { TCreateNewCourse } from '../../utils/types/types';
-import { useEffect, useState } from 'react';
+import { BlackLabel, FormList, FormSubText, Label, TextAreaZone } from './styled';
+import { TCourse } from '../../utils/types/types';
+import { FC, useEffect, useState } from 'react';
 import { requestCategoriesCourse } from '../../api/requstCategories';
 import { useAppDispatch } from '../../hooks';
+import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
+import Markdown from 'react-markdown';
+import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { createNewCourse, сreateNewCourseContent } from '../../api/CreateNewCourseApi';
 
-// type MarkComponentProps = {
-//   value: any;
-//   language: any;
-// };
 
+
+const MarkComponent: FC<MarkComponentProps> = ({ value, language }) => {
+  return (
+    <SyntaxHighlighter language={language ?? null} style={docco}>
+      {value ?? ''}
+    </SyntaxHighlighter>
+  );
+};
+type MarkComponentProps = {
+  value: any;
+  language: any;
+};
 
 export type TCateegoriesCourse = {
   id: string,
@@ -28,20 +40,46 @@ export type TObjCourses = {
   courses: TCateegoriesCourse[]
 }
 
-export const NewCoursePage = () => {
-  // const [markdownInput, setMarkdownInput] = useState<string>();
 
+export const NewCoursePage = () => {
+
+  const [markdownInput, setMarkdownInput] = useState<string>()
   const dispatch = useAppDispatch()
 
-  const [categoriesCourse, setCategoriesCourse] = useState([{id: 1, name: 'Общие'},{id: 2, name: 'IT'},{id: 3, name: 'Продажи'},{id: 4, name: 'Водители'},])
+  const [categoriesCourse, setCategoriesCourse] = useState([{ id: 1, name: 'Общие' }, { id: 2, name: 'IT' }])
 
   useEffect(() => { requestCategoriesCourse().then((res) => setCategoriesCourse(res.data)) }, [])
 
+  const items: TabsProps['items'] = [
+    {
+      key: '1',
+      label: 'Черновик',
+      children: (<TextAreaZone rows={10} onChange={(e) => setMarkdownInput(e.target.value)} />),
+    },
+    {
+      key: '2',
+      label: 'Предпросмотр',
 
+      children: (<Markdown
+        children={markdownInput}
+        components={{
+          // @ts-ignore
+          code: MarkComponent,
+        }}
 
-  const onFinish = (values: TCreateNewCourse) => {
+      />),
+    },
+
+  ];
+
+  const onFinish = (values: TCourse) => {
     console.log(values);
+    createNewCourse(values).then((res: any) => сreateNewCourseContent(res.data, values))
+
+
   };
+
+
 
   const [form] = Form.useForm();
 
@@ -66,9 +104,9 @@ export const NewCoursePage = () => {
           <Checkbox.Group>
             <Row>
               {categoriesCourse?.map((i) => <Col span={8} key={i.id}>
-      <Checkbox value={i.id} style={{ lineHeight: '32px' }} >
-        {i.name}
-      </Checkbox></Col>)}
+                <Checkbox value={i.id} style={{ lineHeight: '32px' }} >
+                  {i.name}
+                </Checkbox></Col>)}
             </Row>
           </Checkbox.Group>
         </Form.Item>
@@ -84,10 +122,12 @@ export const NewCoursePage = () => {
           name={['course', 'courseDuration']}
         >
           <Radio.Group>
-            <Radio value="1"> 1 день </Radio>
-            <Radio value="2"> 2 дня </Radio>
+            <Radio value="1"> 1 неделя </Radio>
+            <Radio value="2"> 2 недели </Radio>
+            <Radio value="3"> месяц </Radio>
           </Radio.Group>
         </Form.Item>
+
 
         <Form.Item
           name={['course', 'CourseContent', 'text']}
@@ -99,18 +139,23 @@ export const NewCoursePage = () => {
                 href='https://texterra.ru/blog/ischerpyvayushchaya-shpargalka-po-sintaksisu-razmetki-markdown-na-zametku-avtoram-veb-razrabotchikam.html'
                 target='_blank'
                 rel='noreferrer'
+                style={{ textDecoration: 'underline' }}
               >
-                Шпаргалка
+                Шпаргалка(ссылка)
               </a>
             </Label>
+
           }
         >
-          <TextArea rows={10} />
+          <div style={{ margin: '0 auto' }}>
+            <Tabs defaultActiveKey="1" items={items} />
+          </div>
         </Form.Item>
+
         <FormSubText>
-          Перевести Wrod файл в marcdown, поможет сервис{' '}
-          <a href='https://www.wordize.com/word-to-markdown/' target='_blank' rel='noreferrer'>
-            WORDIZE
+          Перевести Word файл в markdown, поможет сервис{' '}
+          <a href='https://www.wordize.com/word-to-markdown/' style={{ textDecoration: 'underline' }} target='_blank' rel='noreferrer'>
+            WORDIZE(ссылка)
           </a>
         </FormSubText>
 
@@ -145,7 +190,7 @@ export const NewCoursePage = () => {
                                 <Input placeholder='Вариант ответа' style={{ width: 300 }} />
                               </Form.Item>
                               <Form.Item
-                                label={<Label>Укажите верный</Label>}
+                                label={<Label>Укажите верный ответ</Label>}
                                 name={[subField.name, 'correct']}
                                 valuePropName='checked'
                                 style={{ marginBottom: '0' }}
@@ -177,8 +222,8 @@ export const NewCoursePage = () => {
         </Form.List>
 
         <Form.Item style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
-          <Button type='primary' htmlType='submit'>
-            Submit
+          <Button type='primary' htmlType='submit' >
+            <p style={{color: 'white'}}>Загрузить курс</p>
           </Button>
         </Form.Item>
       </Form>
@@ -186,10 +231,3 @@ export const NewCoursePage = () => {
   );
 };
 
-// const MarkComponent: FC<MarkComponentProps> = ({ value, language }) => {
-//   return (
-//     <SyntaxHighlighter language={language ?? null} style={docco}>
-//       {value ?? ''}
-//     </SyntaxHighlighter>
-//   );
-// };

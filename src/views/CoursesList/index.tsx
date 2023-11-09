@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import styled from 'styled-components';
 import { Card } from 'antd';
 import Markdown from 'react-markdown';
@@ -14,8 +15,8 @@ export const CoursesList = () => {
   `;
 
   return (
-    <>
-      <DashContainer>
+    <><p>Курс лист пока закомитил, из-за него ререндер</p>
+      {/* <DashContainer>
         <BorderColors>
           <Card title='Card title' bordered={false} style={{ width: 300 }}>
             <Markdown>{MARKDOWN_TEMPLATE}</Markdown>
@@ -31,7 +32,7 @@ export const CoursesList = () => {
           <p>Card content</p>
           <p>Card content</p>
         </Card>
-      </DashContainer>
+      </DashContainer> */}
     </>
   );
 };
