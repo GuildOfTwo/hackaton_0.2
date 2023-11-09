@@ -41,7 +41,6 @@ export const Modal: FC<IModalProps> = () => {
         {modal.isOpen ? (
           <ModalOoverlay
             onClick={(e) => {
-              console.log(e.target);
               e.stopPropagation(), dispatch(closeModalWindow());
             }}
           >

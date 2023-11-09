@@ -1,5 +1,7 @@
 export const errorHandler = (error: number) => {
   switch (error) {
+    case 400:
+      return 'Ошибка запроса';
     case 401:
       return 'Неверный логин или пароль';
     case 403:
