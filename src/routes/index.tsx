@@ -39,6 +39,8 @@ const AppRoutes = () => {
         />
         <Route path={SubPage.PROJECT_MANAGMENT_COURSE} element={<RouteForLoggedUser element={<CoursesList />} />}
         />
+        <Route path={SubPage.FOR_ALL} element={<RouteForLoggedUser element={<CoursesList />} />}
+        />
 
         <Route path={Page.NEW_COURSE} element={<RouteForHROnly element={<NewCoursePage />} />} />
 

@@ -223,7 +223,7 @@ export const NewCoursePage = () => {
 
         <Form.Item style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
           <Button type='primary' htmlType='submit' >
-            <p style={{color: 'white'}}>Загрузить курс</p>
+            <p style={{ color: 'white' }}>Загрузить курс</p>
           </Button>
         </Form.Item>
       </Form>

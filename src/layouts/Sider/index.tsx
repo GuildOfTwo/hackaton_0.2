@@ -29,13 +29,14 @@ const Slider = () => {
   //TODO: цвет меню должен зависить от темы глобальной
   const itemsForUser: MenuItem[] = [
     getItem(<Link to={Page.DASHBOARD}>Dashboard</Link>, '1', <PieChartOutlined />),
-    getItem('Все курсы', '2', <DesktopOutlined />, [
+    getItem('Курсы', '2', <DesktopOutlined />, [
       getItem(<Link to={Page.ALL_COURSES}>Все курсы</Link>, '20'),
       getItem(<Link to={SubPage.MANAGMENT_COURSE}>Управление</Link>, '21'),
       getItem(<Link to={SubPage.ENGINEERING_COURSE}>Программирование</Link>, '22'),
       getItem(<Link to={SubPage.CLIENT_SERVICE_COURSE}>Продажи</Link>, '23'),
       getItem(<Link to={SubPage.DESIGN_COURSE}>Дизайн</Link>, '24'),
       getItem(<Link to={SubPage.PROJECT_MANAGMENT_COURSE}>Управление проектами</Link>, '25'),
+      getItem(<Link to={SubPage.FOR_ALL}>Для всех</Link>, '26'),
     ]),
     getItem(
       <Link to={Page.SELECTED_COURSES}>Назначенные курсы</Link>,

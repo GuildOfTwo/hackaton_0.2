@@ -15,6 +15,7 @@ export const ALL_USER_STATS_URI = 'user-stats';
 export const PROJECT_MANAGMENT_COURSE_URI = 'product-managment';
 export const NEW_COURSE_URI = 'add-new-course';
 export const CREATE_USER_URI = 'create-user';
+export const FOR_ALL_URI = 'courses-for-all'
 
 export const Page = {
   MAIN: MAIN_PAGE_URI,
@@ -36,4 +37,5 @@ export const SubPage = {
   DESIGN_COURSE: DESIGN_COURSE_URI,
   CLIENT_SERVICE_COURSE: CLIENT_SERVICE_COURSE_URI,
   PROJECT_MANAGMENT_COURSE: PROJECT_MANAGMENT_COURSE_URI,
+  FOR_ALL: FOR_ALL_URI
 };
