@@ -1,13 +1,22 @@
-export type userSliceState = {
+export type TUserSliceState = {
   user: null | TUser;
   error: string;
   isLoading: boolean;
-  isAuth: boolean;
 };
 
 export type TUser = {
+  id: number;
+  firstSignIn: boolean;
   name: string;
   email: string;
+  phoneNumber:string;
+  mentor: string;
+  departament:string;
+  director: string;
+  firstName: string,
+  lastName: string,
+  roles: Array<string>,
+  accessRoles: Array<string>
 };
 
 export type TThemeProps = {
@@ -94,4 +103,8 @@ export type TCreateNewCourseApi = {
 
 export type TCourse = {
   course: TCreateNewCourseApi
+}
+
+export interface IAfterLoginInfo = {
+
 }

@@ -9,9 +9,8 @@ import { useAppSelector } from '../../hooks';
 
 const ProtectedRoute = ({ onlyForLogged = true, element, userType }: TProtectedRoute) => {
   const isLogin = useAppSelector((store) => store.auth.isLogin);
-  const userRoles = useAppSelector((store) => store.auth.accessRoles)
+  const userRoles = useAppSelector((store) => store.user.user?.accessRoles);
   const userRole = userRoles?.find(item => item === `${userType}`);
-  console.log(userRole === userType)
   const location = useLocation();
 
   if (!userType && !onlyForLogged && isLogin) {
@@ -43,5 +42,5 @@ export const RouteForLoggedUser = (props: TProtectedRouteByLoggin) => (
   <ProtectedRoute onlyForLogged={true} {...props} />
 );
 export const RouteForHROnly = (props: TProtectedRouteByPower) => (
-  <ProtectedRoute onlyForLogged={true} userType={'user'} {...props} />
+  <ProtectedRoute onlyForLogged={true} userType={'HR'} {...props} />
 );
