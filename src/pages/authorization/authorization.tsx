@@ -9,6 +9,7 @@ import { DASHBOARD_URI } from '../../utils/constants/navigation';
 import { errorHandler } from '../../utils/errorHandler';
 import { FieldType, ValuesType } from '../../utils/types/types';
 import { Label } from '../../views/NewCourse/styled';
+import { setLoginInfo } from '../../store/user';
 
 export const Authorization: FC = () => {
   const dispatch = useAppDispatch();
@@ -19,18 +20,23 @@ export const Authorization: FC = () => {
     loginRequest(values.username, values.password)
       .then((res) => res.data)
       .then((res) =>
-        dispatch(
-          login({
-            user: {
-              firstName: res.firstName,
-              lastName: res.lastName,
-              roles: res.roles,
-              email: res.email,
-            },
-            accessRoles: res.accessRoles,
-          })
-        )
-      )
+       ( dispatch(
+          login(),
+          ),
+          dispatch(setLoginInfo({id: res.id,
+            firstName: res.firstName,
+            lastName: res.lastName,
+            roles: res.roles,
+            firstSignIn: res.firstSignIn,
+            name: res.name,
+            email: res.email,
+            phoneNumber: res.phoneNumber,
+            mentor: res.mentor,
+            departament: res.departament,
+            director: res.director,
+            accessRoles: res.accessRoles
+          }))
+      ))
       .then(() => navigate(`/${DASHBOARD_URI}`))
       .catch((error) => setError(error.response.status));
   };

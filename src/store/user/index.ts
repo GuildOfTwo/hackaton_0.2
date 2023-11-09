@@ -1,19 +1,20 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { userSliceState } from '../../utils/types/types';
+import { TUser, TUserSliceState } from '../../utils/types/types';
 
-const initialState: userSliceState = {
+const initialState: TUserSliceState = {
   user: null,
   error: '',
   isLoading: false,
-  isAuth: false,
 };
 
 const userSlice = createSlice({
   name: 'user',
   initialState,
-  reducers: {},
+  reducers: {
+    setLoginInfo: (state: TUserSliceState, action: { payload: TUser; type: string }) => {
+      state.user = {...action.payload }
+  }}
 });
 
-export const {} = userSlice.actions;
-
+export const { setLoginInfo } = userSlice.actions;
 export default userSlice.reducer;
