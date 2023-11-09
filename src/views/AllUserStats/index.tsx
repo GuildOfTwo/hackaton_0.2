@@ -3,6 +3,7 @@ import { FC, useState } from 'react';
 import { dataFirst } from './data';
 import { BarChart } from '../../components/BarChart/BarChart';
 import styled from 'styled-components';
+import { Table } from '../../components/charts/Table';
 
 const ChartDiv = styled.div`
   display: flex;
@@ -26,6 +27,16 @@ export const AllUserStats: FC = () => {
       <ChartDiv style={{ margin: '0 auto' }}>
         <BarChart chartData={basicCourseTime} />
       </ChartDiv>
+    </div>
+  );
+};
+
+export const AllUserStats2: FC = () => {
+
+
+  return (
+    <div style={{ margin: '0 auto' }}>
+      <Table />
     </div>
   );
 };

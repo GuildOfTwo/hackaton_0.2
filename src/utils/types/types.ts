@@ -12,7 +12,7 @@ export type TUser = {
   email: string;
   phoneNumber:string;
   mentor: string;
-  departament:string;
+  departament: string;
   director: string;
   firstName: string,
   lastName: string,
