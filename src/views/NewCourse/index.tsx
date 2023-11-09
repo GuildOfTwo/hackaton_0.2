@@ -8,13 +8,14 @@ import { Button, Card, Checkbox, Col, Form, Input, Radio, Row, Space, Tabs, Tabs
 
 import { CloseOutlined } from '@ant-design/icons';
 import { BlackLabel, FormList, FormSubText, Label, TextAreaZone } from './styled';
-import { TCreateNewCourse } from '../../utils/types/types';
+import { TCourse } from '../../utils/types/types';
 import { FC, useEffect, useState } from 'react';
 import { requestCategoriesCourse } from '../../api/requstCategories';
 import { useAppDispatch } from '../../hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
 import Markdown from 'react-markdown';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
+import { createNewCourse, сreateNewCourseContent } from '../../api/CreateNewCourseApi';
 
 
 
@@ -71,9 +72,14 @@ export const NewCoursePage = () => {
 
   ];
 
-  const onFinish = (values: TCreateNewCourse) => {
+  const onFinish = (values: TCourse) => {
     console.log(values);
+    createNewCourse(values).then((res: any) => сreateNewCourseContent(res.data, values))
+
+
   };
+
+
 
   const [form] = Form.useForm();
 

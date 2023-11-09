@@ -27,28 +27,28 @@ export const CreateUser: React.FC = () => {
             },
             { required: true, message: 'Login is required' },
           ]}
-          label={<Label>Login</Label>}
+          label={<Label>Логин</Label>}
         >
-          <Input placeholder='email' />
+          <Input placeholder='Логин(Email)' />
         </Form.Item>
         <Form.Item
           name={['user', 'password']}
           rules={[{ required: true, message: 'Password is required' }]}
-          label={<Label>Password</Label>}
+          label={<Label>Пароль</Label>}
         >
-          <Input placeholder='password' />
+          <Input placeholder='Пароль' />
         </Form.Item>
         <Form.Item
           name={['user', 'firstName']}
           rules={[{ required: true, message: 'FirstName is required' }]}
-          label={<Label>Name</Label>}
+          label={<Label>Имя</Label>}
         >
           <Input placeholder='имя' />
         </Form.Item>
         <Form.Item
           name={['user', 'lastName']}
           rules={[{ required: true, message: 'LastName is required' }]}
-          label={<Label>LastName</Label>}
+          label={<Label>Фамилия</Label>}
         >
           <Input placeholder='фамилия' />
         </Form.Item>

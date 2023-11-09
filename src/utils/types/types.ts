@@ -70,3 +70,28 @@ export type TProtectedRouteByLoggin = {
 export type TProtectedRouteByPower = {
   element: JSX.Element;
 };
+
+export type TAnswersCourse = {
+  answer: [string, boolean]
+}
+
+export type TCourseQuestions = {
+  name: string,
+  answers:TAnswersCourse[]
+}
+
+export type TCourseContent = {
+  text: string,
+  question: TCourseQuestions[]
+}
+
+export type TCreateNewCourseApi = {
+  name: string,
+  courseDuration: string,
+  CourseContent:TCourseContent[],
+  type: number[]
+}
+
+export type TCourse = {
+  course: TCreateNewCourseApi
+}
