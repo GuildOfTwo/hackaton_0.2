@@ -81,8 +81,10 @@ export type TCourseQuestions = {
 }
 
 export type TCourseContent = {
+  id?: number,
   text: string,
-  question: TCourseQuestions[]
+  question: TCourseQuestions[],
+  image: string,
 }
 
 export type TCreateNewCourseApi = {
@@ -94,4 +96,16 @@ export type TCreateNewCourseApi = {
 
 export type TCourse = {
   course: TCreateNewCourseApi
+}
+
+export type TSelectCourse = {
+  id: number,
+  courseName: string,
+  categoryId: number,
+  courseDuration: number,
+  CourseContent: TCourseContent[],
+}
+
+export type TAllCourse = {
+  allCourse: TSelectCourse[]
 }
