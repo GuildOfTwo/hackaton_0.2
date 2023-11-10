@@ -29,13 +29,12 @@ const ProfileEdit = () => {
     setNoNDisabledTelegram(true);
     setNoNDisabledPhone(true);
     userInfo &&
-      profileEditPatch(fieldsValue.telegram, fieldsValue.Phone, DateOfBirth, userInfo.id)
-        .then((res) => console.log(res))
-        .catch((error) => setError(error.response.status));
+      profileEditPatch(fieldsValue.telegram, fieldsValue.Phone, DateOfBirth, userInfo.id).catch(
+        (error) => setError(error.response.status)
+      );
   };
   const DateOfBirth = new Date(dayjs(userInfo?.birthday).format('YYYY/MM/DD'));
   const theme = useAppSelector((store) => store.theme.theme);
-  console.log(userInfo);
   if (userInfo)
     return (
       <ConfigProvider

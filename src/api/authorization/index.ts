@@ -10,8 +10,3 @@ export const loginRequest = (email: string, password: string) => {
     { withCredentials: true }
   );
 };
-
-
-export const getMe = () => {
-  return backendInstance.get('/users/me ')
-}

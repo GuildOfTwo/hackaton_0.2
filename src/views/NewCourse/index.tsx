@@ -71,7 +71,6 @@ export const NewCoursePage = () => {
   ];
 
   const onFinish = (values: TCourse) => {
-    console.log(values);
     createNewCourse(values).then((res: any) => сreateNewCourseContent(res.data, values));
     form.resetFields();
   };
