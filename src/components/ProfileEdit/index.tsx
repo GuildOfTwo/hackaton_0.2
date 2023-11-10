@@ -117,7 +117,7 @@ const ProfileEdit = () => {
           initialValues={{
             Telegram: `${userInfo.telegram && userInfo.telegram}`,
             phone: `${userInfo.phoneNumber && userInfo.phoneNumber}`,
-            DateOfBirth: `${userInfo.birthday && dayjs(`${userInfo?.birthday}`, 'YYYY-MM-DD')}`,
+            // DateOfBirth: `${userInfo.birthday && dayjs(`${userInfo?.birthday}`, 'YYYY-MM-DD')}`,
           }}
         >
           <ItemWrapper>
