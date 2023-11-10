@@ -5,6 +5,6 @@ export const firstSignInPatch = (userID:number, phone: string, telegram: string)
   return backendInstance.patch(`/users/${userID}`, {
     firstSignIn: false,
     phone: phone,
-    // telegram: telegram
+    telegram: telegram
   });
 };

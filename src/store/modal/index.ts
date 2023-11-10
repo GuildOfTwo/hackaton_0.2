@@ -23,7 +23,6 @@ const modalSlice = createSlice({
     },
     closeModalWindow(state: IModalState) {
       state.isOpen = false;
-      state.type = '';
     },
   },
 });

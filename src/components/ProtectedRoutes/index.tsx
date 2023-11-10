@@ -20,15 +20,15 @@ const ProtectedRoute = ({ onlyForLogged = true, element, userType }: TProtectedR
   }
 
   if (!userType && onlyForLogged && !isLogin) {
-      return <Navigate to={`/${AUTHORIZATION_URI}`} state={{ from: location }} />;
+    return <Navigate to={`/${AUTHORIZATION_URI}`} state={{ from: location }} />;
   }
 
   if (!userType && onlyForLogged && isLogin) {
-      return element;
+    return element;
   }
 
   if (userType && onlyForLogged && userRole !== `${userType}`) {
-    const { from } = location.state || { from: { pathname: `/${DASHBOARD_URI}`  } };
+    const { from } = location.state || { from: { pathname: `/${DASHBOARD_URI}` } };
     return <Navigate to={from} />;
   }
 

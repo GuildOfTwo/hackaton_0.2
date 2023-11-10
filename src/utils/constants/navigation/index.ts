@@ -15,7 +15,7 @@ export const ALL_USER_STATS_URI = 'user-stats';
 export const PROJECT_MANAGMENT_COURSE_URI = 'product-managment';
 export const NEW_COURSE_URI = 'add-new-course';
 export const CREATE_USER_URI = 'create-user';
-export const FOR_ALL_URI = 'courses-for-all'
+export const FOR_ALL_URI = 'courses-for-all';
 export const COURSE_URI = 'course/:id';
 
 export const Page = {
