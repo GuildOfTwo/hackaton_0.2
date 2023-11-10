@@ -9,11 +9,7 @@ import { Authorization } from '../pages/authorization/authorization';
 import { AllUserStats } from '../views/AllUserStats/index';
 import { NewCoursePage } from '../views/NewCourse';
 import { CreateUser } from '../views/CreateUser/CreateUser';
-import {
-  RouteForHROnly,
-  RouteForLoggedUser,
-  RouteForNonLoggedUser,
-} from '../components/ProtectedRoutes';
+import { RouteForHROnly, RouteForLoggedUser, RouteForNonLoggedUser } from '../hoc';
 import { CoursePage } from '../views/CoursePage';
 import { SelectedCourses } from '../views/SelectedCourses';
 
