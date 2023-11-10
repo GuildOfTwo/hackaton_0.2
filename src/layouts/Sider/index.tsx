@@ -27,7 +27,6 @@ const Slider = () => {
     }
     return 'USER';
   };
-  console.log(checkUserRole());
   //TODO: цвет меню должен зависить от темы глобальной
   const itemsForUser: MenuItem[] = [
     getItem(<Link to={Page.DASHBOARD}>Dashboard</Link>, '1', <PieChartOutlined />),

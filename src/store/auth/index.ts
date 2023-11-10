@@ -18,11 +18,14 @@ export const authSlice = createSlice({
     login: (state: IAuthState) => {
       state.isLogin = true;
     },
+    getUser: (state: IAuthState) => {
+      state.isLogin = true;
+    },
     logout: () => {},
   },
 });
 
-export const { logout, login } = authSlice.actions;
+export const { logout, login, getUser } = authSlice.actions;
 export const getAuthStatus = (state: IAuthState) => state.isLogin;
 
 export default authSlice.reducer;
