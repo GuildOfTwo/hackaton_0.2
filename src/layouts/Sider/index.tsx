@@ -13,7 +13,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MainSider, SliderButton, SliderMenu, SliderWrapper, UserWrapper } from './styled';
 import { Page, SubPage } from '../../utils/constants/navigation';
-import { UserCard } from '../../components/userCard';
+import { ThemeToggleBar } from '../../components/userCard';
 import { useAppSelector } from '../../hooks';
 
 type MenuItem = Required<MenuProps>['items'][number];
@@ -75,7 +75,11 @@ const Slider = () => {
           items={checkUserRole() === 'HR' ? itemsForHR : itemsForUser}
         />
         <UserWrapper>
-          {collapsed ? <UserOutlined onClick={() => setCollapsed(!collapsed)} /> : <UserCard />}
+          {collapsed ? (
+            <UserOutlined onClick={() => setCollapsed(!collapsed)} />
+          ) : (
+            <ThemeToggleBar />
+          )}
         </UserWrapper>
       </MainSider>
 
