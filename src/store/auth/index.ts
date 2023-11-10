@@ -3,7 +3,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 // utils
 
-
 interface IAuthState {
   isLogin: boolean;
 }
@@ -19,7 +18,7 @@ export const authSlice = createSlice({
     login: (state: IAuthState) => {
       state.isLogin = true;
     },
-    logout: (state: IAuthState) => {},
+    logout: () => {},
   },
 });
 

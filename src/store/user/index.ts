@@ -5,6 +5,7 @@ const initialState: TUserSliceState = {
   user: null,
   error: '',
   isLoading: false,
+  accessRoles: [],
 };
 
 const userSlice = createSlice({
@@ -12,12 +13,13 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setLoginInfo: (state: TUserSliceState, action: { payload: TUser; type: string }) => {
-      state.user = {...action.payload }
-  },
-    setFirstSignInFalse: (state: TUserSliceState ) => {
+      state.user = { ...action.payload };
+    },
+    setFirstSignInFalse: (state: TUserSliceState) => {
       if (state.user !== null) state.user.firstSignIn = false;
-}},
+    },
+  },
 });
 
-export const { setLoginInfo, setFirstSignInFalse }  = userSlice.actions;
+export const { setLoginInfo, setFirstSignInFalse } = userSlice.actions;
 export default userSlice.reducer;

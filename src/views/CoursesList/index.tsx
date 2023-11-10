@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-import { Card } from 'antd';
 import {
   AddCourseDiv,
   CardContainer,

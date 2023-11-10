@@ -11,11 +11,11 @@ import { closeModalWindow, openModalWindow } from '../store/modal';
 import { getMe } from '../api/authorization';
 
 const App: React.FC = () => {
-  getMe().then(res => console.log(res));
+  getMe().then((res) => console.log(res));
   const dispatch = useAppDispatch();
-  const isFirstTimeLogin = useAppSelector(store => store.user.user?.firstSignIn)
+  const isFirstTimeLogin = useAppSelector((store) => store.user.user?.firstSignIn);
   const setThemeOnLoad = () => {
-     if (getTheme() === 'dark') {
+    if (getTheme() === 'dark') {
       dispatch(setDarkTheme());
     }
     if (getTheme() === 'default') {
@@ -29,10 +29,10 @@ const App: React.FC = () => {
   }, [location]);
 
   React.useEffect(() => {
-    isFirstTimeLogin && dispatch(openModalWindow({type: "welcomeModal"}));
-    dispatch(closeModalWindow({type: "welcomeModal"}));
+    isFirstTimeLogin && dispatch(openModalWindow({ type: 'welcomeModal' }));
+    dispatch(closeModalWindow());
   }, []);
-  
+
   React.useEffect(() => {
     setThemeOnLoad();
   }, []);
