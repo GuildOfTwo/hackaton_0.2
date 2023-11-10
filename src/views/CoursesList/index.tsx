@@ -1,5 +1,4 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Card } from 'antd';
 import {
   AddCourseDiv,
   CardContainer,
@@ -13,14 +12,18 @@ import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
+import { useLocation } from 'react-router';
 // import { useAppDispatch, useAppSelector } from '../../hooks';
 
 export const CoursesList = () => {
   // const dispatch = useAppDispatch()
 
+  const location = useLocation();
+  console.log(location.pathname);
+
   const [allCourses, setAllCourses] = useState([]);
 
-  // Ниже надо получить все курсы юзера
+  // Ниже надо получить все курсы юзера и юзер айди
   // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
 
   const userCourses = [38, 39, 40];
