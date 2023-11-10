@@ -24,7 +24,9 @@ export const authSlice = createSlice({
     getUser: (state: IAuthState) => {
       state.isLogin = true;
     },
-    logout: () => {},
+    logout: (state: IAuthState) => {
+      state.isLogin = false;
+    },
   },
   extraReducers: (builder) => {
     builder
