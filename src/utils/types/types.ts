@@ -16,7 +16,12 @@ export type TUser = {
   firstName: string,
   lastName: string,
   roles: Array<string>,
-  accessRoles: Array<string>
+  accessRoles: Array<string>,
+  telegram: string,
+  birthday: Date;
+  mentor_tg: string;
+  middleName: string;
+  post: string;
 };
 
 export type TThemeProps = {
@@ -105,6 +110,9 @@ export type TCourse = {
   course: TCreateNewCourseApi
 }
 
-export interface IAfterLoginInfo = {
 
-}
+export type TProfileFieldType = {
+  Telegram?: string;
+  Phone?: string;
+  DateOfBirth: string;
+};
