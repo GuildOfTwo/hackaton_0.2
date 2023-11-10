@@ -35,7 +35,6 @@ const ProfileEdit = () => {
   };
   const DateOfBirth = new Date(dayjs(userInfo?.birthday).format('YYYY/MM/DD'));
   const theme = useAppSelector((store) => store.theme.theme);
-  console.log(userInfo);
   if (userInfo)
     return (
       <ConfigProvider

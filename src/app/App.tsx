@@ -9,14 +9,16 @@ import { useAppDispatch, useAppSelector } from '../hooks';
 import { setDarkTheme, setDefaultTheme } from '../store/theme';
 import { closeModalWindow, openModalWindow } from '../store/modal';
 import { getUserOnLoad } from '../api/getUserOnLoad/getUserOnLoad';
-import { getUser } from '../store/auth';
 import { setUserOnLoad } from '../store/user';
-import { LOGIN_PAGE_URI } from '../utils/constants/navigation';
+import { AUTHORIZATION_URI } from '../utils/constants/navigation';
+import { GET_USER_ON_LOAD } from '../store/auth/actions';
+import { Preloader } from '../components/preloader';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
   const isFirstTimeLogin = useAppSelector((store) => store.user.user?.firstSignIn);
   const isLogin = useAppSelector((store) => store.auth.isLogin);
+  const isLoading = useAppSelector((store) => store.auth.isLoading);
   const setThemeOnLoad = () => {
     if (getTheme() === 'dark') {
       dispatch(setDarkTheme());
@@ -44,7 +46,7 @@ const App: React.FC = () => {
       .then((res) => res.data)
       .then(
         (res) => (
-          dispatch(getUser),
+          dispatch(GET_USER_ON_LOAD()),
           dispatch(
             setUserOnLoad({
               avatar: res.avatar,
@@ -64,13 +66,17 @@ const App: React.FC = () => {
               middleName: res.middleName,
               post: res.post,
             })
-          ),
-          console.log(res)
+          )
         )
       )
-      .catch((error) => (console.log(error), navigate(LOGIN_PAGE_URI)));
+      .catch((error) => (console.log(error), navigate(AUTHORIZATION_URI)));
   };
-  !isLogin && checkUser();
+
+  React.useEffect(() => {
+    !isLogin && checkUser();
+  }, []);
+
+  if (isLoading === 'GET_USER_ON_LOAD/pending') return <Preloader />;
   return (
     <>
       <Theme>

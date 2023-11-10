@@ -1,14 +1,17 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { createSlice } from '@reduxjs/toolkit';
+import { GET_USER_ON_LOAD } from './actions';
 // utils
 
 interface IAuthState {
   isLogin: boolean;
+  isLoading: string;
 }
 
 const initialState: IAuthState = {
   isLogin: false,
+  isLoading: 'negative',
 };
 
 export const authSlice = createSlice({
@@ -22,6 +25,18 @@ export const authSlice = createSlice({
       state.isLogin = true;
     },
     logout: () => {},
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(GET_USER_ON_LOAD.fulfilled, (state, action) => {
+        (state.isLogin = true), (state.isLoading = action.type);
+      })
+      .addCase(GET_USER_ON_LOAD.pending, (state, action) => {
+        (state.isLogin = false), (state.isLoading = action.type);
+      })
+      .addCase(GET_USER_ON_LOAD.rejected, (state, action) => {
+        (state.isLogin = false), (state.isLoading = action.type);
+      });
   },
 });
 
