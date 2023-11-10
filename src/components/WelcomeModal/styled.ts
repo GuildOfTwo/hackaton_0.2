@@ -27,3 +27,9 @@ export const ButtonWrapper = styled(Space)`
   display: flex;
   justify-content: center;
 `;
+
+export const ErrorMessage = styled.p`
+  text-align: center;
+  color: red;
+  font-weight: 900;
+`;

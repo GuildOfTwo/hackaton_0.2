@@ -5,14 +5,14 @@ import { AppStyles } from './styled';
 import { useLocation, useNavigate } from 'react-router-dom';
 import Theme from '../components/Theme/Theme';
 import { getTheme } from '../utils/theme';
-import { useAppDispatch } from '../hooks';
+import { useAppDispatch, useAppSelector } from '../hooks';
 import { setDarkTheme, setDefaultTheme } from '../store/theme';
-import { DASHBOARD_URI } from '../utils/constants/navigation';
-// import { openModalWindow } from '../store/modal';
+import { openModalWindow } from '../store/modal';
 
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
-  // dispatch(openModalWindow({type: "welcomeModal"}));
+  const isFirstTimeLogin = useAppSelector(store => store.user.user?.firstSignIn)
+  isFirstTimeLogin && dispatch(openModalWindow({type: "welcomeModal"}));
   const setThemeOnLoad = () => {
      if (getTheme() === 'dark') {
       dispatch(setDarkTheme());

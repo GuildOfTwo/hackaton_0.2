@@ -1,13 +1,23 @@
-export type userSliceState = {
+export type TUserSliceState = {
+  accessRoles: any;
   user: null | TUser;
   error: string;
   isLoading: boolean;
-  isAuth: boolean;
 };
 
 export type TUser = {
+  id: number;
+  firstSignIn: boolean;
   name: string;
   email: string;
+  phoneNumber:string;
+  mentor: string;
+  departament:string;
+  director: string;
+  firstName: string,
+  lastName: string,
+  roles: Array<string>,
+  accessRoles: Array<string>
 };
 
 export type TThemeProps = {
@@ -72,7 +82,8 @@ export type TProtectedRouteByPower = {
 };
 
 export type TAnswersCourse = {
-  answer: [string, boolean]
+  answer: string,
+  correct: boolean
 }
 
 export type TCourseQuestions = {
@@ -110,3 +121,8 @@ export type TSelectCourse = {
 export type TAllCourse = {
   allCourse: TSelectCourse[]
 }
+
+
+// export interface IAfterLoginInfo = {
+
+// }

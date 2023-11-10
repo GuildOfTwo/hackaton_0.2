@@ -24,6 +24,24 @@ border: 10px double green;
 margin-right: 40px;
 `;
 
-export const CourseCardImg = styled.div`
-object-fit: cover;
-`;
+export const CourseTitle = styled.p`
+  /* color: ${(props) => props.theme.textcolor}; */
+  color: black;
+  font-family: 'TildaSans';
+  font-weight: 600;
+  `;
+
+export const CourseCardButtonContainer = styled.div`
+  display: flex;
+  justify-content: space-between;
+  `;
+
+export const CorseCardDoneDiv = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: green;
+  margin-right: 20px;
+  border-radius: 10%;
+  padding: 8px;
+  `;

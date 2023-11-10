@@ -19,4 +19,11 @@ export const CourseText = styled.p`
 export const CourseQuestionDiv = styled.div`
 min-height: 40px;
 width: 100%;
+margin-top: 50px;
+`;
+
+export const Label = styled.div`
+  color: ${(props) => props.theme.textcolor};
+  font-family: 'TildaSans';
+  font-weight: 500;
 `;
