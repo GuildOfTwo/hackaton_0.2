@@ -5,11 +5,20 @@ import { ButtonPopover, HeaderWrapper } from './styled';
 import { Link } from 'react-router-dom';
 import { Page } from '../../utils/constants/navigation';
 import { MAIN_PAGE_URI } from '../../utils/constants/navigation';
+import { requestLogout } from '../../api/requestLogout';
+import { useAppDispatch, useAppSelector } from '../../hooks';
+import { logout } from '../../store/auth';
 
 const Header = () => {
+  const dispatch = useAppDispatch();
+  const handleLogout = () => {
+    requestLogout().then(() => dispatch(logout()));
+  };
+  const isLogin = useAppSelector((store) => store.auth.isLogin);
   const content = (
     <Link to={Page.AUTHORIZATION}>
-      <ButtonPopover>Выйти</ButtonPopover>
+      {isLogin && <ButtonPopover onClick={handleLogout}>Выйти</ButtonPopover>}
+      {!isLogin && <ButtonPopover onClick={handleLogout}>Войти</ButtonPopover>}
     </Link>
   );
   return (
