@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import { Button, Form, DatePicker } from 'antd';
 import Input from 'antd/es/input/Input';
+import FormItem from 'antd/es/form/FormItem';
 
 export const ProfileEditWrapper = styled.div`
   display: flex;
@@ -10,7 +11,6 @@ export const ProfileEditWrapper = styled.div`
   margin-top: 100px;
   font-size: 17px;
   font-weight: 500;
-  color: ${(props) => props.theme.textcolor};
 `;
 export const ItemWrapper = styled.div`
   display: grid;
@@ -26,26 +26,22 @@ export const PWrapper = styled.div`
   gap: 20px 20px;
   margin-bottom: 20px;
   margin-top: 20px;
+  color: yellow;
 `;
 
 export const StyledInput = styled(Input)`
-  background-color: ${(props) => props.theme.background};  &:disabled {
-    background-color:  #2D384A;
-  };
-  color: ${(props) => props.theme.textcolor2};&:disabled {
+  background-color: ${(props) => props.theme.background};
+  &:disabled {
+    background-color: ${(props) => props.theme.backgroundColor2};
+  }
+  color: ${(props) => props.theme.textcolor2};
+  &:disabled {
     color: ${(props) => props.theme.textcolor2};
-  };
+  }
 `;
 
+export const StyledDatePicker = styled(DatePicker)``;
 
-export const StyledDatePicker = styled(DatePicker)`
-  background-color: ${(props) => props.theme.background};  &:disabled {
-    background-color:  white;
-  };
-  color: ${(props) => props.theme.textcolor2};&:disabled {
-    color: ${(props) => props.theme.textcolor2};
-  };
-`;
 export const EditButton = styled(Button)`
   max-width: max-content;
   align-self: center;
@@ -56,14 +52,13 @@ export const StyledForm = styled(Form)`
   flex-direction: column;
   justify-content: center;
 `;
+
+export const StyledFormItem = styled(FormItem)``;
+
 export const ErrorMessage = styled.p`
   text-align: center;
   color: red;
   font-weight: 900;
-`;
-
-export const ResetButton = styled(Button)`
-  background-color: ${(props) => props.theme.backgroundColor1};
 `;
 
 export const Label = styled.label`

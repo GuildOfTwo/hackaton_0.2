@@ -1,5 +1,4 @@
 export type TUserSliceState = {
-  accessRoles: Array<string>;
   user: null | TUser;
   error: string;
   isLoading: boolean;
@@ -7,13 +6,12 @@ export type TUserSliceState = {
 
 export type TUser = {
   id: number;
+  avatar: string;
   firstSignIn: boolean;
-  name: string;
   email: string;
   phoneNumber: string;
   mentor: string;
-  departament: string;
-  director: string;
+  department: string;
   firstName: string;
   lastName: string;
   roles: Array<string>;
