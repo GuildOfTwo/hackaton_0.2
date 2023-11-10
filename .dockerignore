@@ -1,0 +1,9 @@
+node_modules
+.editorconfig
+.eslintrc.json
+.gitignore
+.prettierrc
+README.md
+*.*env
+deploy-configs
+.husky
