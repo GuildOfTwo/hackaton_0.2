@@ -49,13 +49,16 @@ export const CoursesList = () => {
                 />
               </CardContainer>
               <CourseCardButtonContainer>
-                <AddCourseDiv
-                  onClick={() => {
-                    userCourses.includes(item.id) ? addCourse(item.id) : '';
-                  }}
-                >
-                  Добавить курс
-                </AddCourseDiv>
+                {!userCourses.includes(item.id) && (
+                  <AddCourseDiv
+                    onClick={() => {
+                      userCourses.includes(item.id) ? addCourse(item.id) : '';
+                    }}
+                  >
+                    Добавить курс
+                  </AddCourseDiv>
+                )}
+
                 {userCourses.includes(item.id) && (
                   <CorseCardDoneDiv>
                     Пройден
