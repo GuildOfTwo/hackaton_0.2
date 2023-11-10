@@ -23,11 +23,21 @@ export const CoursePage = () => {
   const { Item } = Form;
   const { Group } = Radio;
   const [course, setCourse] = useState<TSelectCourse | null>();
+  const [seconds, setSeconds] = useState(180);
 
   useEffect(() => {
     requestSoloCourses(id).then((res) => setCourse(res.data));
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, [seconds]);
   const onFinish = (values: TValues) => {
     const totalQuestions = Object.keys(values.questions).length;
     let correctAnswers = 0;
@@ -84,7 +94,8 @@ export const CoursePage = () => {
               </Group>
             </Item>
           ))}
-          <Button type='primary' htmlType='submit'>
+          {seconds === 0 ? '' : <p>Кнопка будет активна через {seconds} секунд</p>}
+          <Button type='primary' htmlType='submit' disabled={seconds === 0 ? false : true}>
             <p style={{ color: 'white' }}>Завершить курс</p>
           </Button>
         </Form>
