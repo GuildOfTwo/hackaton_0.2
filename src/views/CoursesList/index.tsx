@@ -1,38 +1,60 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import styled from 'styled-components';
-import { Card } from 'antd';
-import Markdown from 'react-markdown';
-import { MARKDOWN_TEMPLATE } from '../../utils/markdown/markdown';
-export const CoursesList = () => {
-  const DashContainer = styled.section`
-    display: flex;
-    margin: 0 auto;
-  `;
+import { Button, Card } from 'antd';
+import { CorseCardDoneDiv, CourseCard, CourseCardButtonContainer, CourseTitle, DashContainer } from './style';
+import { useEffect, useState } from 'react';
+import { requestCourses } from '../../api/requestAllCourses/requestCourses';
+import { Link } from 'react-router-dom';
+import { TSelectCourse } from '../../utils/types/types';
+import { CheckOutlined } from '@ant-design/icons';
+// import { useAppDispatch, useAppSelector } from '../../hooks';
 
-  const BorderColors = styled.div`
-    border: 10px double green;
-    margin-right: 40px;
-  `;
+
+
+export const CoursesList = () => {
+
+  // const dispatch = useAppDispatch()
+
+  const [allCourses, setAllCourses] = useState([])
+
+  // Ниже надо получить все курсы юзера
+  // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
+
+  const userCourses = [38, 39, 40]
+
+  //ниже добавить отправку времени на начало курса
+  const addCourse = (id: number) => {
+    console.log(id);
+
+  }
+  useEffect(() => {
+    requestCourses().then((res) => setAllCourses(res.data))
+  }, [])
+
+  if (allCourses.length < 1) return null
 
   return (
-    <><p>Курс лист пока закомитил, из-за него ререндер</p>
-      {/* <DashContainer>
-        <BorderColors>
-          <Card title='Card title' bordered={false} style={{ width: 300 }}>
-            <Markdown>{MARKDOWN_TEMPLATE}</Markdown>
+    <><DashContainer>
+
+      {allCourses?.map((item: TSelectCourse) => {
+        return (<CourseCard key={item.id}>
+          <Card title={<CourseTitle>{item.courseName}</CourseTitle>} bordered={false}>
+            <img src={item.CourseContent[0]?.image} style={{ objectFit: 'contain', width: '100%' }} alt="" />
           </Card>
-        </BorderColors>
-        <Card title='Card title' bordered={true} style={{ width: 300, marginRight: 40 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
-        <Card title='Card title' bordered={true} style={{ width: 300, marginRight: 40 }}>
-          <p>Card content</p>
-          <p>Card content</p>
-          <p>Card content</p>
-        </Card>
-      </DashContainer> */}
+          <CourseCardButtonContainer>
+            <Button
+              onClick={() => addCourse(item.id)}
+              type={'primary'}
+              disabled={userCourses.includes(item.id)}>
+              добавить курс
+            </Button>
+              {userCourses.includes(item.id) && <CorseCardDoneDiv>Пройден<CheckOutlined /></CorseCardDoneDiv>}
+          </CourseCardButtonContainer>
+
+
+        </CourseCard>)
+      })}
+
+    </DashContainer>
     </>
   );
 };

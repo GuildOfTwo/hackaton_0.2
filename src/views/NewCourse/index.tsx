@@ -74,7 +74,8 @@ export const NewCoursePage = () => {
 
   const onFinish = (values: TCourse) => {
     console.log(values);
-    createNewCourse(values).then((res: any) => сreateNewCourseContent(res.data, values))
+    createNewCourse(values).then((res: any) => сreateNewCourseContent(res.data, values));
+    form.resetFields()
 
 
   };
@@ -94,13 +95,15 @@ export const NewCoursePage = () => {
       >
         <Form.Item
           name={['course', 'name']}
-          rules={[{ required: true, message: 'Course name is required' }]}
+          rules={[{ required: true, message: 'Название курса обязательно' }]}
           label={<Label>Название курса</Label>}
         >
           <Input placeholder='Название курса' />
         </Form.Item>
 
-        <Form.Item name={['course', 'type']} label={<Label>Тип курса</Label>}>
+        <Form.Item name={['course', 'type']} 
+        label={<Label>Тип курса</Label>}
+        rules={[{ required: true, message: 'Тип курса обязательный' }]}>
           <Checkbox.Group>
             <Row>
               {categoriesCourse?.map((i) => <Col span={8} key={i.id}>
@@ -111,14 +114,9 @@ export const NewCoursePage = () => {
           </Checkbox.Group>
         </Form.Item>
 
-        {/* <Form.Item label={<Label>Время на выполнение курса</Label>}>
-          <Select style={{}}>
-            <Select.Option value="demo">Demo</Select.Option>
-            <Select.Option value="emo">Demo</Select.Option>
-          </Select>
-        </Form.Item> */}
         <Form.Item
           label={<Label>Время на выполнение курса</Label>}
+          rules={[{ required: true, message: 'Вреся на выполнение курса обязательный параметр' }]}
           name={['course', 'courseDuration']}
         >
           <Radio.Group>
@@ -131,8 +129,9 @@ export const NewCoursePage = () => {
 
         <Form.Item
           name={['course', 'CourseContent', 'text']}
+          rules={[{ required: true, message: 'Контент курса обязательный параметр' }]}
           label={
-            <Label>
+            <Label style={{marginTop: 40}}>
               Контент курса
               <p>Вводится по правилам markdown</p>
               <a

@@ -82,7 +82,8 @@ export type TProtectedRouteByPower = {
 };
 
 export type TAnswersCourse = {
-  answer: [string, boolean]
+  answer: string,
+  correct: boolean
 }
 
 export type TCourseQuestions = {
@@ -91,8 +92,11 @@ export type TCourseQuestions = {
 }
 
 export type TCourseContent = {
+  id?: number,
   text: string,
-  question: TCourseQuestions[]
+  question: TCourseQuestions[],
+  image: string,
+  content: string
 }
 
 export type TCreateNewCourseApi = {
@@ -105,6 +109,19 @@ export type TCreateNewCourseApi = {
 export type TCourse = {
   course: TCreateNewCourseApi
 }
+
+export type TSelectCourse = {
+  id: number,
+  courseName: string,
+  categoryId: number,
+  courseDuration: number,
+  CourseContent: TCourseContent[],
+}
+
+export type TAllCourse = {
+  allCourse: TSelectCourse[]
+}
+
 
 // export interface IAfterLoginInfo = {
 
