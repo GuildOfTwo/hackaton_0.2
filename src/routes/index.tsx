@@ -9,7 +9,11 @@ import { Authorization } from '../pages/authorization/authorization';
 import { AllUserStats } from '../views/AllUserStats/index';
 import { NewCoursePage } from '../views/NewCourse';
 import { CreateUser } from '../views/CreateUser/CreateUser';
-import { RouteForHROnly, RouteForLoggedUser, RouteForNonLoggedUser } from '../components/ProtectedRoutes';
+import {
+  RouteForHROnly,
+  RouteForLoggedUser,
+  RouteForNonLoggedUser,
+} from '../components/ProtectedRoutes';
 import { CoursePage } from '../views/CoursePage';
 import { SelectedCourses } from '../views/SelectedCourses';
 
@@ -21,33 +25,40 @@ const AppRoutes = () => {
         element={<RouteForNonLoggedUser element={<Authorization />} />}
       />
       <Route path={Page.MAIN} element={<RouteForLoggedUser element={<MainPage />} />}>
-        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<Dashboard />} />}
+        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<Dashboard />} />} />
+        <Route
+          path={Page.SELECTED_COURSES}
+          element={<RouteForLoggedUser element={<SelectedCourses />} />}
         />
-        <Route path={Page.SELECTED_COURSES} element={<RouteForLoggedUser element={<SelectedCourses />} />}
-        />
-        <Route path={Page.ALL_COURSES} element={<RouteForLoggedUser element={<CoursesList />} />}
-        />
-        <Route path={SubPage.COURSE} element={<RouteForLoggedUser element={<CoursePage />} />}
-        />
+        <Route path={Page.ALL_COURSES} element={<RouteForLoggedUser element={<CoursesList />} />} />
+        <Route path={SubPage.COURSE} element={<RouteForLoggedUser element={<CoursePage />} />} />
 
         <Route path={Page.ALL_USER_STATS} element={<RouteForHROnly element={<AllUserStats />} />} />
         <Route path={Page.CREATE_USER} element={<RouteForHROnly element={<CreateUser />} />} />
 
-        <Route path={SubPage.MANAGMENT_COURSE} element={<RouteForLoggedUser element={<CoursesList />} />}
+        <Route
+          path={SubPage.MANAGMENT_COURSE}
+          element={<RouteForLoggedUser element={<CoursesList />} />}
         />
-        <Route path={SubPage.ENGINEERING_COURSE} element={<RouteForLoggedUser element={<CoursesList />} />}
+        <Route
+          path={SubPage.ENGINEERING_COURSE}
+          element={<RouteForLoggedUser element={<CoursesList />} />}
         />
-        <Route path={SubPage.CLIENT_SERVICE_COURSE} element={<RouteForLoggedUser element={<CoursesList />} />}
+        <Route
+          path={SubPage.CLIENT_SERVICE_COURSE}
+          element={<RouteForLoggedUser element={<CoursesList />} />}
         />
-        <Route path={SubPage.DESIGN_COURSE} element={<RouteForLoggedUser element={<CoursesList />} />}
+        <Route
+          path={SubPage.DESIGN_COURSE}
+          element={<RouteForLoggedUser element={<CoursesList />} />}
         />
-        <Route path={SubPage.PROJECT_MANAGMENT_COURSE} element={<RouteForLoggedUser element={<CoursesList />} />}
+        <Route
+          path={SubPage.PROJECT_MANAGMENT_COURSE}
+          element={<RouteForLoggedUser element={<CoursesList />} />}
         />
-        <Route path={SubPage.FOR_ALL} element={<RouteForLoggedUser element={<CoursesList />} />}
-        />
+        <Route path={SubPage.FOR_ALL} element={<RouteForLoggedUser element={<CoursesList />} />} />
 
         <Route path={Page.NEW_COURSE} element={<RouteForHROnly element={<NewCoursePage />} />} />
-
       </Route>
       <Route path={Page.UNAVAILABLE} element={<Unavailable />} />
       <Route path={Page.NOT_FOUND} element={<NotFound />} />

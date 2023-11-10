@@ -31,11 +31,16 @@ export const Authorization: FC = () => {
               firstSignIn: res.firstSignIn,
               name: res.name,
               email: res.email,
-              phoneNumber: res.phoneNumber,
+              phoneNumber: res.phone,
               mentor: res.mentor,
               departament: res.departament,
               director: res.director,
               accessRoles: res.accessRoles,
+              mentor_tg: res.mentor_tg,
+              telegram: res.telegram,
+              birthday: res.birthday,
+              middleName: res.middleName,
+              post: res.post,
             })
           )
         )

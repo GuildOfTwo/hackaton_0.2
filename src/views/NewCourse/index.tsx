@@ -11,13 +11,10 @@ import { BlackLabel, FormList, FormSubText, Label, TextAreaZone } from './styled
 import { TCourse } from '../../utils/types/types';
 import { FC, useEffect, useState } from 'react';
 import { requestCategoriesCourse } from '../../api/requstCategories';
-import { useAppDispatch } from '../../hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
 import Markdown from 'react-markdown';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
 import { createNewCourse, сreateNewCourseContent } from '../../api/CreateNewCourseApi';
-
-
 
 const MarkComponent: FC<MarkComponentProps> = ({ value, language }) => {
   return (
@@ -32,55 +29,52 @@ type MarkComponentProps = {
 };
 
 export type TCateegoriesCourse = {
-  id: string,
-  name: string
-}
+  id: string;
+  name: string;
+};
 
 export type TObjCourses = {
-  courses: TCateegoriesCourse[]
-}
-
+  courses: TCateegoriesCourse[];
+};
 
 export const NewCoursePage = () => {
+  const [markdownInput, setMarkdownInput] = useState<string>();
+  const [categoriesCourse, setCategoriesCourse] = useState([
+    { id: 1, name: 'Общие' },
+    { id: 2, name: 'IT' },
+  ]);
 
-  const [markdownInput, setMarkdownInput] = useState<string>()
-  const dispatch = useAppDispatch()
-
-  const [categoriesCourse, setCategoriesCourse] = useState([{ id: 1, name: 'Общие' }, { id: 2, name: 'IT' }])
-
-  useEffect(() => { requestCategoriesCourse().then((res) => setCategoriesCourse(res.data)) }, [])
+  useEffect(() => {
+    requestCategoriesCourse().then((res) => setCategoriesCourse(res.data));
+  }, []);
 
   const items: TabsProps['items'] = [
     {
       key: '1',
       label: 'Черновик',
-      children: (<TextAreaZone rows={10} onChange={(e) => setMarkdownInput(e.target.value)} />),
+      children: <TextAreaZone rows={10} onChange={(e) => setMarkdownInput(e.target.value)} />,
     },
     {
       key: '2',
       label: 'Предпросмотр',
 
-      children: (<Markdown
-        children={markdownInput}
-        components={{
-          // @ts-ignore
-          code: MarkComponent,
-        }}
-
-      />),
+      children: (
+        <Markdown
+          children={markdownInput}
+          components={{
+            // @ts-ignore
+            code: MarkComponent,
+          }}
+        />
+      ),
     },
-
   ];
 
   const onFinish = (values: TCourse) => {
     console.log(values);
     createNewCourse(values).then((res: any) => сreateNewCourseContent(res.data, values));
-    form.resetFields()
-
-
+    form.resetFields();
   };
-
-
 
   const [form] = Form.useForm();
 
@@ -102,22 +96,27 @@ export const NewCoursePage = () => {
         </Form.Item>
 
         <Form.Item
-          name={['course','CourseContent', 'image']}
+          name={['course', 'CourseContent', 'image']}
           rules={[{ required: true, message: 'Ссылка на картинку курса обязательна' }]}
           label={<Label>Ссылка на картинку для курса</Label>}
         >
           <Input placeholder='Ссылка на картинку для курса' />
         </Form.Item>
 
-        <Form.Item name={['course', 'type']} 
-        label={<Label>Тип курса</Label>}
-        rules={[{ required: true, message: 'Тип курса обязательный' }]}>
+        <Form.Item
+          name={['course', 'type']}
+          label={<Label>Тип курса</Label>}
+          rules={[{ required: true, message: 'Тип курса обязательный' }]}
+        >
           <Checkbox.Group>
             <Row>
-              {categoriesCourse?.map((i) => <Col span={8} key={i.id}>
-                <Checkbox value={i.id} style={{ lineHeight: '32px' }} >
-                  {i.name}
-                </Checkbox></Col>)}
+              {categoriesCourse?.map((i) => (
+                <Col span={8} key={i.id}>
+                  <Checkbox value={i.id} style={{ lineHeight: '32px' }}>
+                    {i.name}
+                  </Checkbox>
+                </Col>
+              ))}
             </Row>
           </Checkbox.Group>
         </Form.Item>
@@ -128,18 +127,17 @@ export const NewCoursePage = () => {
           name={['course', 'courseDuration']}
         >
           <Radio.Group>
-            <Radio value="1"> 1 неделя </Radio>
-            <Radio value="2"> 2 недели </Radio>
-            <Radio value="3"> месяц </Radio>
+            <Radio value='1'> 1 неделя </Radio>
+            <Radio value='2'> 2 недели </Radio>
+            <Radio value='3'> месяц </Radio>
           </Radio.Group>
         </Form.Item>
-
 
         <Form.Item
           name={['course', 'CourseContent', 'text']}
           rules={[{ required: true, message: 'Контент курса обязательный параметр' }]}
           label={
-            <Label style={{marginTop: 40}}>
+            <Label style={{ marginTop: 40 }}>
               Контент курса
               <p>Вводится по правилам markdown</p>
               <a
@@ -151,17 +149,21 @@ export const NewCoursePage = () => {
                 Шпаргалка(ссылка)
               </a>
             </Label>
-
           }
         >
           <div style={{ margin: '0 auto' }}>
-            <Tabs defaultActiveKey="1" items={items} />
+            <Tabs defaultActiveKey='1' items={items} />
           </div>
         </Form.Item>
 
         <FormSubText>
           Перевести Word файл в markdown, поможет сервис{' '}
-          <a href='https://www.wordize.com/word-to-markdown/' style={{ textDecoration: 'underline' }} target='_blank' rel='noreferrer'>
+          <a
+            href='https://www.wordize.com/word-to-markdown/'
+            style={{ textDecoration: 'underline' }}
+            target='_blank'
+            rel='noreferrer'
+          >
             WORDIZE(ссылка)
           </a>
         </FormSubText>
@@ -229,7 +231,7 @@ export const NewCoursePage = () => {
         </Form.List>
 
         <Form.Item style={{ display: 'flex', justifyContent: 'center', marginTop: 50 }}>
-          <Button type='primary' htmlType='submit' >
+          <Button type='primary' htmlType='submit'>
             <p style={{ color: 'white' }}>Загрузить курс</p>
           </Button>
         </Form.Item>
@@ -237,4 +239,3 @@ export const NewCoursePage = () => {
     </div>
   );
 };
-
