@@ -16,5 +16,5 @@ COPY --from=build /app/.nginx/certs /etc/letsencrypt
 
 WORKDIR /usr/share/nginx/html
 RUN rm -rf ./*
-COPY --from=build /app/build .
+COPY --from=build /app/dist .
 ENTRYPOINT ["nginx", "-g", "daemon off;"]
