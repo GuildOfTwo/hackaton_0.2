@@ -101,6 +101,14 @@ export const NewCoursePage = () => {
           <Input placeholder='Название курса' />
         </Form.Item>
 
+        <Form.Item
+          name={['course','CourseContent', 'image']}
+          rules={[{ required: true, message: 'Ссылка на картинку курса обязательна' }]}
+          label={<Label>Ссылка на картинку для курса</Label>}
+        >
+          <Input placeholder='Ссылка на картинку для курса' />
+        </Form.Item>
+
         <Form.Item name={['course', 'type']} 
         label={<Label>Тип курса</Label>}
         rules={[{ required: true, message: 'Тип курса обязательный' }]}>
@@ -116,7 +124,7 @@ export const NewCoursePage = () => {
 
         <Form.Item
           label={<Label>Время на выполнение курса</Label>}
-          rules={[{ required: true, message: 'Вреся на выполнение курса обязательный параметр' }]}
+          rules={[{ required: true, message: 'Время на выполнение курса обязательный параметр' }]}
           name={['course', 'courseDuration']}
         >
           <Radio.Group>
