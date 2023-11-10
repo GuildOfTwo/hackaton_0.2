@@ -1,6 +1,8 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import { Button, Card } from 'antd';
+import { Card } from 'antd';
 import {
+  AddCourseDiv,
+  CardContainer,
   CorseCardDoneDiv,
   CourseCard,
   CourseCardButtonContainer,
@@ -9,7 +11,6 @@ import {
 } from './style';
 import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
-import { Link } from 'react-router-dom';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
 // import { useAppDispatch, useAppSelector } from '../../hooks';
@@ -40,21 +41,21 @@ export const CoursesList = () => {
         {allCourses?.map((item: TSelectCourse) => {
           return (
             <CourseCard key={item.id}>
-              <Card title={<CourseTitle>{item.courseName}</CourseTitle>} bordered={false}>
+              <CardContainer title={<CourseTitle>{item.courseName}</CourseTitle>} bordered={false}>
                 <img
                   src={item.CourseContent[0]?.image}
-                  style={{ objectFit: 'contain', width: '100%' }}
+                  style={{ objectFit: 'contain', width: '100%', height: '141.75px' }}
                   alt=''
                 />
-              </Card>
+              </CardContainer>
               <CourseCardButtonContainer>
-                <Button
-                  onClick={() => addCourse(item.id)}
-                  type={'primary'}
-                  disabled={userCourses.includes(item.id)}
+                <AddCourseDiv
+                  onClick={() => {
+                    userCourses.includes(item.id) ? addCourse(item.id) : '';
+                  }}
                 >
-                  добавить курс
-                </Button>
+                  Добавить курс
+                </AddCourseDiv>
                 {userCourses.includes(item.id) && (
                   <CorseCardDoneDiv>
                     Пройден

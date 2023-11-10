@@ -4,6 +4,8 @@ const darkTheme = {
   backgroundColor2: '#2D384A',
   backgroundColor3: '#344756',
   backgroundColor4: '#2D384A',
+
+  buttonColor1: '#36a335',
 };
 
 export default darkTheme;

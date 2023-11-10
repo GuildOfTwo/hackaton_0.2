@@ -4,6 +4,8 @@ const lightTheme = {
   backgroundColor2: '#d1e9f8',
   backgroundColor3: '#fff',
   backgroundColor4: '#d1e9f8',
+
+  buttonColor1: '#aaf5a9',
 };
 
 export default lightTheme;
