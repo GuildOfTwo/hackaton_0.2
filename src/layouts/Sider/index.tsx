@@ -20,22 +20,25 @@ type MenuItem = Required<MenuProps>['items'][number];
 
 const Slider = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const userRoles = useAppSelector((store) => store.user.user?.accessRoles)
+  const userRoles = useAppSelector((store) => store.user.user?.accessRoles);
   const checkUserRole = () => {
-    if (userRoles?.includes("HR")) {return "HR"}
-    return "USER"
-  }
+    if (userRoles?.includes('HR')) {
+      return 'HR';
+    }
+    return 'USER';
+  };
   console.log(checkUserRole());
   //TODO: цвет меню должен зависить от темы глобальной
   const itemsForUser: MenuItem[] = [
     getItem(<Link to={Page.DASHBOARD}>Dashboard</Link>, '1', <PieChartOutlined />),
-    getItem('Все курсы', '2', <DesktopOutlined />, [
+    getItem('Курсы', '2', <DesktopOutlined />, [
       getItem(<Link to={Page.ALL_COURSES}>Все курсы</Link>, '20'),
       getItem(<Link to={SubPage.MANAGMENT_COURSE}>Управление</Link>, '21'),
       getItem(<Link to={SubPage.ENGINEERING_COURSE}>Программирование</Link>, '22'),
       getItem(<Link to={SubPage.CLIENT_SERVICE_COURSE}>Продажи</Link>, '23'),
       getItem(<Link to={SubPage.DESIGN_COURSE}>Дизайн</Link>, '24'),
       getItem(<Link to={SubPage.PROJECT_MANAGMENT_COURSE}>Управление проектами</Link>, '25'),
+      getItem(<Link to={SubPage.FOR_ALL}>Для всех</Link>, '26'),
     ]),
     getItem(
       <Link to={Page.SELECTED_COURSES}>Назначенные курсы</Link>,
@@ -67,7 +70,11 @@ const Slider = () => {
     <SliderWrapper>
       <MainSider trigger={null} collapsible collapsed={collapsed}>
         <div className='demo-logo-vertical' />
-        <SliderMenu defaultSelectedKeys={['1']} mode='inline' items={checkUserRole() === "HR" ? itemsForHR : itemsForUser } />
+        <SliderMenu
+          defaultSelectedKeys={['1']}
+          mode='inline'
+          items={checkUserRole() === 'HR' ? itemsForHR : itemsForUser}
+        />
         <UserWrapper>
           {collapsed ? <UserOutlined onClick={() => setCollapsed(!collapsed)} /> : <UserCard />}
         </UserWrapper>
