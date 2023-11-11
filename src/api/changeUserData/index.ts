@@ -1,5 +1,4 @@
 import { backendInstance } from '../ApiConfig';
-import { TUser } from '../../utils/types/types';
 
 export const changeUserData = (data: {
   id: number;
