@@ -26,7 +26,7 @@ export const Unavailable: FC = () => {
         subTitle='Cервис временно недоступен'
         extra={
           <Button type='primary' onClick={goToMainPage}>
-            Вернуться на главную
+            <div style={{ color: 'black' }}> Вернуться на главную</div>
           </Button>
         }
       />
