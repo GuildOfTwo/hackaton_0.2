@@ -17,8 +17,8 @@ export const CourseCardText = styled.div`
 `;
 
 export const DashContainer = styled.section`
-  display: grid;
-  grid-template-columns: repeat(3, 300px);
+  display: flex;
+  flex-direction: column;
   gap: 20px;
   margin: 0 auto;
 `;
@@ -59,4 +59,9 @@ export const AddCourseDiv = styled.button`
   border-radius: 5px;
   padding: 8px;
   color: ${(props) => props.theme.textcolor};
+`;
+
+export const CategoryContainer = styled.div`
+  border-bottom: 1px dotted grey;
+  padding: 0 0 40px 0;
 `;

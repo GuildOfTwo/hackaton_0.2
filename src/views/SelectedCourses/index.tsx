@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { CardContainer, SelectedContainer } from './styled';
 import { TSelectCourse } from '../../utils/types/types';
-import { CourseCard, CourseTitle } from '../CoursesList/style';
+import { CorseCardDoneDiv, CourseCard, CourseTitle } from '../CoursesList/style';
 import { Link } from 'react-router-dom';
+import { CheckOutlined } from '@ant-design/icons';
 
 export const SelectedCourses = () => {
   const [allCourses, setAllCourses] = useState([]);
@@ -22,7 +23,20 @@ export const SelectedCourses = () => {
         if (userCourses.includes(item.id))
           return (
             <CourseCard key={item.id}>
-              <Link to={`/course/${item.id}`}>
+              {!userCourses.includes(item.id) ? (
+                <Link to={`/course/${item.id}`}>
+                  <CardContainer
+                    title={<CourseTitle>{item.courseName}</CourseTitle>}
+                    bordered={false}
+                  >
+                    <img
+                      src={item.CourseContent[0]?.image}
+                      style={{ objectFit: 'contain', width: '100%' }}
+                      alt=''
+                    />
+                  </CardContainer>
+                </Link>
+              ) : (
                 <CardContainer
                   title={<CourseTitle>{item.courseName}</CourseTitle>}
                   bordered={false}
@@ -33,7 +47,13 @@ export const SelectedCourses = () => {
                     alt=''
                   />
                 </CardContainer>
-              </Link>
+              )}
+              {userCourses.includes(item.id) && (
+                <CorseCardDoneDiv>
+                  Пройден
+                  <CheckOutlined />
+                </CorseCardDoneDiv>
+              )}
             </CourseCard>
           );
       })}
