@@ -35,7 +35,7 @@ export const SelectedCourses = () => {
                 >
                   <img
                     src={item.CourseContent[0]?.image}
-                    style={{ objectFit: 'contain', width: '100%' }}
+                    style={{ objectFit: 'contain', width: '100%', height: '140px' }}
                     alt=''
                   />
                 </CardContainer>
@@ -44,7 +44,7 @@ export const SelectedCourses = () => {
               <CardContainer title={<CourseTitle>{item.courseName}</CourseTitle>} bordered={false}>
                 <img
                   src={item.CourseContent[0]?.image}
-                  style={{ objectFit: 'contain', width: '100%' }}
+                  style={{ objectFit: 'contain', width: '100%', height: '140px' }}
                   alt=''
                 />
               </CardContainer>
