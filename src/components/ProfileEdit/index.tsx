@@ -11,6 +11,11 @@ import {
   EditButton,
   ButtonText,
   StyledIcon,
+  TrophyImg,
+  TrophyGrid,
+  TrophyGridTitle,
+  TrophyTitle,
+  TrophyContainer,
 } from './styled';
 import { useState } from 'react';
 import { Button, Form, Space, ConfigProvider } from 'antd';
@@ -21,6 +26,7 @@ import dayjs from 'dayjs';
 import { errorHandler } from '../../utils/errorHandler';
 import { phoneNumberRegExp, telegramLogin } from '../../utils/constants/forms';
 import { TProfileFieldType } from '../../utils/types/types';
+import { awardsArray } from '../../utils/constants/awards/awardsArray';
 
 const ProfileEdit = () => {
   const [isDisabledTelegram, setNoNDisabledTelegram] = useState(true);
@@ -155,6 +161,15 @@ const ProfileEdit = () => {
             </Form.Item>
           </StyledForm>
           {error ? <ErrorMessage>{errorHandler(error)}</ErrorMessage> : null}
+          <TrophyGridTitle>Достижения:</TrophyGridTitle>
+          <TrophyGrid>
+            {awardsArray.map((item) => (
+              <TrophyContainer>
+                <TrophyImg src={item.img} />
+                <TrophyTitle>{item.title}</TrophyTitle>
+              </TrophyContainer>
+            ))}
+          </TrophyGrid>
         </ProfileEditWrapper>
       </ConfigProvider>
     );

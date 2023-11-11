@@ -9,7 +9,6 @@ export const ProfileEditWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 100px;
   font-size: 17px;
   font-weight: 500;
 `;
@@ -70,4 +69,31 @@ export const Label = styled.label`
   font-family: 'TildaSans';
   font-weight: 600;
   margin-right: 10px;
+`;
+
+export const TrophyImg = styled.img`
+  max-width: 75px;
+  max-height: 75px;
+`;
+
+export const TrophyGrid = styled.section`
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 15px 15px;
+  justify-content: center;
+  align-items: center;
+`;
+
+export const TrophyGridTitle = styled.h2`
+  margin-top: 10px;
+  margin-bottom: 30px;
+`;
+export const TrophyContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+export const TrophyTitle = styled.p`
+  margin-top: 10px;
+  text-align: center;
 `;
