@@ -21,7 +21,7 @@
 
 ## Технологии <a name="technologies"></a>
 
-## Структура <a name="technologies"></a>
+## Структура <a name="structure"></a>
 
 ### Frontend <a name="frontend"></a>
 
