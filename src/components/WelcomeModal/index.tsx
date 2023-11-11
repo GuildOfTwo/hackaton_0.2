@@ -30,7 +30,7 @@ const WelcomeModal = () => {
     const handleSumbit = () => {
       userID &&
         firstSignInPatch(userID, values.phoneNumber, values.TelegramID)
-          .then((res) => (dispatch(closeModalWindow()), dispatch(setFirstSignInFalse())))
+          .then(() => (dispatch(closeModalWindow()), dispatch(setFirstSignInFalse())))
           .catch((error) => setError(error.response.status));
     };
     return (
