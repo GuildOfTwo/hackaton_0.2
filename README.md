@@ -92,7 +92,7 @@ npm run dev
 
 ## Команда проекта <a name="team"></a>
 
-[**Влад Булоусов**](https://github.com/Valzet) - Тимлид проекта, frontend разработчик
+[**Влад Булоусов**](https://github.com/Valzet) - **Тимлид**, frontend разработчик
 
 [**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик
 
