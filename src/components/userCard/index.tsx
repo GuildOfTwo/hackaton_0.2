@@ -16,14 +16,14 @@ export const ThemeToggleBar: FC = () => {
   };
   return (
     <Wrapper>
-      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '1px' }}>
         <SwitchButton
           onChange={() => handleSwitch(checked)}
-          style={{ width: '40%' }}
+          style={{ width: '20%' }}
           // checked={checked}
           defaultChecked={theme === 'dark' ? true : false}
         />
-        <div>выберите тему</div>
+        {/* <div>выберите тему</div> */}
       </div>
     </Wrapper>
   );

@@ -2,9 +2,8 @@ import styled from 'styled-components';
 import { Button, Switch } from 'antd';
 export const Wrapper = styled.div`
   width: 180px;
-  height: 300px;
   position: absolute;
-  bottom: 0;
+  bottom: 20px;
   left: -20px;
   display: flex;
   flex-direction: column;
@@ -34,7 +33,25 @@ export const InfoSubtitle = styled.div`
   text-align: right;
 `;
 
-export const SwitchButton = styled(Switch)``;
+export const SwitchButton = styled(Switch)`
+  position: relative;
+  display: flex;
+  font-size: 0.7em;
+  font-weight: 600;
+  color: ${(props) => props.theme.textcolor};
+  &:before {
+    right: 50px;
+    position: absolute;
+
+    content: 'day';
+  }
+
+  &::after {
+    left: 50px;
+    position: absolute;
+    content: 'nigth';
+  }
+`;
 
 export const ProfileButton = styled(Button)`
   color: ${(props) => props.theme.textcolor};
