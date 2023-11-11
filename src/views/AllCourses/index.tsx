@@ -30,12 +30,6 @@ export const AllCoursesList = () => {
 
   const user = useAppSelector((store: RootState) => store.user.user);
 
-  // Ниже надо получить все курсы юзера и юзер айди
-  // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
-
-  const userCourses = user?.UserCourses.map((i) => i.courseId);
-
-  //ниже добавить отправку времени на начало курса
   const addCourse = (id: number) => {
     console.log(id);
     addCourseUser(id, user?.id);
@@ -45,7 +39,7 @@ export const AllCoursesList = () => {
   }, []);
 
   if (allCourses.length < 1) return null;
-  if (userCourses == undefined) return null;
+  if (user?.UserCourses === undefined) return null;
 
   const getCategoryName = (categoryId: number): string => {
     switch (categoryId) {
@@ -96,7 +90,7 @@ export const AllCoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {user && !user.UserCourses.find((ele) => ele.courseId === item.id) && (
+                  {user && !user?.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <AddCourseDiv
                       onClick={() => {
                         user?.UserCourses.find((ele) => ele.courseId === item.id)
