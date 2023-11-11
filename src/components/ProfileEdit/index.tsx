@@ -8,6 +8,9 @@ import {
   ErrorMessage,
   StyledDatePicker,
   StyledFormItem,
+  EditButton,
+  ButtonText,
+  StyledIcon,
 } from './styled';
 import { useState } from 'react';
 import { Button, Form, Space, ConfigProvider } from 'antd';
@@ -24,6 +27,8 @@ const ProfileEdit = () => {
   const [isDisabledPhone, setNoNDisabledPhone] = useState(true);
   const [error, setError] = useState();
   const userInfo = useAppSelector((store) => store.user.user);
+  const DateOfBirth = new Date(dayjs(userInfo?.birthday).format('YYYY/MM/DD'));
+  const theme = useAppSelector((store) => store.theme.theme);
   const handleSumbit = (fieldsValue: TProfileFieldType) => {
     const DateOfBirth = new Date(dayjs(fieldsValue.DateOfBirth).format('YYYY/MM/DD'));
     setNoNDisabledTelegram(true);
@@ -33,8 +38,6 @@ const ProfileEdit = () => {
         (error) => setError(error.response.status)
       );
   };
-  const DateOfBirth = new Date(dayjs(userInfo?.birthday).format('YYYY/MM/DD'));
-  const theme = useAppSelector((store) => store.theme.theme);
   if (userInfo)
     return (
       <ConfigProvider
@@ -43,67 +46,52 @@ const ProfileEdit = () => {
             DatePicker: {
               colorBgElevated: theme === 'default' ? 'white' : `#0A1F32`,
             },
+            Button: {
+              defaultColor: `#ff0000`,
+              defaultBg: `#ff0000`,
+              colorBgTextActive: `#ff0000`,
+              primaryColor: `#ff0000`,
+              colorText: `#ff0000`,
+            },
           },
         }}
       >
         <ProfileEditWrapper>
           <h2>Ваш профиль</h2>
           <PWrapper>
-            {userInfo.firstName && (
-              <>
-                <p>Имя:</p>
-                <p>{userInfo.firstName}</p>
-              </>
-            )}
-            {userInfo.lastName && (
-              <>
-                {' '}
-                <p>Фамилия:</p>
-                <p>{userInfo.lastName}</p>
-              </>
-            )}
-            {userInfo.middleName && (
-              <>
-                {' '}
-                <p>Отчество:</p>
-                <p>{userInfo.middleName}</p>
-              </>
-            )}
-            {userInfo.post && (
-              <>
-                {' '}
-                <p>Должность:</p>
-                <p>{userInfo.post}</p>
-              </>
-            )}
-            {userInfo.department && (
-              <>
-                {' '}
-                <p>Отдел:</p>
-                <p>{userInfo.department}</p>
-              </>
-            )}
-            {userInfo.mentor && (
-              <>
-                {' '}
-                <p>Ментор:</p>
-                <p>{userInfo.mentor}</p>
-              </>
-            )}
-            {userInfo.mentor_tg && (
-              <>
-                {' '}
-                <p>Телеграм ментора:</p>
-                <p>{userInfo.mentor_tg}</p>
-              </>
-            )}
-            {userInfo.phoneNumber && (
-              <>
-                {' '}
-                <p>Номер телефона:</p>
-                <p>{userInfo.phoneNumber}</p>
-              </>
-            )}
+            <>
+              <p>Имя:</p>
+              <p>{userInfo.firstName ? userInfo.firstName : 'не заполнено'}</p>
+            </>
+            <>
+              <p>Фамилия:</p>
+              <p>{userInfo.lastName ? userInfo.lastName : 'не заполнено'}</p>
+            </>
+            <>
+              <p>Отчество:</p>
+              <p>{userInfo.middleName ? userInfo.middleName : 'не заполнено'}</p>
+            </>
+
+            <>
+              <p>Должность:</p>
+              <p>{userInfo.post ? userInfo.post : 'не заполнено'}</p>
+            </>
+            <>
+              <p>Отдел:</p>
+              <p>{userInfo.department ? userInfo.department : 'не заполнено'}</p>
+            </>
+            <>
+              <p>Ментор:</p>
+              <p>{userInfo.mentor ? userInfo.mentor : 'не назначен'}</p>
+            </>
+            <>
+              <p>Телеграм ментора:</p>
+              <p>{userInfo.mentor_tg ? userInfo.mentor_tg : 'не заполнено'}</p>
+            </>
+            <>
+              <p>Номер телефона:</p>
+              <p>{userInfo.phoneNumber ? userInfo.phoneNumber : 'не заполнено'}</p>
+            </>
           </PWrapper>
           <StyledForm
             labelCol={{ span: 8 }}
@@ -158,7 +146,7 @@ const ProfileEdit = () => {
                     disabled={isDisabledPhone}
                   />
                   <Button onClick={() => setNoNDisabledPhone(!isDisabledPhone)} type='primary'>
-                    <FormOutlined />
+                    <StyledIcon />
                   </Button>
                 </Space.Compact>
               </Form.Item>
@@ -171,9 +159,9 @@ const ProfileEdit = () => {
             </ItemWrapper>
 
             <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
-              <Button type='primary' htmlType='submit'>
-                Подтвердить
-              </Button>
+              <EditButton type='primary' htmlType='submit'>
+                <ButtonText> Подтвердить</ButtonText>
+              </EditButton>
             </Form.Item>
           </StyledForm>
           {error ? <ErrorMessage>{errorHandler(error)}</ErrorMessage> : null}
