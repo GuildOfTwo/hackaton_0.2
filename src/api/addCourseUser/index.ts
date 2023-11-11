@@ -8,6 +8,6 @@ export const addCourseUser = (id: number, userId: number | undefined) => {
     userId: userId,
     startDate: now,
     required: false,
-    done: false,
+    done: true,
   });
 };
