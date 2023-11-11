@@ -1,9 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
 import { Pie } from '@ant-design/plots';
 
 export const PieChart = ({ users }) => {
-
   const createData = () => {
     const dic = {};
     const resArr = [];
@@ -14,23 +11,20 @@ export const PieChart = ({ users }) => {
         dic[user.department] += 1;
       }
     });
-    console.log(dic)
 
     for (const key in dic) {
       if (key !== 'null')
-      resArr.push({
-        type: key,
-        value: dic[key]
-      })
+        resArr.push({
+          type: key,
+          value: dic[key],
+        });
     }
 
-    return resArr
-
+    return resArr;
   };
 
+  const data = createData();
 
-  const data = createData()
-    
   const config = {
     appendPadding: 10,
     data,

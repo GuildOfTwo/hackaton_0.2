@@ -58,9 +58,7 @@ const EditableCell: React.FC = ({
   );
 };
 
-
-
-export const Table: React.FC = ({users}) => {
+export const Table: React.FC = ({ users }) => {
   const [form] = Form.useForm();
   const [data, setData] = useState(users);
   const [editingKey, setEditingKey] = useState('');
@@ -69,7 +67,6 @@ export const Table: React.FC = ({users}) => {
   // В стейте editingKey находится id user (идентификатор), он же id ряда, в котором инициировано редактирование
   const isEditing = (record) => record.id === editingKey;
 
-  
   const edit = (record) => {
     form.setFieldsValue({ lastName: '', firstName: '', department: '', ...record });
     setEditingKey(record.id);
@@ -82,7 +79,7 @@ export const Table: React.FC = ({users}) => {
 
   const save = async (key: React.Key) => {
     try {
-      const row = (await form.validateFields());
+      const row = await form.validateFields();
 
       const newData = [...data];
       const index = newData.findIndex((item) => key === item.id);
@@ -91,13 +88,13 @@ export const Table: React.FC = ({users}) => {
         newData.splice(index, 1, {
           ...item,
           ...row,
-          id: editingKey
+          id: editingKey,
         });
         setData(newData);
-        changeUserData({...row, id: editingKey});
-        setEditingKey('');        
+        changeUserData({ ...row, id: editingKey });
+        setEditingKey('');
       } else {
-        newData.push({...row, id: editingKey});
+        newData.push({ ...row, id: editingKey });
         setData(newData);
         changeUserData(row);
         setEditingKey('');
@@ -175,13 +172,13 @@ export const Table: React.FC = ({users}) => {
       title: 'Пройдено',
       dataIndex: 'progress',
       key: 'progress',
-    //   sorter: (a, b) => a.progress - b.progress,
+      //   sorter: (a, b) => a.progress - b.progress,
     },
     {
       title: 'Внимание',
       dataIndex: 'alarm',
       key: 'alarm',
-    //   sorter: (a, b) => a.alarm.localeCompare(b.alarm),
+      //   sorter: (a, b) => a.alarm.localeCompare(b.alarm),
     },
     {
       title: 'Редактирование',
@@ -222,20 +219,18 @@ export const Table: React.FC = ({users}) => {
     };
   });
 
-
   return (
     <ConfigProvider
       theme={{
         components: {
           Table: {
             colorBgContainer: '#2D384A',
-            colorTextHeading: '#fff'
-
+            colorTextHeading: '#fff',
           },
           Popconfirm: {
             colorText: 'rgba(0, 0, 0, 0.88)',
             colorWarning: 'rgba(0, 0, 0, 0.88)',
-          }
+          },
         },
       }}
     >
@@ -245,7 +240,7 @@ export const Table: React.FC = ({users}) => {
           columns={mergedColumns}
           pagination={false}
           rowKey='id'
-          rowClassName="editable-row"
+          rowClassName='editable-row'
           components={{
             body: {
               cell: EditableCell,

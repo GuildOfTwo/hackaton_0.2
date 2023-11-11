@@ -21,7 +21,7 @@ const AppRoutes = () => {
         element={<RouteForNonLoggedUser element={<Authorization />} />}
       />
       <Route path={Page.MAIN} element={<RouteForLoggedUser element={<MainPage />} />}>
-        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<Dashboard />} />} />
+        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<HRDashboard />} />} />
         <Route
           path={Page.SELECTED_COURSES}
           element={<RouteForLoggedUser element={<SelectedCourses />} />}

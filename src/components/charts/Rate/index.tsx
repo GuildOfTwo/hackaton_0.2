@@ -1,18 +1,17 @@
 import { Gauge } from '@ant-design/plots';
 
-export const RateChart = ({data}) => {
-
+export const RateChart = ({ data }) => {
   const countPerc = () => {
     let done = 0;
     let all = 0;
-    data.forEach(user => {
+    data.forEach((user) => {
       const arr = user.progress.split(' из ');
       done += arr[0];
       all += arr[1];
-    })
+    });
 
     return done / all;
-  }
+  };
 
   const percentage = countPerc();
 

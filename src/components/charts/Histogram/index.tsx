@@ -41,7 +41,7 @@ export const HistogramChart = ({ users }) => {
       layout: [
         {
           type: 'interval-adjust-position',
-        }, 
+        },
         {
           type: 'interval-hide-overlap',
         },
