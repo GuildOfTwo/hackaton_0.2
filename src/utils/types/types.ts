@@ -21,8 +21,27 @@ export type TUser = {
   mentor_tg: string;
   middleName: string;
   post: string;
-  UserCourses: Array<string>;
+  UserCourses: TUserCourse[];
   UserAwards: Array<string>;
+};
+
+export type TSelectCourseUser = {
+  id: number;
+  courseName: string;
+  categoryId: number;
+  courseDuration: number;
+};
+
+export type TUserCourse = {
+  id: number;
+  courseId: number;
+  startDate: Date;
+  required: boolean;
+  done: boolean;
+  scores: number;
+  succes: boolean;
+  userId: number;
+  course: TSelectCourseUser;
 };
 
 export type TThemeProps = {

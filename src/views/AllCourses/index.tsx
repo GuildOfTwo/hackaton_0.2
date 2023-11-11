@@ -23,7 +23,7 @@ export type TAllCourses = {
 
 export const AllCoursesList = () => {
   const location = useLocation();
-  console.log(location.pathname);
+  // console.log(location.pathname);
 
   const [allCourses, setAllCourses] = useState([]);
 
@@ -46,7 +46,7 @@ export const AllCoursesList = () => {
 
   if (allCourses.length < 1) return null;
 
-  console.log(allCourses);
+  // console.log(allCourses);
   const getCategoryName = (categoryId: number): string => {
     switch (categoryId) {
       case 2:
