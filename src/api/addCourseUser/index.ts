@@ -7,5 +7,7 @@ export const addCourseUser = (id: number, userId: number | undefined) => {
     courseId: id,
     userId: userId,
     startDate: now,
+    required: false,
+    done: false,
   });
 };
