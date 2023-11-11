@@ -139,6 +139,10 @@ export const Table: React.FC<IProps> = ({ users }) => {
           text: 'Project',
           value: 'Project',
         },
+        {
+          text: 'Дизайн',
+          value: 'Дизайн',
+        },
       ],
       sorter: (a: TUserForDash, b: TUserForDash) => a.department.localeCompare(b.department),
       onFilter: (value: string, record: TUserForDash) => record.department.indexOf(value) === 0,
