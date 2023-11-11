@@ -71,11 +71,12 @@ export const AllCoursesList = () => {
       }
 
       acc[categoryName].push(item);
-
+      console.log('acc', acc);
       return acc;
     },
     {}
   );
+  console.log('user', user);
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -95,10 +96,10 @@ export const AllCoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!user?.UserCourses.find((ele) => ele.courseId === item.id) && (
+                  {user && !user.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <AddCourseDiv
                       onClick={() => {
-                        !user?.UserCourses.find((ele) => ele.courseId === item.id)
+                        user?.UserCourses.find((ele) => ele.courseId === item.id)
                           ? addCourse(item.id)
                           : '';
                       }}
@@ -107,9 +108,9 @@ export const AllCoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {user?.UserCourses.find((ele) => ele.courseId === item.id) && (
+                  {user && user.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <CorseCardDoneDiv>
-                      Пройден
+                      Добавлен
                       <CheckOutlined />
                     </CorseCardDoneDiv>
                   )}
