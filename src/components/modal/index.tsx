@@ -12,7 +12,6 @@ interface IModalProps {
 }
 export const Modal: FC<IModalProps> = () => {
   const modal = useAppSelector((state) => state.modal);
-  console.log(modal);
   const dispatch = useAppDispatch();
 
   // const stopPropagation = (e: Event) => {
