@@ -16,7 +16,6 @@ export const SelectedCourses = () => {
 
   const user = useAppSelector((store: RootState) => store.user.user);
   const userCoursesId = user?.UserCourses.map((i) => i.courseId);
-  const userCourses = user?.UserCourses.map((i) => i);
   const allCoursesId = allCourses.map((i) => i.id);
 
   if (allCourses.length < 1) return null;

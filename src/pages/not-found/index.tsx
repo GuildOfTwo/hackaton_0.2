@@ -23,8 +23,12 @@ export const NotFound: FC = () => {
       <Title>Ошибка. Страница не найдена.</Title>
       <Title>Попробуйте презагрузить страницу</Title>
       <ButtonWrapper>
-        <Button onClick={() => goToMainPage()}>На главную</Button>
-        <Button onClick={() => goBack()}>Назад</Button>
+        <Button onClick={() => goToMainPage()}>
+          <div style={{ color: 'black' }}> Вернуться на главную</div>
+        </Button>
+        <Button onClick={() => goBack()}>
+          <div style={{ color: 'black' }}> Назад</div>
+        </Button>
       </ButtonWrapper>
     </Wrapper404>
   );
