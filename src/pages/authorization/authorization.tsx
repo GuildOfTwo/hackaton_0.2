@@ -23,20 +23,27 @@ export const Authorization: FC = () => {
         (res) => (
           dispatch(login()),
           dispatch(
-            setLoginInfo({
-              id: res.id,
-              firstName: res.firstName,
-              lastName: res.lastName,
-              roles: res.roles,
-              firstSignIn: res.firstSignIn,
-              name: res.name,
-              email: res.email,
-              phoneNumber: res.phoneNumber,
-              mentor: res.mentor,
-              departament: res.departament,
-              director: res.director,
-              accessRoles: res.accessRoles,
-            })
+            setLoginInfo(
+              res
+              //   {
+              //   avatar: res.avatar,
+              //   id: res.id,
+              //   firstName: res.firstName,
+              //   lastName: res.lastName,
+              //   roles: res.roles,
+              //   firstSignIn: res.firstSignIn,
+              //   email: res.email,
+              //   phoneNumber: res.phone,
+              //   mentor: res.mentor,
+              //   department: res.department,
+              //   accessRoles: res.accessRoles,
+              //   mentor_tg: res.mentor_tg,
+              //   telegram: res.telegram,
+              //   birthday: res.birthday,
+              //   middleName: res.middleName,
+              //   post: res.post,
+              // }
+            )
           )
         )
       )

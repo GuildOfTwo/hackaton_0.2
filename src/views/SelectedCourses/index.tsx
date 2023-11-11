@@ -2,8 +2,9 @@ import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { CardContainer, SelectedContainer } from './styled';
 import { TSelectCourse } from '../../utils/types/types';
-import { CourseCard, CourseTitle } from '../CoursesList/style';
+import { CorseCardDoneDiv, CourseCard, CourseTitle } from '../CoursesList/style';
 import { Link } from 'react-router-dom';
+import { CheckOutlined } from '@ant-design/icons';
 
 export const SelectedCourses = () => {
   const [allCourses, setAllCourses] = useState([]);
@@ -34,6 +35,12 @@ export const SelectedCourses = () => {
                   />
                 </CardContainer>
               </Link>
+              {userCourses.includes(item.id) && (
+                <CorseCardDoneDiv>
+                  Пройден
+                  <CheckOutlined />
+                </CorseCardDoneDiv>
+              )}
             </CourseCard>
           );
       })}

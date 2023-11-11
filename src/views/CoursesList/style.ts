@@ -50,11 +50,12 @@ export const CorseCardDoneDiv = styled.div`
   padding: 8px;
 `;
 
-export const AddCourseDiv = styled.div`
+export const AddCourseDiv = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: ${(props) => props.theme.backgroundColor4};
+  border: 1px solid red;
   border-radius: 10%;
   padding: 8px;
   color: ${(props) => props.theme.textcolor};

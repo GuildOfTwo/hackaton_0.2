@@ -11,40 +11,58 @@ type TCourseContent = {
   question: TCourseQuestions[];
 };
 
-type TQuestionValues = {
-  question1?: string;
-  question2?: string;
-  question3?: string;
-  question4?: string;
-  question5?: string;
-  question6?: string;
-};
+type TQuestionValues = [string, boolean];
 
 type TValues = {
-  question: TQuestionValues[];
+  questions: { [key: string]: TQuestionValues };
 };
 
 export const CoursePage = () => {
   const { id } = useParams();
   const [form] = Form.useForm();
-
+  const { Item } = Form;
+  const { Group } = Radio;
   const [course, setCourse] = useState<TSelectCourse | null>();
+  const [seconds, setSeconds] = useState(180);
 
   useEffect(() => {
     requestSoloCourses(id).then((res) => setCourse(res.data));
   }, []);
 
-  // Ниже отправить ответы пользователя
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (seconds > 0) {
+        setSeconds((prevSeconds) => prevSeconds - 1);
+      }
+    }, 1000);
 
+    return () => clearInterval(interval);
+  }, [seconds]);
   const onFinish = (values: TValues) => {
-    console.log(values);
+    const totalQuestions = Object.keys(values.questions).length;
+    let correctAnswers = 0;
+    for (const key in values.questions) {
+      if (values.questions[key][1] === true) {
+        correctAnswers++;
+      }
+    }
+    const score = calculateScore(correctAnswers, totalQuestions);
+    console.log(score);
   };
 
   if (!course) return null;
 
   const content = JSON.parse(course?.CourseContent[0]?.content) as TCourseContent;
 
-  console.log(content);
+  function calculateScore(correctAnswers: number, totalQuestions: number) {
+    if (totalQuestions === 0) {
+      return { percent: 0, passed: false };
+    }
+    const score = (correctAnswers / totalQuestions) * 100;
+    const percent = Math.max(0, Math.min(100, score));
+    const passed = percent >= 75;
+    return { percent, passed };
+  }
 
   return (
     <CourseContainer>
@@ -61,22 +79,23 @@ export const CoursePage = () => {
           form={form}
         >
           {content.question.map((item, index) => (
-            <Form.Item
+            <Item
               key={index}
               name={['questions', `question${index + 1}`]}
-              rules={[{ required: true, message: 'Выберите один из ответов' }]}
+              rules={[{ required: true, message: 'Выберите ответ' }]}
               label={<Label>{item.name}</Label>}
             >
-              <Radio.Group>
+              <Group>
                 {item.answers.map((answ, ind) => (
-                  <Radio key={ind} value={answ.answer}>
+                  <Radio key={ind} value={[answ.answer, answ.correct]}>
                     {answ.answer}
                   </Radio>
                 ))}
-              </Radio.Group>
-            </Form.Item>
+              </Group>
+            </Item>
           ))}
-          <Button type='primary' htmlType='submit'>
+          {seconds === 0 ? '' : <p>Кнопка будет активна через {seconds} секунд</p>}
+          <Button type='primary' htmlType='submit' disabled={seconds === 0 ? false : true}>
             <p style={{ color: 'white' }}>Завершить курс</p>
           </Button>
         </Form>

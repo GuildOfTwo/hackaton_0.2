@@ -11,7 +11,6 @@ import { BlackLabel, FormList, FormSubText, Label, TextAreaZone } from './styled
 import { TCourse } from '../../utils/types/types';
 import { FC, useEffect, useState } from 'react';
 import { requestCategoriesCourse } from '../../api/requstCategories';
-// import { useAppDispatch } from '../../hooks';
 import SyntaxHighlighter from 'react-syntax-highlighter/dist/esm/default-highlight';
 import Markdown from 'react-markdown';
 import { docco } from 'react-syntax-highlighter/dist/esm/styles/hljs';
@@ -40,8 +39,6 @@ export type TObjCourses = {
 
 export const NewCoursePage = () => {
   const [markdownInput, setMarkdownInput] = useState<string>();
-  // const dispatch = useAppDispatch()
-
   const [categoriesCourse, setCategoriesCourse] = useState([
     { id: 1, name: 'Общие' },
     { id: 2, name: 'IT' },
