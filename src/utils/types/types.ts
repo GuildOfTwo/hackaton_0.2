@@ -36,6 +36,7 @@ export type TUserCourse = {
   id: number;
   courseId: number;
   startDate: Date;
+  doneDate: null;
   required: boolean;
   done: boolean;
   scores: number;
