@@ -149,7 +149,7 @@ export type TCourseContent = {
 export type TCreateNewCourseApi = {
   name: string;
   courseDuration: string;
-  CourseContent: TCourseContent[];
+  CourseContent: TCourseContent;
   type: number[];
 };
 

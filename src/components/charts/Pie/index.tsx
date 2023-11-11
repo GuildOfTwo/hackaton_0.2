@@ -3,7 +3,7 @@ import { Pie } from '@ant-design/plots';
 import { TUserForDash } from '../../../utils/types/types';
 
 interface IProps {
-  users: TUserForDash[]
+  users: TUserForDash[];
 }
 
 interface IDic {
@@ -45,7 +45,7 @@ export const PieChart: React.FC<IProps> = ({ users }) => {
       type: 'inner',
       offset: '-30%',
       // @ts-ignore: error message
-      content: ({ percent }) => `${(percent * 100).toFixed(2)}%`,
+      content: ({ percent }) => `${(percent * 100).toFixed(1)}%`,
       style: {
         fontSize: 14,
         textAlign: 'center',

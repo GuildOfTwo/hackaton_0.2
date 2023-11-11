@@ -5,14 +5,12 @@ import { ChartCardStyled } from '../../layouts/ChartCard';
 import { Table } from '../../components/charts/Table';
 import styled from 'styled-components';
 import { TUserForDash } from '../../utils/types/types';
-
 import { getAllUsers } from '../../api/getAllUsers';
 import { useState, useEffect } from 'react';
-
 import { formatUsersData } from '../../lib/formatUsersData';
 
 const SectionStyled = styled.section`
-  width: 80vw;
+  width: 70vw;
   margin: 0 auto;
 `;
 
@@ -27,8 +25,6 @@ export const AllUserCharts = () => {
   const [users, setUsers] = useState<TUserForDash[]>([]);
   const [isLoaded, setIsLoaded] = useState(false);
 
-  console.log(users[0]);
-
   useEffect(() => {
     getAllUsers()
       .then((res) => {
@@ -36,7 +32,7 @@ export const AllUserCharts = () => {
         setUsers(newUsers);
         setIsLoaded(true);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.error(err));
   }, []);
 
   return (

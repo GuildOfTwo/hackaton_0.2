@@ -1,6 +1,5 @@
 import { TUserForDash } from '../utils/types/types';
 
-
 // Удаляю пользователей hr
 export const excludeHr = (users: TUserForDash[]) => {
   return users.filter((user) => !user.accessRoles.includes('HR'));

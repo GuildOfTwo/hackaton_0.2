@@ -12,7 +12,7 @@ export const createNewCourse = (item: TCourse) => {
 export const сreateNewCourseContent = (item: TSelectCourse, values: TCourse) => {
   return backendInstance.post('/course-content', {
     courseId: +item.id,
-    image: values.course.CourseContent[0].image,
+    image: values.course.CourseContent.image,
     content: JSON.stringify(values.course.CourseContent),
   });
 };
