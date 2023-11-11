@@ -21,6 +21,8 @@ export type TUser = {
   mentor_tg: string;
   middleName: string;
   post: string;
+  UserCourses: Array<string>;
+  UserAwards: Array<string>;
 };
 
 export type TThemeProps = {
