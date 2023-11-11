@@ -1,5 +1,9 @@
 import { ChartCard } from './styled';
 
-export const ChartCardStyled = ({children}) => {
+interface IProps {
+  children: any;
+}
+
+export const ChartCardStyled: React.FC<IProps> = ({ children }) => {
   return <ChartCard>{children}</ChartCard>;
 };

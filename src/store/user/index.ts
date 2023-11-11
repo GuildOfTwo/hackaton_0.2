@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { TUser, TUserSliceState } from '../../utils/types/types';
+import { TUser, TUserCourse, TUserSliceState } from '../../utils/types/types';
 
 const initialState: TUserSliceState = {
   user: null,
@@ -15,7 +15,10 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     setUserOnLoad: (state: TUserSliceState, action: { payload: TUser; type: string }) => {
-      state.user = { ...action.payload };
+      state.user = action.payload;
+    },
+    setUserCourse: (state: TUserSliceState, action: { payload: any; type: string }) => {
+      if (state.user != null) state.user.UserCourses = action.payload;
     },
     setFirstSignInFalse: (state: TUserSliceState) => {
       if (state.user !== null) state.user.firstSignIn = false;
@@ -23,5 +26,6 @@ const userSlice = createSlice({
   },
 });
 
-export const { setLoginInfo, setFirstSignInFalse, setUserOnLoad } = userSlice.actions;
+export const { setLoginInfo, setFirstSignInFalse, setUserOnLoad, setUserCourse } =
+  userSlice.actions;
 export default userSlice.reducer;

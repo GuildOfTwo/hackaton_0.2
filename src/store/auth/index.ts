@@ -31,13 +31,16 @@ export const authSlice = createSlice({
   extraReducers: (builder) => {
     builder
       .addCase(GET_USER_ON_LOAD.fulfilled, (state, action) => {
-        (state.isLogin = true), (state.isLoading = action.type);
+        state.isLogin = true;
+        state.isLoading = action.type;
       })
       .addCase(GET_USER_ON_LOAD.pending, (state, action) => {
-        (state.isLogin = false), (state.isLoading = action.type);
+        state.isLogin = false;
+        state.isLoading = action.type;
       })
       .addCase(GET_USER_ON_LOAD.rejected, (state, action) => {
-        (state.isLogin = false), (state.isLoading = action.type);
+        state.isLogin = false;
+        state.isLoading = action.type;
       });
   },
 });

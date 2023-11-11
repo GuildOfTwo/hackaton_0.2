@@ -1,13 +1,20 @@
 import { Gauge } from '@ant-design/plots';
+import { TUserForDash } from '../../../utils/types/types';
 
-export const RateChart = ({ data }) => {
+interface IProps {
+  data: TUserForDash[];
+}
+
+export const RateChart: React.FC<IProps> = ({ data }) => {
   const countPerc = () => {
     let done = 0;
     let all = 0;
-    data.forEach((user) => {
-      const arr = user.progress.split(' из ');
-      done += arr[0];
-      all += arr[1];
+    data.forEach((user: TUserForDash) => {
+      if (user.progress) {
+        const arr = user.progress.split(' из ');
+        done += Number(arr[0]);
+        all += Number(arr[1]);
+      }
     });
 
     return done / all;
@@ -22,7 +29,7 @@ export const RateChart = ({ data }) => {
     },
     startAngle: Math.PI,
     endAngle: 2 * Math.PI,
-    indicator: null,
+    indicator: undefined,
     statistic: {
       title: {
         offsetY: -36,
