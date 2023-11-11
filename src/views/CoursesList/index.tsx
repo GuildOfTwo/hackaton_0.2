@@ -15,6 +15,7 @@ import { CheckOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router';
 import { useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
+import { RootState } from '../../store';
 
 export type TAllCourses = {
   allCourses: TSelectCourse[];
@@ -22,37 +23,40 @@ export type TAllCourses = {
 
 export const CoursesList = () => {
   // const dispatch = useAppDispatch()
-
-  const location = useLocation();
-  console.log(location.pathname);
-
-  const [allCourses, setAllCourses] = useState([]);
-
-  // Ниже надо получить все курсы юзера и юзер айди
-  // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
-
-  const userId = useAppSelector((store) => store.user.user?.id);
-
-  const userCourses = [38, 39, 40];
-
-  //ниже добавить отправку времени на начало курса
-  const addCourse = (id: number) => {
-    console.log(id);
-    console.log(userId);
-    addCourseUser(id, userId);
-  };
+  const [allCourses, setAllCourses] = useState<TSelectCourse[]>([]);
   useEffect(() => {
     requestCourses().then((res) => setAllCourses(res.data));
   }, []);
 
-  if (allCourses.length < 1) return null;
+  const location = useLocation();
 
-  console.log(allCourses);
+  const user = useAppSelector((store: RootState) => store.user.user);
+
+  const userCourses = user?.UserCourses.map((i) => i.courseId);
+
+  const allCoursesId = allCourses.map((i) => i.id);
+
+  // console.log(userCourses);
+  //  console.log(allCourses)
+
+  const addCourse = (id: number) => {
+    console.log(id);
+    console.log(user?.id);
+    addCourseUser(id, user?.id);
+  };
+
+  if (allCourses.length < 1) return null;
+  if (userCourses == undefined) return null;
+
   return (
     <>
       <DashContainer>
         {allCourses?.map((item: TSelectCourse) => {
           if (location.pathname === '/managment' && item.categoryId === 2) {
+            // user?.UserCourses.find((ele) => ele.courseId === item.categoryId)
+            // item.id
+            console.log(user?.UserCourses.find((ele) => ele.courseId === item.categoryId));
+
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -66,7 +70,7 @@ export const CoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!allCoursesId.filter((val) => userCourses.includes(val)).includes(item.id) && (
                     <AddCourseDiv
                       onClick={() => {
                         userCourses.includes(item.id) ? addCourse(item.id) : '';
@@ -76,7 +80,7 @@ export const CoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {allCoursesId.filter((val) => userCourses.includes(val)) && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
@@ -87,6 +91,9 @@ export const CoursesList = () => {
             );
           }
           if (location.pathname === '/engineering' && item.categoryId === 3) {
+            const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
+
+            console.log(final?.done);
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -100,7 +107,7 @@ export const CoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!allCoursesId.filter((val) => userCourses.includes(val)).includes(item.id) && (
                     <AddCourseDiv
                       onClick={() => {
                         userCourses.includes(item.id) ? addCourse(item.id) : '';
@@ -110,7 +117,7 @@ export const CoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {final?.done && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
@@ -121,6 +128,10 @@ export const CoursesList = () => {
             );
           }
           if (location.pathname === '/client-service' && item.categoryId === 4) {
+            const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
+
+            console.log(final?.done);
+
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -134,7 +145,7 @@ export const CoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!allCoursesId.filter((val) => userCourses.includes(val)).includes(item.id) && (
                     <AddCourseDiv
                       onClick={() => {
                         userCourses.includes(item.id) ? addCourse(item.id) : '';
@@ -144,7 +155,7 @@ export const CoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {final?.done && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
@@ -155,6 +166,10 @@ export const CoursesList = () => {
             );
           }
           if (location.pathname === '/design' && item.categoryId === 5) {
+            const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
+
+            console.log(final?.done);
+
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -168,7 +183,7 @@ export const CoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!allCoursesId.filter((val) => userCourses.includes(val)).includes(item.id) && (
                     <AddCourseDiv
                       onClick={() => {
                         userCourses.includes(item.id) ? addCourse(item.id) : '';
@@ -178,7 +193,7 @@ export const CoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {final?.done && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
@@ -189,6 +204,10 @@ export const CoursesList = () => {
             );
           }
           if (location.pathname === '/product-managment' && item.categoryId === 1) {
+            const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
+
+            console.log(final?.done);
+
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -202,7 +221,7 @@ export const CoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!allCoursesId.filter((val) => userCourses.includes(val)).includes(item.id) && (
                     <AddCourseDiv
                       onClick={() => {
                         userCourses.includes(item.id) ? addCourse(item.id) : '';
@@ -212,7 +231,7 @@ export const CoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {final?.done && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
@@ -223,6 +242,9 @@ export const CoursesList = () => {
             );
           }
           if (location.pathname === '/courses-for-all' && item.categoryId === 6) {
+            const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
+
+            console.log(final?.done);
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -236,7 +258,7 @@ export const CoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {allCoursesId.filter((val) => userCourses.includes(val)) && (
                     <AddCourseDiv
                       onClick={() => {
                         userCourses.includes(item.id) ? addCourse(item.id) : '';
@@ -246,7 +268,7 @@ export const CoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {final?.done && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
