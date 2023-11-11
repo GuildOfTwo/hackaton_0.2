@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
 import { RootState } from '../../store';
@@ -36,10 +36,11 @@ export const CoursesList = () => {
 
   const allCoursesId = allCourses.map((i) => i.id);
 
+  const navigate = useNavigate();
   const addCourse = (id: number) => {
     addCourseUser(id, user?.id);
+    navigate('/selected-courses');
   };
-
   if (allCourses.length < 1) return null;
   if (userCourses == undefined) return null;
 

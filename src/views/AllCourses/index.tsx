@@ -13,26 +13,23 @@ import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
-import { useLocation } from 'react-router';
 import { useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
 import { RootState } from '../../store';
+import { useNavigate } from 'react-router';
 
 export type TAllCourses = {
   allCourses: TSelectCourse[];
 };
 
 export const AllCoursesList = () => {
-  const location = useLocation();
-  console.log(location.pathname);
-
   const [allCourses, setAllCourses] = useState<TSelectCourse[]>([]);
-
   const user = useAppSelector((store: RootState) => store.user.user);
 
+  const navigate = useNavigate();
   const addCourse = (id: number) => {
-    console.log(id);
     addCourseUser(id, user?.id);
+    navigate('/selected-courses');
   };
   useEffect(() => {
     requestCourses().then((res) => setAllCourses(res.data));
@@ -70,7 +67,6 @@ export const AllCoursesList = () => {
     },
     {}
   );
-  console.log('user', user);
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -93,7 +89,7 @@ export const AllCoursesList = () => {
                   {user && !user?.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <AddCourseDiv
                       onClick={() => {
-                        user?.UserCourses.find((ele) => ele.courseId === item.id)
+                        !user?.UserCourses.find((ele) => ele.courseId === item.id)
                           ? addCourse(item.id)
                           : '';
                       }}
