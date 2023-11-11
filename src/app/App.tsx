@@ -7,7 +7,7 @@ import Theme from '../components/Theme/Theme';
 import { getTheme } from '../utils/theme';
 import { useAppDispatch, useAppSelector } from '../hooks';
 import { setLightTheme, setDefaultTheme } from '../store/theme';
-import { closeModalWindow, openModalWindow } from '../store/modal';
+import { openModalWindow } from '../store/modal';
 import { getUserOnLoad } from '../api/getUserOnLoad/getUserOnLoad';
 import { setUserOnLoad } from '../store/user';
 import { AUTHORIZATION_URI } from '../utils/constants/navigation';
@@ -17,6 +17,7 @@ import { Preloader } from '../components/preloader';
 const App: React.FC = () => {
   const dispatch = useAppDispatch();
   const isFirstTimeLogin = useAppSelector((store) => store.user.user?.firstSignIn);
+  console.log(isFirstTimeLogin);
   const isLogin = useAppSelector((store) => store.auth.isLogin);
   const isLoading = useAppSelector((store) => store.auth.isLoading);
   const setThemeOnLoad = () => {
@@ -35,8 +36,7 @@ const App: React.FC = () => {
 
   React.useEffect(() => {
     isFirstTimeLogin && dispatch(openModalWindow({ type: 'welcomeModal' }));
-    dispatch(closeModalWindow());
-  }, []);
+  }, [isFirstTimeLogin]);
 
   React.useEffect(() => {
     setThemeOnLoad();
