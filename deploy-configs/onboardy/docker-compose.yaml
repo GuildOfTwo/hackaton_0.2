@@ -1,0 +1,108 @@
+version: '3.3'
+services:
+  frontend:
+    build:
+      context: frontend
+      dockerfile: Dockerfile
+      args:
+        - API_BASE_URL=${API_BASE_URL}
+    container_name: onboardy-frontend
+    image: onboardy/frontend
+    restart: always
+    networks:
+      - react-express
+      - grafana-loki
+    depends_on:
+      - backend
+    ports:
+      - "7080:80"
+
+  backend:
+    build:
+      context: backend
+      dockerfile: Dockerfile
+      args:
+        DATABASE_URL: ${DATABASE_URL}
+    container_name: onboardy-backend
+    image: onboardy/backend
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - JWT_SECRET=${JWT_SECRET}
+      - BASE_URL=${SITE_BASE_URL}
+      - MAX_AUTH_ATTEMPTS=${MAX_AUTH_ATTEMPTS}
+      - LOGGER_BASE_URL=http://loki:3100
+      - DATABASE_URL=${DATABASE_URL}
+      - TZ=Europe/Moscow
+    networks:
+      - react-express
+      - grafana-loki
+    depends_on:
+      - loki
+    ports:
+      - "7081:3000"
+    volumes:
+      - /etc/timezone:/etc/timezone:ro
+      - /usr/share/zoneinfo/Europe/Moscow:/etc/localtime:ro
+
+  loki:
+    build:
+      context: loki
+      dockerfile: Dockerfile
+    container_name: onboardy-loki
+    image: onboardy/loki
+    restart: always
+    expose:
+      - 3100
+    volumes:
+      - onboardy_loki_data:/tmp
+    command: -config.file=/etc/loki/loki-config.yaml
+    networks:
+      - grafana-loki
+
+
+  grafana:
+    environment:
+      - GF_PATHS_PROVISIONING=/etc/grafana/provisioning
+      - GF_AUTH_ANONYMOUS_ENABLED=true
+      - GF_AUTH_ANONYMOUS_ORG_ROLE=Admin
+      - GF_SERVER_ROOT_URL=${SITE_BASE_URL}/logs/
+      - GF_SERVER_SERVE_FROM_SUB_PATH=true
+    depends_on:
+      - loki
+    entrypoint:
+      - sh
+      - -euc
+      - |
+        mkdir -p /etc/grafana/provisioning/datasources
+        cat <<EOF > /etc/grafana/provisioning/datasources/ds.yaml
+        apiVersion: 1
+        datasources:
+        - name: Loki
+          type: loki
+          access: proxy
+          orgId: 1
+          url: http://loki:3100
+          basicAuth: false
+          isDefault: true
+          version: 1
+          editable: false
+        EOF
+        /run.sh
+    image: grafana/grafana:latest
+    container_name: onboardy-grafana
+    restart: always
+    expose:
+      - 3000
+    networks:
+      - grafana-loki
+    volumes:
+      - onboardy_grafana_data:/var/lib/grafana
+
+networks:
+  react-express:
+  grafana-loki:
+
+volumes:
+  onboardy_loki_data:
+  onboardy_grafana_data:

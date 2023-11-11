@@ -1,0 +1,14 @@
+version: '3.3'
+services:
+
+  backend:
+    build:
+      context: .
+    container_name: onboardy-telegram-bot
+    image: onboardy/bot
+    restart: always
+    environment:
+      - NODE_ENV=production
+      - TOKEN=${TOKEN}
+      - ADMIN=${ADMIN}
+      - PROXY=${PROXY}

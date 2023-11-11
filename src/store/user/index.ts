@@ -12,7 +12,7 @@ const userSlice = createSlice({
   initialState,
   reducers: {
     setLoginInfo: (state: TUserSliceState, action: { payload: TUser; type: string }) => {
-      state.user = { ...action.payload };
+      state.user = action.payload;
     },
     setUserOnLoad: (state: TUserSliceState, action: { payload: TUser; type: string }) => {
       state.user = { ...action.payload };
