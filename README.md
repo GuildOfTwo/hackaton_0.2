@@ -25,7 +25,7 @@
 
 **Frontend**
 
-    [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/)
+[React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/)
 
 
 ## Структура проекта <a name="structure"></a>
