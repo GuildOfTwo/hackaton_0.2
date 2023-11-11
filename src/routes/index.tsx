@@ -3,7 +3,7 @@ import { Page, SubPage } from '../utils/constants/navigation';
 import MainPage from '../pages/Main';
 import { Unavailable } from '../pages/unavailable';
 import { NotFound } from '../pages/not-found';
-import { Dashboard } from '../views/Dashboard';
+import { HRDashboard } from '../views/HRDashboard';
 import { CoursesList } from '../views/CoursesList';
 import { Authorization } from '../pages/authorization/authorization';
 import { AllUserStats } from '../views/AllUserStats/index';
@@ -22,7 +22,7 @@ const AppRoutes = () => {
         element={<RouteForNonLoggedUser element={<Authorization />} />}
       />
       <Route path={Page.MAIN} element={<RouteForLoggedUser element={<MainPage />} />}>
-        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<Dashboard />} />} />
+        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<HRDashboard />} />} />
         <Route
           path={Page.SELECTED_COURSES}
           element={<RouteForLoggedUser element={<SelectedCourses />} />}
