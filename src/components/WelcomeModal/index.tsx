@@ -7,6 +7,7 @@ import { firstSignInPatch } from '../../api/firstSignInPatch';
 import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setFirstSignInFalse } from '../../store/user';
 import { errorHandler } from '../../utils/errorHandler';
+import { closeModalWindow } from '../../store/modal';
 
 const WelcomeModal = () => {
   const [error, setError] = useState();
@@ -29,10 +30,9 @@ const WelcomeModal = () => {
     const handleSumbit = () => {
       userID &&
         firstSignInPatch(userID, values.phoneNumber, values.TelegramID)
-          .then(() => dispatch(setFirstSignInFalse()))
+          .then((res) => (dispatch(closeModalWindow()), dispatch(setFirstSignInFalse())))
           .catch((error) => setError(error.response.status));
     };
-
     return (
       <Button type='primary' htmlType='submit' disabled={!submittable} onClick={handleSumbit}>
         Подтвердить
