@@ -50,11 +50,13 @@ export const AllCoursesList = () => {
   const getCategoryName = (categoryId: number): string => {
     switch (categoryId) {
       case 2:
-        return 'Менеджмент';
+        return 'Управление';
       case 3:
-        return 'Маркетинг';
+        return 'Engineering';
       case 4:
-        return 'Общее';
+        return 'client-service';
+      case 4:
+        return 'Дизайн';
       default:
         return 'Другое';
     }
@@ -80,7 +82,7 @@ export const AllCoursesList = () => {
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
         <CategoryContainer key={i}>
           <h2 style={{ padding: '0 0 0 25px' }}>{categoryName}</h2>
-          <div style={{ display: 'flex' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', maxWidth: '1500px' }}>
             {courses.map((item: TSelectCourse) => (
               <CourseCard key={item.id}>
                 <CardContainer
