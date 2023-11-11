@@ -13,6 +13,7 @@ import { RouteForHROnly, RouteForLoggedUser, RouteForNonLoggedUser } from '../ho
 import { CoursePage } from '../views/CoursePage';
 import { SelectedCourses } from '../views/SelectedCourses';
 import { AllCoursesList } from '../views/AllCourses';
+import { Dashboard } from '../views/Dashboard';
 
 const AppRoutes = () => {
   return (
@@ -22,7 +23,7 @@ const AppRoutes = () => {
         element={<RouteForNonLoggedUser element={<Authorization />} />}
       />
       <Route path={Page.MAIN} element={<RouteForLoggedUser element={<MainPage />} />}>
-        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<HRDashboard />} />} />
+        <Route path={Page.DASHBOARD} element={<RouteForLoggedUser element={<Dashboard />} />} />
         <Route
           path={Page.SELECTED_COURSES}
           element={<RouteForLoggedUser element={<SelectedCourses />} />}

@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import { Button, Form, DatePicker } from 'antd';
 import Input from 'antd/es/input/Input';
 import FormItem from 'antd/es/form/FormItem';
+import { FormOutlined } from '@ant-design/icons';
 
 export const ProfileEditWrapper = styled.div`
   display: flex;
@@ -26,7 +27,6 @@ export const PWrapper = styled.div`
   gap: 20px 20px;
   margin-bottom: 20px;
   margin-top: 20px;
-  color: yellow;
 `;
 
 export const StyledInput = styled(Input)`
@@ -43,9 +43,8 @@ export const StyledInput = styled(Input)`
 export const StyledDatePicker = styled(DatePicker)``;
 
 export const EditButton = styled(Button)`
-  max-width: max-content;
-  align-self: center;
-  justify-self: center;
+  font-family: 'TildaSans';
+  font-weight: 700;
 `;
 export const StyledForm = styled(Form)`
   display: flex;
@@ -60,7 +59,12 @@ export const ErrorMessage = styled.p`
   color: red;
   font-weight: 900;
 `;
-
+export const ButtonText = styled.span`
+  color: white;
+`;
+export const StyledIcon = styled(FormOutlined)`
+  color: white;
+`;
 export const Label = styled.label`
   color: ${(props) => props.theme.textcolor};
   font-family: 'TildaSans';
