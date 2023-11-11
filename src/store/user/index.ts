@@ -15,7 +15,7 @@ const userSlice = createSlice({
       state.user = action.payload;
     },
     setUserOnLoad: (state: TUserSliceState, action: { payload: TUser; type: string }) => {
-      state.user = { ...action.payload };
+      state.user = action.payload;
     },
     setUserCourse: (state: TUserSliceState, action: { payload: any; type: string }) => {
       if (state.user != null) state.user.UserCourses = action.payload;
