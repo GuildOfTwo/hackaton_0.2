@@ -22,7 +22,7 @@ export const Authorization: FC = () => {
     loginRequest(values.username, values.password)
       .then((res) => res.data)
       .then(
-        (res) => (
+        () => (
           dispatch(login()),
           getUserOnLoad()
             .then((res) => res.data)
