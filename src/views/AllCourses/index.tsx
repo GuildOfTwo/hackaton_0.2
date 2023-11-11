@@ -55,7 +55,7 @@ export const AllCoursesList = () => {
         return 'Engineering';
       case 4:
         return 'client-service';
-      case 4:
+      case 5:
         return 'Дизайн';
       default:
         return 'Другое';
