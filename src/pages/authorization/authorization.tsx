@@ -9,7 +9,7 @@ import { DASHBOARD_URI } from '../../utils/constants/navigation';
 import { errorHandler } from '../../utils/errorHandler';
 import { FieldType, ValuesType } from '../../utils/types/types';
 import { Label } from '../../views/NewCourse/styled';
-import { setLoginInfo } from '../../store/user';
+import { setLoginInfo, setUserOnLoad } from '../../store/user';
 
 export const Authorization: FC = () => {
   const dispatch = useAppDispatch();
@@ -23,27 +23,48 @@ export const Authorization: FC = () => {
         (res) => (
           dispatch(login()),
           dispatch(
-            setLoginInfo(
-              res
-              //   {
-              //   avatar: res.avatar,
-              //   id: res.id,
-              //   firstName: res.firstName,
-              //   lastName: res.lastName,
-              //   roles: res.roles,
-              //   firstSignIn: res.firstSignIn,
-              //   email: res.email,
-              //   phoneNumber: res.phone,
-              //   mentor: res.mentor,
-              //   department: res.department,
-              //   accessRoles: res.accessRoles,
-              //   mentor_tg: res.mentor_tg,
-              //   telegram: res.telegram,
-              //   birthday: res.birthday,
-              //   middleName: res.middleName,
-              //   post: res.post,
-              // }
-            )
+            setLoginInfo({
+              avatar: res.avatar,
+              id: res.id,
+              firstName: res.firstName,
+              lastName: res.lastName,
+              roles: res.roles,
+              firstSignIn: res.firstSignIn,
+              email: res.email,
+              phoneNumber: res.phone,
+              mentor: res.mentor,
+              department: res.department,
+              accessRoles: res.accessRoles,
+              mentor_tg: res.mentor_tg,
+              telegram: res.telegram,
+              birthday: res.birthday,
+              middleName: res.middleName,
+              post: res.post,
+              UserCourses: res.UserCourses,
+              UserAwards: res.UserAwards,
+            })
+          ),
+          dispatch(
+            setUserOnLoad({
+              avatar: res.avatar,
+              id: res.id,
+              firstName: res.firstName,
+              lastName: res.lastName,
+              roles: res.roles,
+              firstSignIn: res.firstSignIn,
+              email: res.email,
+              phoneNumber: res.phone,
+              mentor: res.mentor,
+              department: res.department,
+              accessRoles: res.accessRoles,
+              mentor_tg: res.mentor_tg,
+              telegram: res.telegram,
+              birthday: res.birthday,
+              middleName: res.middleName,
+              post: res.post,
+              UserCourses: res.UserCourses,
+              UserAwards: res.UserAwards,
+            })
           )
         )
       )

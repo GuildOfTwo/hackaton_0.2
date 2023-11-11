@@ -65,6 +65,8 @@ const App: React.FC = () => {
               birthday: res.birthday,
               middleName: res.middleName,
               post: res.post,
+              UserCourses: res.UserCourses,
+              UserAwards: res.UserAwards,
             })
           )
         )
