@@ -163,8 +163,8 @@ const ProfileEdit = () => {
           {error ? <ErrorMessage>{errorHandler(error)}</ErrorMessage> : null}
           <TrophyGridTitle>Достижения:</TrophyGridTitle>
           <TrophyGrid>
-            {awardsArray.map((item) => (
-              <TrophyContainer>
+            {awardsArray.map((item, i) => (
+              <TrophyContainer key={i}>
                 <TrophyImg src={item.img} />
                 <TrophyTitle>{item.title}</TrophyTitle>
               </TrophyContainer>
