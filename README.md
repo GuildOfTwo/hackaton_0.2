@@ -39,9 +39,9 @@
 
 Во время разработки backend части приложения особое внимание было уделено проработке структуры данных. Диаграмма таблиц реляционной СУБД представлена ниже.
 
-  <img src="https://github.com/GuildOfTwo/hackaton_0.2/assets/96244317/7ab4daf6-0160-48ce-8ffe-688af3679947" alt="Диаграмма таблиц реляционной СУБД" width="200" height="100%">
+<img src="https://github.com/GuildOfTwo/hackaton_0.2/assets/96244317/7ab4daf6-0160-48ce-8ffe-688af3679947" alt="Диаграмма таблиц реляционной СУБД" width="200" height="100%">
 
-Детально ознакомиться с особеностями работы и возможностями backend части вы можете по [ссылке](https://github.com/GuildOfTwo/hackaton_0.2_backend). 
+Детально ознакомиться с особеностями работы и возможностями backend части вы можете по [ссылке](https://github.com/GuildOfTwo/hackaton_0.2_backend).
 
 ### Telegram бот <a name="telegram-bot"></a>
 
