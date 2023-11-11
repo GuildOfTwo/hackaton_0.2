@@ -9,7 +9,7 @@ export const ProfileEditWrapper = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: 17px;
+  font-size: 14px;
   font-weight: 500;
 `;
 export const ItemWrapper = styled.div`
@@ -72,8 +72,8 @@ export const Label = styled.label`
 `;
 
 export const TrophyImg = styled.img`
-  max-width: 75px;
-  max-height: 75px;
+  max-width: 30px;
+  max-height: 30px;
 `;
 
 export const TrophyGrid = styled.section`

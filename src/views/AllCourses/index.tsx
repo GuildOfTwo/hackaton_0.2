@@ -18,6 +18,7 @@ import { useAppDispatch, useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
 import { getUserOnLoad } from '../../api/getUserOnLoad/getUserOnLoad';
 import { setUserCourse } from '../../store/user';
+import { RootState } from '../../store';
 
 export type TAllCourses = {
   allCourses: TSelectCourse[];
@@ -26,10 +27,12 @@ export type TAllCourses = {
 export const AllCoursesList = () => {
   const dispatch = useAppDispatch();
   const location = useLocation();
-  // console.log(location.pathname);
+  console.log(location.pathname);
   const userCourses = useAppSelector((store) => store.user.user?.UserCourses);
   const userCoursesID = userCourses?.map((item) => item.courseId);
-  const [allCourses, setAllCourses] = useState([]);
+  const [allCourses, setAllCourses] = useState<TSelectCourse[]>([]);
+
+  const user = useAppSelector((store: RootState) => store.user.user);
 
   // Ниже надо получить все курсы юзера и юзер айди
   // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
@@ -51,8 +54,8 @@ export const AllCoursesList = () => {
   }, []);
 
   if (allCourses.length < 1) return null;
+  if (userCourses == undefined) return null;
 
-  // console.log(allCourses);
   const getCategoryName = (categoryId: number): string => {
     switch (categoryId) {
       case 2:
@@ -61,7 +64,7 @@ export const AllCoursesList = () => {
         return 'Engineering';
       case 4:
         return 'client-service';
-      case 4:
+      case 5:
         return 'Дизайн';
       default:
         return 'Другое';
@@ -77,12 +80,13 @@ export const AllCoursesList = () => {
       }
 
       acc[categoryName].push(item);
-
+      console.log('acc', acc);
       return acc;
     },
     {}
   );
   console.log(coursesByCategory);
+  console.log('user', user);
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -116,7 +120,7 @@ export const AllCoursesList = () => {
 
                   {!userCoursesID?.includes(item.id) && (
                     <CorseCardDoneDiv>
-                      Пройден
+                      Добавлен
                       <CheckOutlined />
                     </CorseCardDoneDiv>
                   )}
