@@ -56,13 +56,10 @@ export const AllCoursesList = () => {
   const coursesByCategory = allCourses.reduce<{ [key: string]: TSelectCourse[] }>(
     (acc, item: any) => {
       const categoryName = getCategoryName(item.categoryId as number);
-
       if (!acc[categoryName]) {
         acc[categoryName] = [];
       }
-
       acc[categoryName].push(item);
-      console.log('acc', acc);
       return acc;
     },
     {}

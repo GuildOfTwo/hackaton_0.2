@@ -46,8 +46,6 @@ export const CoursePage = () => {
         correctAnswers++;
       }
     }
-    const score = calculateScore(correctAnswers, totalQuestions);
-    console.log(score);
   };
 
   if (!course) return null;

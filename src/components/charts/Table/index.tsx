@@ -104,7 +104,7 @@ export const Table: React.FC<IProps> = ({ users }) => {
         setEditingKey('');
       }
     } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
+      console.error('Validate Failed:', errInfo);
     }
   };
 

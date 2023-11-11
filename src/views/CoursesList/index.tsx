@@ -86,8 +86,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/engineering' && item.categoryId === 3) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -123,8 +121,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/client-service' && item.categoryId === 4) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
 
             return (
               <CourseCard key={item.id}>
@@ -162,8 +158,6 @@ export const CoursesList = () => {
           if (location.pathname === '/design' && item.categoryId === 5) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
 
-            console.log(final?.done);
-
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -199,9 +193,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/product-managment' && item.categoryId === 1) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
-
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -237,8 +228,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/courses-for-all' && item.categoryId === 6) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
             return (
               <CourseCard key={item.id}>
                 <CardContainer
