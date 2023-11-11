@@ -7,17 +7,21 @@ export type TUserSliceState = {
 
 export type TUser = {
   id: number;
+  avatar: string;
   firstSignIn: boolean;
-  name: string;
   email: string;
-  phoneNumber:string;
+  phoneNumber: string;
   mentor: string;
-  departament: string;
-  director: string;
-  firstName: string,
-  lastName: string,
-  roles: Array<string>,
-  accessRoles: Array<string>
+  department: string;
+  firstName: string;
+  lastName: string;
+  roles: Array<string>;
+  accessRoles: Array<string>;
+  telegram: string;
+  birthday: Date;
+  mentor_tg: string;
+  middleName: string;
+  post: string;
 };
 
 export type TThemeProps = {

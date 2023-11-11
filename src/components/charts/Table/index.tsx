@@ -10,6 +10,7 @@ import {
 } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import { TUser } from '../../../utils/types/types';
+import { changeUserData } from '../../../api/changeUserData';
 
 import { getAllUsers } from '../../../api/getAllUsers';
 
@@ -59,9 +60,9 @@ const EditableCell: React.FC = ({
 
 
 
-export const Table: React.FC = () => {
+export const Table: React.FC = ({users}) => {
   const [form] = Form.useForm();
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(users);
   const [editingKey, setEditingKey] = useState('');
 
   // Проверка ряда таблицы на то является ли он редактируемым в данный момент
@@ -90,28 +91,21 @@ export const Table: React.FC = () => {
         newData.splice(index, 1, {
           ...item,
           ...row,
+          id: editingKey
         });
         setData(newData);
-        setEditingKey('');
+        changeUserData({...row, id: editingKey});
+        setEditingKey('');        
       } else {
-        newData.push(row);
+        newData.push({...row, id: editingKey});
         setData(newData);
+        changeUserData(row);
         setEditingKey('');
       }
     } catch (errInfo) {
       console.log('Validate Failed:', errInfo);
     }
   };
-
-  // Получение данные с бэка по пользователям
-  // TODO: Вынести и соединить со стором
-  useEffect(() => {
-    getAllUsers()
-      .then((res) => {
-        setData(res.data);
-      })
-      .catch((err) => console.log(err));
-  }, []);
 
   // Данные для заголовков таблицы
   const columns: ColumnsType<TUser> = [
@@ -178,7 +172,7 @@ export const Table: React.FC = () => {
       sorter: (a, b) => a.email.localeCompare(b.email),
     },
     {
-      title: 'Прогресс',
+      title: 'Пройдено',
       dataIndex: 'progress',
       key: 'progress',
     //   sorter: (a, b) => a.progress - b.progress,
@@ -235,7 +229,13 @@ export const Table: React.FC = () => {
         components: {
           Table: {
             colorBgContainer: '#2D384A',
+            colorTextHeading: '#fff'
+
           },
+          Popconfirm: {
+            colorText: 'rgba(0, 0, 0, 0.88)',
+            colorWarning: 'rgba(0, 0, 0, 0.88)',
+          }
         },
       }}
     >
