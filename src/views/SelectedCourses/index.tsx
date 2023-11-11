@@ -5,38 +5,31 @@ import { TSelectCourse } from '../../utils/types/types';
 import { CorseCardDoneDiv, CourseCard, CourseTitle } from '../CoursesList/style';
 import { Link } from 'react-router-dom';
 import { CheckOutlined } from '@ant-design/icons';
+import { RootState } from '../../store';
+import { useAppSelector } from '../../hooks';
 
 export const SelectedCourses = () => {
-  const [allCourses, setAllCourses] = useState([]);
+  const [allCourses, setAllCourses] = useState<TSelectCourse[]>([]);
   useEffect(() => {
     requestCourses().then((res) => setAllCourses(res.data));
   }, []);
 
-  // Ниже надо получить все курсы юзера
-  // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
+  const user = useAppSelector((store: RootState) => store.user.user);
+  const userCoursesId = user?.UserCourses.map((i) => i.courseId);
+  const userCourses = user?.UserCourses.map((i) => i);
+  const allCoursesId = allCourses.map((i) => i.id);
 
-  const userCourses = [41, 42, 43, 44];
+  if (allCourses.length < 1) return null;
+  if (userCoursesId == undefined) return null;
 
   return (
     <SelectedContainer>
       {allCourses?.map((item: TSelectCourse) => {
-        if (userCourses.includes(item.id))
-          return (
-            <CourseCard key={item.id}>
-              {!userCourses.includes(item.id) ? (
-                <Link to={`/course/${item.id}`}>
-                  <CardContainer
-                    title={<CourseTitle>{item.courseName}</CourseTitle>}
-                    bordered={false}
-                  >
-                    <img
-                      src={item.CourseContent[0]?.image}
-                      style={{ objectFit: 'contain', width: '100%' }}
-                      alt=''
-                    />
-                  </CardContainer>
-                </Link>
-              ) : (
+        const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
+        return (
+          <CourseCard key={item.id}>
+            {allCoursesId.filter((val) => userCoursesId.includes(val)).includes(item.id) ? (
+              <Link to={`/course/${item.id}`}>
                 <CardContainer
                   title={<CourseTitle>{item.courseName}</CourseTitle>}
                   bordered={false}
@@ -47,15 +40,24 @@ export const SelectedCourses = () => {
                     alt=''
                   />
                 </CardContainer>
-              )}
-              {userCourses.includes(item.id) && (
-                <CorseCardDoneDiv>
-                  Пройден
-                  <CheckOutlined />
-                </CorseCardDoneDiv>
-              )}
-            </CourseCard>
-          );
+              </Link>
+            ) : (
+              <CardContainer title={<CourseTitle>{item.courseName}</CourseTitle>} bordered={false}>
+                <img
+                  src={item.CourseContent[0]?.image}
+                  style={{ objectFit: 'contain', width: '100%' }}
+                  alt=''
+                />
+              </CardContainer>
+            )}
+            {final?.done && (
+              <CorseCardDoneDiv>
+                Пройден
+                <CheckOutlined />
+              </CorseCardDoneDiv>
+            )}
+          </CourseCard>
+        );
       })}
     </SelectedContainer>
   );

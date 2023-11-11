@@ -14,8 +14,10 @@ import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
+import { getUserOnLoad } from '../../api/getUserOnLoad/getUserOnLoad';
+import { setUserCourse } from '../../store/user';
 import { RootState } from '../../store';
 
 export type TAllCourses = {
@@ -23,9 +25,11 @@ export type TAllCourses = {
 };
 
 export const AllCoursesList = () => {
+  const dispatch = useAppDispatch();
   const location = useLocation();
   console.log(location.pathname);
-
+  const userCourses = useAppSelector((store) => store.user.user?.UserCourses);
+  const userCoursesID = userCourses?.map((item) => item.courseId);
   const [allCourses, setAllCourses] = useState<TSelectCourse[]>([]);
 
   const user = useAppSelector((store: RootState) => store.user.user);
@@ -35,13 +39,15 @@ export const AllCoursesList = () => {
 
   const userId = useAppSelector((store) => store.user.user?.id);
 
-  const userCourses = user?.UserCourses.map((i) => i.courseId);
-
-  const allCoursesId = allCourses.map((i) => i.id);
-
   //ниже добавить отправку времени на начало курса
   const addCourse = (id: number) => {
-    addCourseUser(id, user?.id);
+    console.log(id);
+    console.log(userId);
+    addCourseUser(id, userId).then((res) =>
+      getUserOnLoad()
+        .then((res) => res.data)
+        .then((res) => dispatch(setUserCourse(res.UserCourses)))
+    );
   };
   useEffect(() => {
     requestCourses().then((res) => setAllCourses(res.data));
@@ -74,12 +80,13 @@ export const AllCoursesList = () => {
       }
 
       acc[categoryName].push(item);
-
+      console.log('acc', acc);
       return acc;
     },
     {}
   );
-
+  console.log(coursesByCategory);
+  console.log('user', user);
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -99,19 +106,21 @@ export const AllCoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!userCoursesID?.includes(item.id) ? (
                     <AddCourseDiv
                       onClick={() => {
-                        !userCourses.includes(item.id) ? addCourse(item.id) : '';
+                        !userCoursesID?.includes(item.id) ? addCourse(item.id) : '';
                       }}
                     >
                       Добавить курс
                     </AddCourseDiv>
+                  ) : (
+                    <AddCourseDiv> Курс добавлен</AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {!userCoursesID?.includes(item.id) && (
                     <CorseCardDoneDiv>
-                      Пройден
+                      Добавлен
                       <CheckOutlined />
                     </CorseCardDoneDiv>
                   )}
