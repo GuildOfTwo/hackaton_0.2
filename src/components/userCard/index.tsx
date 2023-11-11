@@ -1,18 +1,18 @@
 import { FC, useState } from 'react';
 import { SwitchButton, Wrapper } from './styled';
 import { useAppDispatch, useAppSelector } from '../../hooks';
-import { setDarkTheme, setDefaultTheme } from '../../store/theme';
+import { setDefaultTheme, setLightTheme } from '../../store/theme';
 
 export const ThemeToggleBar: FC = () => {
   const theme = useAppSelector((store) => store.theme.theme);
   console.log(theme);
   const [checked, setChecked] = useState<boolean>(
-    localStorage.getItem('app-theme') !== 'dark' ? true : false
+    localStorage.getItem('app-theme') !== 'default' ? true : false
   );
   const dispatch = useAppDispatch();
   const handleSwitch = (checked: boolean) => {
     setChecked(!checked);
-    checked ? dispatch(setDarkTheme()) : dispatch(setDefaultTheme());
+    checked ? dispatch(setDefaultTheme()) : dispatch(setLightTheme());
   };
   return (
     <Wrapper>
@@ -21,7 +21,7 @@ export const ThemeToggleBar: FC = () => {
           onChange={() => handleSwitch(checked)}
           style={{ width: '20%' }}
           // checked={checked}
-          defaultChecked={theme === 'dark' ? true : false}
+          defaultChecked={theme === 'default' ? true : false}
         />
         {/* <div>выберите тему</div> */}
       </div>

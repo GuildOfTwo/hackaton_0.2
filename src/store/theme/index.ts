@@ -16,12 +16,12 @@ const themeSlice = createSlice({
     setDefaultTheme(state: IThemeState) {
       handleSetTheme('default'), (state.theme = 'default');
     },
-    setDarkTheme(state: IThemeState) {
-      handleSetTheme('dark'), (state.theme = 'dark');
+    setLightTheme(state: IThemeState) {
+      handleSetTheme('light'), (state.theme = 'light');
     },
   },
 });
 
-export const { setDefaultTheme, setDarkTheme } = themeSlice.actions;
+export const { setDefaultTheme, setLightTheme } = themeSlice.actions;
 
 export default themeSlice.reducer;

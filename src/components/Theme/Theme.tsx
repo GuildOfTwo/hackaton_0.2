@@ -10,10 +10,10 @@ const Theme = ({ children }: TThemeProps) => {
   const [appTheme, setAppTheme] = useState({});
   useEffect(() => {
     if (currentTheme === 'default') {
-      setAppTheme(lightTheme);
-    }
-    if (currentTheme === 'dark') {
       setAppTheme(darkTheme);
+    }
+    if (currentTheme === 'light') {
+      setAppTheme(lightTheme);
     }
   }, [currentTheme]);
 
