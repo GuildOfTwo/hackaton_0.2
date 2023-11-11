@@ -23,7 +23,20 @@ export const SelectedCourses = () => {
         if (userCourses.includes(item.id))
           return (
             <CourseCard key={item.id}>
-              <Link to={`/course/${item.id}`}>
+              {!userCourses.includes(item.id) ? (
+                <Link to={`/course/${item.id}`}>
+                  <CardContainer
+                    title={<CourseTitle>{item.courseName}</CourseTitle>}
+                    bordered={false}
+                  >
+                    <img
+                      src={item.CourseContent[0]?.image}
+                      style={{ objectFit: 'contain', width: '100%' }}
+                      alt=''
+                    />
+                  </CardContainer>
+                </Link>
+              ) : (
                 <CardContainer
                   title={<CourseTitle>{item.courseName}</CourseTitle>}
                   bordered={false}
@@ -34,7 +47,7 @@ export const SelectedCourses = () => {
                     alt=''
                   />
                 </CardContainer>
-              </Link>
+              )}
               {userCourses.includes(item.id) && (
                 <CorseCardDoneDiv>
                   Пройден
