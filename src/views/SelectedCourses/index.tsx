@@ -3,7 +3,7 @@ import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { CardContainer, SelectedContainer } from './styled';
 import { TSelectCourse } from '../../utils/types/types';
 import { CorseCardDoneDiv, CourseCard, CourseTitle } from '../CoursesList/style';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { CheckOutlined } from '@ant-design/icons';
 import { RootState } from '../../store';
 import { useAppSelector } from '../../hooks';
@@ -17,8 +17,8 @@ export const SelectedCourses = () => {
   const user = useAppSelector((store: RootState) => store.user.user);
   const userCoursesId = user?.UserCourses.map((i) => i.courseId);
   const allCoursesId = allCourses.map((i) => i.id);
-
-  if (allCourses.length < 1) return null;
+  if (user?.UserCourses.length === 0)
+    return <div style={{ textAlign: 'center' }}>Курсы еще не добавлены</div>;
   if (userCoursesId == undefined) return null;
 
   return (
