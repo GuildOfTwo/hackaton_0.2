@@ -15,7 +15,7 @@ import { changeUserData } from '../../../api/changeUserData';
 import { TUserForDash } from '../../../utils/types/types';
 
 interface IProps {
-  users: TUserForDash[]
+  users: TUserForDash[];
 }
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
@@ -104,7 +104,7 @@ export const Table: React.FC<IProps> = ({ users }) => {
         setEditingKey('');
       }
     } catch (errInfo) {
-      console.log('Validate Failed:', errInfo);
+      console.error('Validate Failed:', errInfo);
     }
   };
 
@@ -139,6 +139,10 @@ export const Table: React.FC<IProps> = ({ users }) => {
           text: 'Project',
           value: 'Project',
         },
+        {
+          text: 'Дизайн',
+          value: 'Дизайн',
+        },
       ],
       sorter: (a: TUserForDash, b: TUserForDash) => a.department.localeCompare(b.department),
       onFilter: (value: string, record: TUserForDash) => record.department.indexOf(value) === 0,
@@ -162,7 +166,7 @@ export const Table: React.FC<IProps> = ({ users }) => {
           value: 'Саша',
         },
       ],
-      sorter: (a:TUserForDash, b:TUserForDash) => a.mentor.localeCompare(b.mentor),
+      sorter: (a: TUserForDash, b: TUserForDash) => a.mentor.localeCompare(b.mentor),
       onFilter: (value: string, record: TUserForDash) => record.mentor.indexOf(value) === 0,
     },
     {

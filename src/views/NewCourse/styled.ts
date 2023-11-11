@@ -24,10 +24,8 @@ export const FormSubText = styled.p`
   margin-bottom: 16px;
 `;
 
-
 export const TextAreaZone = styled(TextArea)`
-
-&::-webkit-scrollbar {
+  &::-webkit-scrollbar {
     background: rgba(0, 66, 105, 0.06);
     border-radius: 4px;
     width: 10px;
@@ -37,4 +35,4 @@ export const TextAreaZone = styled(TextArea)`
     background: #ced8de;
     border-radius: 10px;
   }
-`
+`;

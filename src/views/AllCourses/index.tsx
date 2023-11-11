@@ -13,48 +13,30 @@ import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
-import { useLocation } from 'react-router';
-import { useAppDispatch, useAppSelector } from '../../hooks';
+import { useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
-import { getUserOnLoad } from '../../api/getUserOnLoad/getUserOnLoad';
-import { setUserCourse } from '../../store/user';
 import { RootState } from '../../store';
+import { useNavigate } from 'react-router';
 
 export type TAllCourses = {
   allCourses: TSelectCourse[];
 };
 
 export const AllCoursesList = () => {
-  const dispatch = useAppDispatch();
-  const location = useLocation();
-  console.log(location.pathname);
-  const userCourses = useAppSelector((store) => store.user.user?.UserCourses);
-  const userCoursesID = userCourses?.map((item) => item.courseId);
   const [allCourses, setAllCourses] = useState<TSelectCourse[]>([]);
-
   const user = useAppSelector((store: RootState) => store.user.user);
 
-  // Ниже надо получить все курсы юзера и юзер айди
-  // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
-
-  const userId = useAppSelector((store) => store.user.user?.id);
-
-  //ниже добавить отправку времени на начало курса
+  const navigate = useNavigate();
   const addCourse = (id: number) => {
-    console.log(id);
-    console.log(userId);
-    addCourseUser(id, userId).then((res) =>
-      getUserOnLoad()
-        .then((res) => res.data)
-        .then((res) => dispatch(setUserCourse(res.UserCourses)))
-    );
+    addCourseUser(id, user?.id);
+    navigate('/selected-courses');
   };
   useEffect(() => {
     requestCourses().then((res) => setAllCourses(res.data));
   }, []);
 
   if (allCourses.length < 1) return null;
-  if (userCourses == undefined) return null;
+  if (user?.UserCourses === undefined) return null;
 
   const getCategoryName = (categoryId: number): string => {
     switch (categoryId) {
@@ -74,19 +56,14 @@ export const AllCoursesList = () => {
   const coursesByCategory = allCourses.reduce<{ [key: string]: TSelectCourse[] }>(
     (acc, item: any) => {
       const categoryName = getCategoryName(item.categoryId as number);
-
       if (!acc[categoryName]) {
         acc[categoryName] = [];
       }
-
       acc[categoryName].push(item);
-      console.log('acc', acc);
       return acc;
     },
     {}
   );
-  console.log(coursesByCategory);
-  console.log('user', user);
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -101,24 +78,24 @@ export const AllCoursesList = () => {
                 >
                   <img
                     src={item.CourseContent[0]?.image}
-                    style={{ objectFit: 'contain', width: '100%', height: '141.75px' }}
+                    style={{ objectFit: 'contain', width: '100%', height: '120px' }}
                     alt=''
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCoursesID?.includes(item.id) ? (
+                  {user && !user?.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <AddCourseDiv
                       onClick={() => {
-                        !userCoursesID?.includes(item.id) ? addCourse(item.id) : '';
+                        !user?.UserCourses.find((ele) => ele.courseId === item.id)
+                          ? addCourse(item.id)
+                          : '';
                       }}
                     >
                       Добавить курс
                     </AddCourseDiv>
-                  ) : (
-                    <AddCourseDiv> Курс добавлен</AddCourseDiv>
                   )}
 
-                  {!userCoursesID?.includes(item.id) && (
+                  {user && user.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <CorseCardDoneDiv>
                       Добавлен
                       <CheckOutlined />

@@ -12,7 +12,7 @@ import { useEffect, useState } from 'react';
 import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate } from 'react-router';
 import { useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
 import { RootState } from '../../store';
@@ -36,10 +36,11 @@ export const CoursesList = () => {
 
   const allCoursesId = allCourses.map((i) => i.id);
 
+  const navigate = useNavigate();
   const addCourse = (id: number) => {
     addCourseUser(id, user?.id);
+    navigate('/selected-courses');
   };
-
   if (allCourses.length < 1) return null;
   if (userCourses == undefined) return null;
 
@@ -85,8 +86,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/engineering' && item.categoryId === 3) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -122,8 +121,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/client-service' && item.categoryId === 4) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
 
             return (
               <CourseCard key={item.id}>
@@ -161,8 +158,6 @@ export const CoursesList = () => {
           if (location.pathname === '/design' && item.categoryId === 5) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
 
-            console.log(final?.done);
-
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -198,9 +193,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/product-managment' && item.categoryId === 1) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
-
             return (
               <CourseCard key={item.id}>
                 <CardContainer
@@ -236,8 +228,6 @@ export const CoursesList = () => {
           }
           if (location.pathname === '/courses-for-all' && item.categoryId === 6) {
             const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-
-            console.log(final?.done);
             return (
               <CourseCard key={item.id}>
                 <CardContainer

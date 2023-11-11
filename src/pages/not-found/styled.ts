@@ -26,6 +26,7 @@ export const Title = styled.p`
 export const ButtonWrapper = styled.div`
   display: flex;
   margin-top: 100px;
+  gap: 20px;
 `;
 
 export const LetterSpacingZero = styled.span`

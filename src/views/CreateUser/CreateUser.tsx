@@ -95,7 +95,7 @@ export const CreateUser: React.FC = () => {
         </Form.Item>
         <div style={{ display: 'flex', justifyContent: 'center' }}>
           <Button type='primary' htmlType='submit'>
-            Submit
+            Сохранить
           </Button>
         </div>
       </Form>
