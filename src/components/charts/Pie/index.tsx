@@ -3,7 +3,7 @@ import { Pie } from '@ant-design/plots';
 import { TUserForDash } from '../../../utils/types/types';
 
 interface IProps {
-  users: TUserForDash[]
+  users: TUserForDash[];
 }
 
 interface IDic {

@@ -15,7 +15,7 @@ import { changeUserData } from '../../../api/changeUserData';
 import { TUserForDash } from '../../../utils/types/types';
 
 interface IProps {
-  users: TUserForDash[]
+  users: TUserForDash[];
 }
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
@@ -162,7 +162,7 @@ export const Table: React.FC<IProps> = ({ users }) => {
           value: 'Саша',
         },
       ],
-      sorter: (a:TUserForDash, b:TUserForDash) => a.mentor.localeCompare(b.mentor),
+      sorter: (a: TUserForDash, b: TUserForDash) => a.mentor.localeCompare(b.mentor),
       onFilter: (value: string, record: TUserForDash) => record.mentor.indexOf(value) === 0,
     },
     {

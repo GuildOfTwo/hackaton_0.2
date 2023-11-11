@@ -71,8 +71,9 @@ export const NewCoursePage = () => {
   ];
 
   const onFinish = (values: TCourse) => {
-    createNewCourse(values).then((res: any) => сreateNewCourseContent(res.data, values));
-    form.resetFields();
+    createNewCourse(values).then((res: any) =>
+      сreateNewCourseContent(res.data, values).then(() => form.resetFields())
+    );
   };
 
   const [form] = Form.useForm();
