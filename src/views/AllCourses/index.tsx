@@ -16,6 +16,7 @@ import { CheckOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router';
 import { useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
+import { RootState } from '../../store';
 
 export type TAllCourses = {
   allCourses: TSelectCourse[];
@@ -23,30 +24,32 @@ export type TAllCourses = {
 
 export const AllCoursesList = () => {
   const location = useLocation();
-  // console.log(location.pathname);
+  console.log(location.pathname);
 
-  const [allCourses, setAllCourses] = useState([]);
+  const [allCourses, setAllCourses] = useState<TSelectCourse[]>([]);
+
+  const user = useAppSelector((store: RootState) => store.user.user);
 
   // Ниже надо получить все курсы юзера и юзер айди
   // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
 
   const userId = useAppSelector((store) => store.user.user?.id);
 
-  const userCourses = [38, 39, 40];
+  const userCourses = user?.UserCourses.map((i) => i.courseId);
+
+  const allCoursesId = allCourses.map((i) => i.id);
 
   //ниже добавить отправку времени на начало курса
   const addCourse = (id: number) => {
-    console.log(id);
-    console.log(userId);
-    addCourseUser(id, userId);
+    addCourseUser(id, user?.id);
   };
   useEffect(() => {
     requestCourses().then((res) => setAllCourses(res.data));
   }, []);
 
   if (allCourses.length < 1) return null;
+  if (userCourses == undefined) return null;
 
-  // console.log(allCourses);
   const getCategoryName = (categoryId: number): string => {
     switch (categoryId) {
       case 2:

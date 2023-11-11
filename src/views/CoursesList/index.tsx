@@ -36,12 +36,7 @@ export const CoursesList = () => {
 
   const allCoursesId = allCourses.map((i) => i.id);
 
-  // console.log(userCourses);
-  //  console.log(allCourses)
-
   const addCourse = (id: number) => {
-    console.log(id);
-    console.log(user?.id);
     addCourseUser(id, user?.id);
   };
 
@@ -53,9 +48,7 @@ export const CoursesList = () => {
       <DashContainer>
         {allCourses?.map((item: TSelectCourse) => {
           if (location.pathname === '/managment' && item.categoryId === 2) {
-            // user?.UserCourses.find((ele) => ele.courseId === item.categoryId)
-            // item.id
-            console.log(user?.UserCourses.find((ele) => ele.courseId === item.categoryId));
+            const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
 
             return (
               <CourseCard key={item.id}>
@@ -73,14 +66,14 @@ export const CoursesList = () => {
                   {!allCoursesId.filter((val) => userCourses.includes(val)).includes(item.id) && (
                     <AddCourseDiv
                       onClick={() => {
-                        userCourses.includes(item.id) ? addCourse(item.id) : '';
+                        addCourse(item.id);
                       }}
                     >
                       Добавить курс
                     </AddCourseDiv>
                   )}
 
-                  {allCoursesId.filter((val) => userCourses.includes(val)) && (
+                  {final?.done && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
@@ -117,7 +110,7 @@ export const CoursesList = () => {
                     </AddCourseDiv>
                   )}
 
-                  {final?.done && (
+                  {!final?.done && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
@@ -148,7 +141,7 @@ export const CoursesList = () => {
                   {!allCoursesId.filter((val) => userCourses.includes(val)).includes(item.id) && (
                     <AddCourseDiv
                       onClick={() => {
-                        userCourses.includes(item.id) ? addCourse(item.id) : '';
+                        addCourse(item.id);
                       }}
                     >
                       Добавить курс
