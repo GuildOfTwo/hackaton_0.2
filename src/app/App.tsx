@@ -6,7 +6,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import Theme from '../components/Theme/Theme';
 import { getTheme } from '../utils/theme';
 import { useAppDispatch, useAppSelector } from '../hooks';
-import { setDarkTheme, setDefaultTheme } from '../store/theme';
+import { setLightTheme, setDefaultTheme } from '../store/theme';
 import { closeModalWindow, openModalWindow } from '../store/modal';
 import { getUserOnLoad } from '../api/getUserOnLoad/getUserOnLoad';
 import { setUserOnLoad } from '../store/user';
@@ -20,11 +20,11 @@ const App: React.FC = () => {
   const isLogin = useAppSelector((store) => store.auth.isLogin);
   const isLoading = useAppSelector((store) => store.auth.isLoading);
   const setThemeOnLoad = () => {
-    if (getTheme() === 'dark') {
-      dispatch(setDarkTheme());
-    }
     if (getTheme() === 'default') {
       dispatch(setDefaultTheme());
+    }
+    if (getTheme() === 'light') {
+      dispatch(setLightTheme());
     }
   };
   const location = useLocation();
