@@ -14,17 +14,21 @@ import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { TSelectCourse } from '../../utils/types/types';
 import { CheckOutlined } from '@ant-design/icons';
 import { useLocation } from 'react-router';
-import { useAppSelector } from '../../hooks';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { addCourseUser } from '../../api/addCourseUser';
+import { getUserOnLoad } from '../../api/getUserOnLoad/getUserOnLoad';
+import { setUserCourse } from '../../store/user';
 
 export type TAllCourses = {
   allCourses: TSelectCourse[];
 };
 
 export const AllCoursesList = () => {
+  const dispatch = useAppDispatch();
   const location = useLocation();
   // console.log(location.pathname);
-
+  const userCourses = useAppSelector((store) => store.user.user?.UserCourses);
+  const userCoursesID = userCourses?.map((item) => item.courseId);
   const [allCourses, setAllCourses] = useState([]);
 
   // Ниже надо получить все курсы юзера и юзер айди
@@ -32,13 +36,15 @@ export const AllCoursesList = () => {
 
   const userId = useAppSelector((store) => store.user.user?.id);
 
-  const userCourses = [38, 39, 40];
-
   //ниже добавить отправку времени на начало курса
   const addCourse = (id: number) => {
     console.log(id);
     console.log(userId);
-    addCourseUser(id, userId);
+    addCourseUser(id, userId).then((res) =>
+      getUserOnLoad()
+        .then((res) => res.data)
+        .then((res) => dispatch(setUserCourse(res.UserCourses)))
+    );
   };
   useEffect(() => {
     requestCourses().then((res) => setAllCourses(res.data));
@@ -76,7 +82,7 @@ export const AllCoursesList = () => {
     },
     {}
   );
-
+  console.log(coursesByCategory);
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -96,17 +102,19 @@ export const AllCoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!userCoursesID?.includes(item.id) ? (
                     <AddCourseDiv
                       onClick={() => {
-                        !userCourses.includes(item.id) ? addCourse(item.id) : '';
+                        !userCoursesID?.includes(item.id) ? addCourse(item.id) : '';
                       }}
                     >
                       Добавить курс
                     </AddCourseDiv>
+                  ) : (
+                    <AddCourseDiv> Курс добавлен</AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {!userCoursesID?.includes(item.id) && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
