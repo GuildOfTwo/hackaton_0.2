@@ -39,7 +39,6 @@ export const CoursePage = () => {
     return () => clearInterval(interval);
   }, [seconds]);
   const onFinish = (values: TValues) => {
-    const totalQuestions = Object.keys(values.questions).length;
     let correctAnswers = 0;
     for (const key in values.questions) {
       if (values.questions[key][1] === true) {
@@ -51,16 +50,6 @@ export const CoursePage = () => {
   if (!course) return null;
 
   const content = JSON.parse(course?.CourseContent[0]?.content) as TCourseContent;
-
-  function calculateScore(correctAnswers: number, totalQuestions: number) {
-    if (totalQuestions === 0) {
-      return { percent: 0, passed: false };
-    }
-    const score = (correctAnswers / totalQuestions) * 100;
-    const percent = Math.max(0, Math.min(100, score));
-    const passed = percent >= 75;
-    return { percent, passed };
-  }
 
   return (
     <CourseContainer>
