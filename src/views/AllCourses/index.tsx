@@ -41,6 +41,7 @@ export const AllCoursesList = () => {
 
   //ниже добавить отправку времени на начало курса
   const addCourse = (id: number) => {
+    console.log(id);
     addCourseUser(id, user?.id);
   };
   useEffect(() => {
@@ -79,7 +80,6 @@ export const AllCoursesList = () => {
     },
     {}
   );
-
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -99,17 +99,19 @@ export const AllCoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!user?.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <AddCourseDiv
                       onClick={() => {
-                        !userCourses.includes(item.id) ? addCourse(item.id) : '';
+                        !user?.UserCourses.find((ele) => ele.courseId === item.id)
+                          ? addCourse(item.id)
+                          : '';
                       }}
                     >
                       Добавить курс
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {user?.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />
