@@ -28,6 +28,7 @@ const ProfileEdit = () => {
   const [error, setError] = useState();
   const userInfo = useAppSelector((store) => store.user.user);
   const DateOfBirth = new Date(dayjs(userInfo?.birthday).format('YYYY/MM/DD'));
+  const today = new Date(dayjs(`${new Date()}`).format('YYYY/MM/DD'));
   const theme = useAppSelector((store) => store.theme.theme);
   const handleSumbit = (fieldsValue: TProfileFieldType) => {
     const DateOfBirth = new Date(dayjs(fieldsValue.DateOfBirth).format('YYYY/MM/DD'));
@@ -45,13 +46,6 @@ const ProfileEdit = () => {
           components: {
             DatePicker: {
               colorBgElevated: theme === 'default' ? 'white' : `#0A1F32`,
-            },
-            Button: {
-              defaultColor: `#ff0000`,
-              defaultBg: `#ff0000`,
-              colorBgTextActive: `#ff0000`,
-              primaryColor: `#ff0000`,
-              colorText: `#ff0000`,
             },
           },
         }}
@@ -88,10 +82,6 @@ const ProfileEdit = () => {
               <p>Телеграм ментора:</p>
               <p>{userInfo.mentor_tg ? userInfo.mentor_tg : 'не заполнено'}</p>
             </>
-            <>
-              <p>Номер телефона:</p>
-              <p>{userInfo.phoneNumber ? userInfo.phoneNumber : 'не заполнено'}</p>
-            </>
           </PWrapper>
           <StyledForm
             labelCol={{ span: 8 }}
@@ -99,7 +89,7 @@ const ProfileEdit = () => {
             style={{ maxWidth: 600 }}
             autoComplete='off'
             onFinish={handleSumbit}
-            initialValues={{ DateOfBirth: DateOfBirth && dayjs(DateOfBirth) }}
+            initialValues={{ DateOfBirth: userInfo?.birthday ? dayjs(DateOfBirth) : dayjs(today) }}
           >
             <ItemWrapper>
               <Form.Item<TProfileFieldType>
