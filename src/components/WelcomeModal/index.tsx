@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import React, { useState } from 'react';
 import type { FormInstance } from 'antd';
 import { Button, Form, Input } from 'antd';
 import { phoneNumberRegExp, telegramLogin } from '../../utils/constants/forms';
@@ -15,7 +14,6 @@ const WelcomeModal = () => {
   const SubmitButton = ({ form }: { form: FormInstance }) => {
     const [submittable, setSubmittable] = React.useState(false);
     const values = Form.useWatch([], form);
-    const userID = useAppSelector((store) => store.user.user?.id);
     const userID = useAppSelector((store) => store.user.user?.id);
     const dispatch = useAppDispatch();
     React.useEffect(() => {
