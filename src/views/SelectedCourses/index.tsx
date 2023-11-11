@@ -3,7 +3,7 @@ import { requestCourses } from '../../api/requestAllCourses/requestCourses';
 import { CardContainer, SelectedContainer } from './styled';
 import { TSelectCourse } from '../../utils/types/types';
 import { CorseCardDoneDiv, CourseCard, CourseTitle } from '../CoursesList/style';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { CheckOutlined } from '@ant-design/icons';
 import { RootState } from '../../store';
 import { useAppSelector } from '../../hooks';
