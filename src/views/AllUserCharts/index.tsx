@@ -10,7 +10,7 @@ import { useState, useEffect } from 'react';
 import { formatUsersData } from '../../lib/formatUsersData';
 
 const SectionStyled = styled.section`
-  width: 80vw;
+  width: 70vw;
   margin: 0 auto;
 `;
 
