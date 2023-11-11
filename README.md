@@ -23,7 +23,11 @@
 
 ## Технологии <a name="technologies"></a>
 
-**Frontend** : [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/)
+**Frontend** : [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/).
+
+**Backend** : [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/).
+
+**Telegram бот** : [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/).
 
 
 ## Структура проекта <a name="structure"></a>
