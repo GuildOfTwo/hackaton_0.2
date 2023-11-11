@@ -73,6 +73,7 @@
 Рабочий прототип проекта доступен по [адресу]().
 
 Ссылки на репозитории:
-    [Frontend]()
-    [Backend]()
-    [Telegram bot]()
+
+- [Frontend]()
+- [Backend]()
+- [Telegram bot]()
