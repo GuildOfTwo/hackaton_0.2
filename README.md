@@ -25,7 +25,7 @@
 
 **Frontend** : [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/).
 
-**Backend** : [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/).
+**Backend** : [Node](https://nodejs.org/en/), [Express](https://expressjs.com/), [Prisma ORM](https://www.prisma.io/), [PostgreSQL](https://www.postgresql.org/), [Winston](https://www.npmjs.com/package/winston), [Loki](https://loki.js.org/).
 
 **Telegram бот** : [Node](https://nodejs.org/en/), [Telegraph](https://github.com/telegraf/telegraf).
 
@@ -74,7 +74,7 @@ git clone https://github.com/GuildOfTwo/hackaton_0.2.git
 npm i
 ```
 
-3. Для включения прекоммитов хаски выполните:
+3. Включить прекоммиты для хаски:
 
 ```
 npm run prepare
