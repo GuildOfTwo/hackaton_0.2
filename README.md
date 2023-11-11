@@ -60,14 +60,6 @@
 
 [**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик
 
-<details><summary>[**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик</summary>
-
-   1. First item must be preceeded with an empty line.
-   1. Markdown renders **perfectly**.
-   1. Extra item.
-
-</details>
-
 [**Александр Березин**](https://github.com/TaPaHTauKO) - Frontend разработчик
 
 [**Руслан Газиев**](https://github.com/gazievri) - Frontend разработчик
