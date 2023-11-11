@@ -176,11 +176,11 @@ docker-compose.yaml
 Список переменных окружения, которые необходимы для корректной сборки и работы приложения:
 
 ```
-- API_BASE_URL=/* put your api FQDN here */
-- SITE_BASE_URL=/* put your site FQDN here */
-- JWT_SECRET=/* put your strong secret key here */
-- MAX_AUTH_ATTEMPTS=/* max unsuccessfully auth attempts per minute */
-- DATABASE_URL=/* database URI like postgresql://user:password@hostname:5432/onboardy?schema=public */
+API_BASE_URL=/* put your api FQDN here */
+SITE_BASE_URL=/* put your site FQDN here */
+JWT_SECRET=/* put your strong secret key here */
+MAX_AUTH_ATTEMPTS=/* max unsuccessfully auth attempts per minute */
+DATABASE_URL=/* database URI like postgresql://user:password@hostname:5432/onboardy?schema=public */
 ```
 
 ## 🧑‍💻 Команда проекта <a name="team"></a>
