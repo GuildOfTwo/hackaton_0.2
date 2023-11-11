@@ -33,11 +33,7 @@ export const AllCoursesList = () => {
   // Ниже надо получить все курсы юзера и юзер айди
   // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
 
-  const userId = useAppSelector((store) => store.user.user?.id);
-
   const userCourses = user?.UserCourses.map((i) => i.courseId);
-
-  const allCoursesId = allCourses.map((i) => i.id);
 
   //ниже добавить отправку времени на начало курса
   const addCourse = (id: number) => {
