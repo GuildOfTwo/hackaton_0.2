@@ -5,7 +5,6 @@ import { setDefaultTheme, setLightTheme } from '../../store/theme';
 
 export const ThemeToggleBar: FC = () => {
   const theme = useAppSelector((store) => store.theme.theme);
-  console.log(theme);
   const [checked, setChecked] = useState<boolean>(
     localStorage.getItem('app-theme') !== 'default' ? true : false
   );
