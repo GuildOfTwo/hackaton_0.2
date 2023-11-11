@@ -15,7 +15,6 @@ const ProtectedRoute = ({ onlyForLogged = true, element, userType }: TProtectedR
 
   if (!userType && !onlyForLogged && isLogin) {
     const { from } = location.state || { from: { pathname: `/${DASHBOARD_URI}` } };
-    console.log(from);
     return <Navigate to={from} />;
   }
 

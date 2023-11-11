@@ -1,9 +1,11 @@
 import { FC, useState } from 'react';
-import { InfoSubtitle, InfoTitle, InfoWrap, ProfileButton, SwitchButton, Wrapper } from './styled';
-import { useAppDispatch } from '../../hooks';
+import { SwitchButton, Wrapper } from './styled';
+import { useAppDispatch, useAppSelector } from '../../hooks';
 import { setDarkTheme, setDefaultTheme } from '../../store/theme';
 
-export const UserCard: FC = () => {
+export const ThemeToggleBar: FC = () => {
+  const theme = useAppSelector((store) => store.theme.theme);
+  console.log(theme);
   const [checked, setChecked] = useState<boolean>(
     localStorage.getItem('app-theme') !== 'dark' ? true : false
   );
@@ -14,37 +16,12 @@ export const UserCard: FC = () => {
   };
   return (
     <Wrapper>
-      <InfoWrap>
-        <InfoTitle>Отдел</InfoTitle>
-        <InfoSubtitle>Реклама</InfoSubtitle>
-      </InfoWrap>
-
-      <InfoWrap>
-        <InfoTitle>Руководитель</InfoTitle>
-        <InfoSubtitle>Иванов Иван</InfoSubtitle>
-      </InfoWrap>
-
-      <InfoWrap>
-        <InfoTitle>Ментор</InfoTitle>
-        <InfoSubtitle>Иванов Иван</InfoSubtitle>
-      </InfoWrap>
-
-      <InfoWrap>
-        <InfoTitle>Мой email</InfoTitle>
-        <InfoSubtitle>Leonov.DYu@proscom.ru</InfoSubtitle>
-      </InfoWrap>
-
-      <InfoWrap>
-        <InfoTitle>Мой телефон</InfoTitle>
-        <InfoSubtitle>8 3254 52352345</InfoSubtitle>
-      </InfoWrap>
-
-      <ProfileButton style={{ width: '90%' }}>Изменение профиля</ProfileButton>
       <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
         <SwitchButton
           onChange={() => handleSwitch(checked)}
           style={{ width: '40%' }}
-          checked={checked}
+          // checked={checked}
+          defaultChecked={theme === 'dark' ? true : false}
         />
         <div>выберите тему</div>
       </div>

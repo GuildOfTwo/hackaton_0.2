@@ -2,7 +2,6 @@ export type TUserSliceState = {
   user: null | TUser;
   error: string;
   isLoading: boolean;
-  accessRoles: string[];
 };
 
 export type TUser = {
