@@ -58,16 +58,12 @@
 
 [**Влад Булоусов**](https://github.com/Valzet) - Тимлид проекта, frontend разработчик
 
-[**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик
+[**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик<details><summary>A dropdown list for markdown</summary>
 
-<details>
-<summary>Необходимо прочитать перед тем как передавать билд бэку</summary>
-<br>
-Перед передачей в бэкэнд изменений нужно в финальной сборке в main.css выполнить следующие действия (удобнее всего это сделать через автозамену):
-<br>
-1. Поменять все пути до шрифтов с “(vendors/” на “(./vendors/”.
-<br>   
-2. Поменять все пути до картинок на «./images/..» (“(../images/” на “(./images/”, “(../../images/” на “(./images/”) и так далее).
+   1. First item must be preceeded with an empty line.
+   1. Markdown renders **perfectly**.
+   1. Extra item.
+
 </details>
 
 [**Александр Березин**](https://github.com/TaPaHTauKO) - Frontend разработчик
