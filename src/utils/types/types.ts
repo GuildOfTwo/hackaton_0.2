@@ -25,6 +25,28 @@ export type TUser = {
   UserAwards: Array<string>;
 };
 
+export type TUserForDash = {
+  id: number;
+  avatar: string;
+  firstSignIn: boolean;
+  email: string;
+  phoneNumber: string;
+  mentor: string;
+  department: string;
+  firstName: string;
+  lastName: string;
+  roles: Array<string>;
+  accessRoles: Array<string>;
+  telegram: string;
+  birthday: Date;
+  mentor_tg: string;
+  middleName: string;
+  post: string;
+  UserCourses: TUserCourse[];
+  UserAwards: Array<string>;
+  progress?: string;
+};
+
 export type TSelectCourseUser = {
   id: number;
   courseName: string;
