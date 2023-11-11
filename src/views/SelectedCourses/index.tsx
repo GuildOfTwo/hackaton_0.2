@@ -25,7 +25,7 @@ export const SelectedCourses = () => {
     <SelectedContainer>
       {allCourses?.map((item: TSelectCourse) => {
         const final = user?.UserCourses.find((ele) => ele.courseId === item.id);
-        return (
+        return final ? (
           <CourseCard key={item.id}>
             {allCoursesId.filter((val) => userCoursesId.includes(val)).includes(item.id) ? (
               <Link to={`/course/${item.id}`}>
@@ -56,6 +56,8 @@ export const SelectedCourses = () => {
               </CorseCardDoneDiv>
             )}
           </CourseCard>
+        ) : (
+          ''
         );
       })}
     </SelectedContainer>
