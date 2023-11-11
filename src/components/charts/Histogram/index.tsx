@@ -1,10 +1,22 @@
 import { Column } from '@ant-design/plots';
 
-export const HistogramChart = ({ users }) => {
+import { TUserForDash } from '../../../utils/types/types';
+
+interface IProps {
+  users: TUserForDash[]
+}
+
+interface IDic {
+  [key: string]: number;
+}
+
+export const HistogramChart: React.FC<IProps> = ({ users }) => {
   const createDataConfig = () => {
+    // @ts-ignore: error message
     const res = [];
     users.forEach((user) => res.push(user.UserCourses));
-    const dic = {};
+    const dic: IDic = {};
+    // @ts-ignore: error message
     res.flat().forEach((el) => {
       const key = new Date(el.doneDate).getDate();
       if (!(key in dic)) {
@@ -51,5 +63,6 @@ export const HistogramChart = ({ users }) => {
       ],
     },
   };
+  // @ts-ignore: error message
   return <Column {...config} />;
 };

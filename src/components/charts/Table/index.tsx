@@ -1,4 +1,6 @@
-import { useEffect, useState } from 'react';
+// @ts-nocheck
+// TODO: Доделать типизацию как закончу со стилизацией
+import { useState } from 'react';
 import {
   Form,
   Input,
@@ -8,11 +10,13 @@ import {
   Table as TableAntd,
   ConfigProvider,
 } from 'antd';
-import type { ColumnsType } from 'antd/es/table';
 import { TUser } from '../../../utils/types/types';
 import { changeUserData } from '../../../api/changeUserData';
+import { TUserForDash } from '../../../utils/types/types';
 
-import { getAllUsers } from '../../../api/getAllUsers';
+interface IProps {
+  users: TUserForDash[]
+}
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
@@ -24,7 +28,7 @@ interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   children: React.ReactNode;
 }
 
-const EditableCell: React.FC = ({
+const EditableCell: React.FC<EditableCellProps> = ({
   editing,
   dataIndex,
   title,
@@ -58,16 +62,16 @@ const EditableCell: React.FC = ({
   );
 };
 
-export const Table: React.FC = ({ users }) => {
+export const Table: React.FC<IProps> = ({ users }) => {
   const [form] = Form.useForm();
   const [data, setData] = useState(users);
   const [editingKey, setEditingKey] = useState('');
 
   // Проверка ряда таблицы на то является ли он редактируемым в данный момент
   // В стейте editingKey находится id user (идентификатор), он же id ряда, в котором инициировано редактирование
-  const isEditing = (record) => record.id === editingKey;
+  const isEditing = (record: TUserForDash) => record.id === editingKey;
 
-  const edit = (record) => {
+  const edit = (record: TUserForDash) => {
     form.setFieldsValue({ lastName: '', firstName: '', department: '', ...record });
     setEditingKey(record.id);
   };
@@ -105,20 +109,20 @@ export const Table: React.FC = ({ users }) => {
   };
 
   // Данные для заголовков таблицы
-  const columns: ColumnsType<TUser> = [
+  const columns = [
     {
       title: 'Фамилия',
       dataIndex: 'lastName',
       key: 'lastName',
       editable: true,
-      sorter: (a, b) => a.lastName.localeCompare(b.lastName),
+      sorter: (a: TUserForDash, b: TUserForDash) => a.lastName.localeCompare(b.lastName),
     },
     {
       title: 'Имя',
       dataIndex: 'firstName',
       key: 'firstName',
       editable: true,
-      sorter: (a, b) => a.firstName.localeCompare(b.firstName),
+      sorter: (a: TUserForDash, b: TUserForDash) => a.firstName.localeCompare(b.firstName),
     },
 
     {
@@ -136,8 +140,8 @@ export const Table: React.FC = ({ users }) => {
           value: 'Project',
         },
       ],
-      sorter: (a, b) => a.department.localeCompare(b.department),
-      onFilter: (value: string, record) => record.department.indexOf(value) === 0,
+      sorter: (a: TUserForDash, b: TUserForDash) => a.department.localeCompare(b.department),
+      onFilter: (value: string, record: TUserForDash) => record.department.indexOf(value) === 0,
     },
     {
       title: 'Ментор',
@@ -158,15 +162,15 @@ export const Table: React.FC = ({ users }) => {
           value: 'Саша',
         },
       ],
-      sorter: (a, b) => a.mentor.localeCompare(b.mentor),
-      onFilter: (value: string, record) => record.mentor.indexOf(value) === 0,
+      sorter: (a:TUserForDash, b:TUserForDash) => a.mentor.localeCompare(b.mentor),
+      onFilter: (value: string, record: TUserForDash) => record.mentor.indexOf(value) === 0,
     },
     {
       title: 'Email',
       dataIndex: 'email',
       key: 'email',
       editable: true,
-      sorter: (a, b) => a.email.localeCompare(b.email),
+      sorter: (a: TUserForDash, b: TUserForDash) => a.email.localeCompare(b.email),
     },
     {
       title: 'Пройдено',
@@ -183,7 +187,7 @@ export const Table: React.FC = ({ users }) => {
     {
       title: 'Редактирование',
       dataIndex: 'operation',
-      render: (_: any, record) => {
+      render: (_: any, record: TUserForDash) => {
         const editable = isEditing(record);
         return editable ? (
           <span>
@@ -209,7 +213,7 @@ export const Table: React.FC = ({ users }) => {
     }
     return {
       ...col,
-      onCell: (record) => ({
+      onCell: (record: TUserForDash) => ({
         record,
         // inputType: col.dataIndex === 'last' ? 'number' : 'text',
         dataIndex: col.dataIndex,

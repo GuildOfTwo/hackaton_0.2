@@ -1,9 +1,12 @@
+import { TUserForDash } from '../utils/types/types';
+
+
 // Удаляю пользователей hr
-export const excludeHr = (users) => {
+export const excludeHr = (users: TUserForDash[]) => {
   return users.filter((user) => !user.accessRoles.includes('HR'));
 };
 
-export const countProgress = (users) => {
+export const countProgress = (users: TUserForDash[]) => {
   return users.map((user) => {
     // Считаю количество завершенных курсов
     let courseDone = 0;
@@ -24,7 +27,7 @@ export const countProgress = (users) => {
   });
 };
 
-export const formatUsersData = (users) => {
+export const formatUsersData = (users: TUserForDash[]) => {
   const formatUsers = countProgress(users);
   return excludeHr(formatUsers);
 };

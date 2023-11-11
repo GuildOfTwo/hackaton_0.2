@@ -1,8 +1,18 @@
 import { Pie } from '@ant-design/plots';
 
-export const PieChart = ({ users }) => {
+import { TUserForDash } from '../../../utils/types/types';
+
+interface IProps {
+  users: TUserForDash[]
+}
+
+interface IDic {
+  [key: string]: number;
+}
+
+export const PieChart: React.FC<IProps> = ({ users }) => {
   const createData = () => {
-    const dic = {};
+    const dic: IDic = {};
     const resArr = [];
     users.forEach((user) => {
       if (!(user.department in dic)) {
@@ -34,6 +44,7 @@ export const PieChart = ({ users }) => {
     label: {
       type: 'inner',
       offset: '-30%',
+      // @ts-ignore: error message
       content: ({ percent }) => `${(percent * 100).toFixed(2)}%`,
       style: {
         fontSize: 14,
@@ -46,5 +57,6 @@ export const PieChart = ({ users }) => {
       },
     ],
   };
+  // @ts-ignore: error message
   return <Pie {...config} />;
 };
