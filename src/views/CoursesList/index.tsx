@@ -48,45 +48,10 @@ export const CoursesList = () => {
   if (allCourses.length < 1) return null;
 
   console.log(allCourses);
-
   return (
     <>
       <DashContainer>
         {allCourses?.map((item: TSelectCourse) => {
-          if (location.pathname === '/all-courses') {
-            return (
-              <CourseCard key={item.id}>
-                <CardContainer
-                  title={<CourseTitle>{item.courseName}</CourseTitle>}
-                  bordered={false}
-                >
-                  <img
-                    src={item.CourseContent[0]?.image}
-                    style={{ objectFit: 'contain', width: '100%', height: '141.75px' }}
-                    alt=''
-                  />
-                </CardContainer>
-                <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
-                    <AddCourseDiv
-                      onClick={() => {
-                        !userCourses.includes(item.id) ? addCourse(item.id) : '';
-                      }}
-                    >
-                      Добавить курс
-                    </AddCourseDiv>
-                  )}
-
-                  {userCourses.includes(item.id) && (
-                    <CorseCardDoneDiv>
-                      Пройден
-                      <CheckOutlined />
-                    </CorseCardDoneDiv>
-                  )}
-                </CourseCardButtonContainer>
-              </CourseCard>
-            );
-          }
           if (location.pathname === '/managment' && item.categoryId === 2) {
             return (
               <CourseCard key={item.id}>
