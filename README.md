@@ -29,7 +29,6 @@
 
 **Telegram бот** : [Node](https://nodejs.org/en/), [Telegraph](https://github.com/telegraf/telegraf).
 
-
 ## Структура проекта <a name="structure"></a>
 
 Проект состоит из трех частей: frontend, backend и telegram бот. Ниже представлена информация по каждой из частей.
