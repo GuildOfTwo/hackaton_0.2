@@ -8,7 +8,7 @@
 
 - [Актуальность](#actuality)
 - [Технологии](#technologies)
-- [Структура](#structure)
+- [Структура проекта](#structure)
   - [Frontend](#frontend)
   - [Backend](#backend)
   - [Telegramm бот](#telegram-bot)
@@ -23,14 +23,17 @@
 
 ## Технологии <a name="technologies"></a>
 
-## Структура <a name="structure"></a>
+**Frontend**
+    [React](https://react.dev/), [TypeScript](https://www.typescriptlang.org/), [StyledComponents](https://styled-components.com/), [Redux Toolkit](https://redux-toolkit.js.org/), [Antd Design](https://ant.design/), [Ant Design Charts](https://ant-design-charts.antgroup.com/)
+
+
+## Структура проекта <a name="structure"></a>
 
 Проект состоит из трех частей: frontend, backend и telegram бот. Ниже представлена информация по каждой из частей.
 
 ### Frontend <a name="frontend"></a>
 
 ### Backend <a name="backend"></a>
-
 
 ### Telegram бот <a name="telegram-bot"></a>
 
@@ -54,7 +57,7 @@
 
 ## Начало работы <a name="start-work"></a>
 
-Для запуска frontend части проекта, пожалуйста, выполните следующие действия:
+Для запуска **frontend** части проекта, пожалуйста, выполните следующие действия:
 
 1. Склонировать проект на ваш компьютер с Gitlab с помощью команды:
 
@@ -80,11 +83,10 @@ npm run prepare
 npm run dev
 ```
 
-Для начала работы с backend частью сервиса и telegram ботом перейдите, пожалуйста по следующим ссылкам и ознакомьтесь с инструкциями:
+Для начала работы с **backend** частью сервиса и **telegram ботом** перейдите, пожалуйста по следующим ссылкам и ознакомьтесь с инструкциями:
 
 - [Backend](https://github.com/GuildOfTwo/hackaton_0.2_backend)
 - [Telegram bot](https://github.com/GuildOfTwo/hackaton_2.0_bot)
-
 
 ## Команда проекта <a name="team"></a>
 
