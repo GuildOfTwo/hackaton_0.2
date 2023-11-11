@@ -81,7 +81,7 @@ export const AllCoursesList = () => {
                 >
                   <img
                     src={item.CourseContent[0]?.image}
-                    style={{ objectFit: 'contain', width: '100%', height: '141.75px' }}
+                    style={{ objectFit: 'contain', width: '100%', height: '120px' }}
                     alt=''
                   />
                 </CardContainer>
