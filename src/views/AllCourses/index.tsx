@@ -33,14 +33,11 @@ export const AllCoursesList = () => {
   // Ниже надо получить все курсы юзера и юзер айди
   // const userCourses = useAppSelector((store) => store.user.user) as unknown as number[]
 
-  const userId = useAppSelector((store) => store.user.user?.id);
-
   const userCourses = user?.UserCourses.map((i) => i.courseId);
-
-  const allCoursesId = allCourses.map((i) => i.id);
 
   //ниже добавить отправку времени на начало курса
   const addCourse = (id: number) => {
+    console.log(id);
     addCourseUser(id, user?.id);
   };
   useEffect(() => {
@@ -79,7 +76,6 @@ export const AllCoursesList = () => {
     },
     {}
   );
-
   return (
     <DashContainer>
       {Object.entries(coursesByCategory).map(([categoryName, courses], i) => (
@@ -99,17 +95,19 @@ export const AllCoursesList = () => {
                   />
                 </CardContainer>
                 <CourseCardButtonContainer>
-                  {!userCourses.includes(item.id) && (
+                  {!user?.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <AddCourseDiv
                       onClick={() => {
-                        !userCourses.includes(item.id) ? addCourse(item.id) : '';
+                        !user?.UserCourses.find((ele) => ele.courseId === item.id)
+                          ? addCourse(item.id)
+                          : '';
                       }}
                     >
                       Добавить курс
                     </AddCourseDiv>
                   )}
 
-                  {userCourses.includes(item.id) && (
+                  {user?.UserCourses.find((ele) => ele.courseId === item.id) && (
                     <CorseCardDoneDiv>
                       Пройден
                       <CheckOutlined />

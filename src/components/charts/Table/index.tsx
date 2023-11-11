@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import {
   Form,
   Input,
@@ -11,8 +11,6 @@ import {
 import type { ColumnsType } from 'antd/es/table';
 import { TUser } from '../../../utils/types/types';
 import { changeUserData } from '../../../api/changeUserData';
-
-import { getAllUsers } from '../../../api/getAllUsers';
 
 interface EditableCellProps extends React.HTMLAttributes<HTMLElement> {
   editing: boolean;
