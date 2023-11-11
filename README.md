@@ -58,7 +58,9 @@
 
 [**Влад Булоусов**](https://github.com/Valzet) - Тимлид проекта, frontend разработчик
 
-[**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик<details><summary>A dropdown list for markdown</summary>
+[**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик
+
+<details><summary>[**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик</summary>
 
    1. First item must be preceeded with an empty line.
    1. Markdown renders **perfectly**.
