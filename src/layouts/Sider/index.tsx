@@ -13,19 +13,20 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { MainSider, SliderButton, SliderMenu, SliderWrapper, UserWrapper } from './styled';
 import { Page, SubPage } from '../../utils/constants/navigation';
-import { UserCard } from '../../components/userCard';
+import { ThemeToggleBar } from '../../components/userCard';
 import { useAppSelector } from '../../hooks';
 
 type MenuItem = Required<MenuProps>['items'][number];
 
 const Slider = () => {
   const [collapsed, setCollapsed] = useState(false);
-  const userRoles = useAppSelector((store) => store.user.user?.accessRoles)
+  const userRoles = useAppSelector((store) => store.user.user?.accessRoles);
   const checkUserRole = () => {
-    if (userRoles?.includes("HR")) {return "HR"}
-    return "USER"
-  }
-  console.log(checkUserRole());
+    if (userRoles?.includes('HR')) {
+      return 'HR';
+    }
+    return 'USER';
+  };
   //TODO: цвет меню должен зависить от темы глобальной
   const itemsForUser: MenuItem[] = [
     getItem(<Link to={Page.DASHBOARD}>Dashboard</Link>, '1', <PieChartOutlined />),
@@ -68,9 +69,17 @@ const Slider = () => {
     <SliderWrapper>
       <MainSider trigger={null} collapsible collapsed={collapsed}>
         <div className='demo-logo-vertical' />
-        <SliderMenu defaultSelectedKeys={['1']} mode='inline' items={checkUserRole() === "HR" ? itemsForHR : itemsForUser } />
+        <SliderMenu
+          defaultSelectedKeys={['1']}
+          mode='inline'
+          items={checkUserRole() === 'HR' ? itemsForHR : itemsForUser}
+        />
         <UserWrapper>
-          {collapsed ? <UserOutlined onClick={() => setCollapsed(!collapsed)} /> : <UserCard />}
+          {collapsed ? (
+            <UserOutlined onClick={() => setCollapsed(!collapsed)} />
+          ) : (
+            <ThemeToggleBar />
+          )}
         </UserWrapper>
       </MainSider>
 

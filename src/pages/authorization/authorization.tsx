@@ -19,24 +19,31 @@ export const Authorization: FC = () => {
   const handleLogin = (values: ValuesType) => {
     loginRequest(values.username, values.password)
       .then((res) => res.data)
-      .then((res) =>
-       ( dispatch(
-          login(),
-          ),
-          dispatch(setLoginInfo({id: res.id,
-            firstName: res.firstName,
-            lastName: res.lastName,
-            roles: res.roles,
-            firstSignIn: res.firstSignIn,
-            name: res.name,
-            email: res.email,
-            phoneNumber: res.phoneNumber,
-            mentor: res.mentor,
-            departament: res.departament,
-            director: res.director,
-            accessRoles: res.accessRoles
-          }))
-      ))
+      .then(
+        (res) => (
+          dispatch(login()),
+          dispatch(
+            setLoginInfo({
+              avatar: res.avatar,
+              id: res.id,
+              firstName: res.firstName,
+              lastName: res.lastName,
+              roles: res.roles,
+              firstSignIn: res.firstSignIn,
+              email: res.email,
+              phoneNumber: res.phone,
+              mentor: res.mentor,
+              department: res.department,
+              accessRoles: res.accessRoles,
+              mentor_tg: res.mentor_tg,
+              telegram: res.telegram,
+              birthday: res.birthday,
+              middleName: res.middleName,
+              post: res.post,
+            })
+          )
+        )
+      )
       .then(() => navigate(`/${DASHBOARD_URI}`))
       .catch((error) => setError(error.response.status));
   };
@@ -82,7 +89,7 @@ export const Authorization: FC = () => {
 
           <Form.Item wrapperCol={{ offset: 8, span: 16 }}>
             <Button type='primary' htmlType='submit'>
-              Войти
+              <p style={{ color: 'white' }}>Войти</p>
             </Button>
           </Form.Item>
           {error ? <ErrorMessage>{errorHandler(error)}</ErrorMessage> : null}

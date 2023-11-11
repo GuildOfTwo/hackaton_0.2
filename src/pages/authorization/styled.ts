@@ -21,3 +21,9 @@ export const ErrorMessage = styled.p`
   color: red;
   font-weight: 900;
 `;
+
+export const Label = styled.label`
+  color: ${(props) => props.theme.textcolor};
+  font-family: 'TildaSans';
+  font-weight: 500;
+`;

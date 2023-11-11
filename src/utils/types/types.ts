@@ -1,5 +1,4 @@
 export type TUserSliceState = {
-  accessRoles: any;
   user: null | TUser;
   error: string;
   isLoading: boolean;
@@ -86,30 +85,48 @@ export type TProtectedRouteByPower = {
 };
 
 export type TAnswersCourse = {
-  answer: [string, boolean]
-}
+  answer: string;
+  correct: boolean;
+};
 
 export type TCourseQuestions = {
-  name: string,
-  answers:TAnswersCourse[]
-}
+  name: string;
+  answers: TAnswersCourse[];
+};
 
 export type TCourseContent = {
-  text: string,
-  question: TCourseQuestions[]
-}
+  id?: number;
+  text: string;
+  question: TCourseQuestions[];
+  image: string;
+  content: string;
+};
 
 export type TCreateNewCourseApi = {
-  name: string,
-  courseDuration: string,
-  CourseContent:TCourseContent[],
-  type: number[]
-}
+  name: string;
+  courseDuration: string;
+  CourseContent: TCourseContent[];
+  type: number[];
+};
 
 export type TCourse = {
-  course: TCreateNewCourseApi
-}
+  course: TCreateNewCourseApi;
+};
 
-// export interface IAfterLoginInfo = {
+export type TSelectCourse = {
+  id: number;
+  courseName: string;
+  categoryId: number;
+  courseDuration: number;
+  CourseContent: TCourseContent[];
+};
 
-// }
+export type TAllCourse = {
+  allCourse: TSelectCourse[];
+};
+
+export type TProfileFieldType = {
+  telegram: string;
+  Phone: string;
+  DateOfBirth: Date;
+};
