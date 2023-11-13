@@ -185,7 +185,7 @@ DATABASE_URL=/* database URI like postgresql://user:password@hostname:5432/onboa
 
 ## 🧑‍💻 Команда проекта <a name="team"></a>
 
-[**Влад Булоусов**](https://github.com/Valzet) - Тимлид проекта, frontend разработчик
+[**Влад Белоусов**](https://github.com/Valzet) - Тимлид проекта, frontend разработчик
 
 [**Кирилл Чугунов**](https://github.com/KirillChugunov) - Frontend разработчик
 
